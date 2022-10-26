@@ -1,0 +1,100 @@
+<html>
+  <body>
+    
+    <h1>Positions</h1>
+    
+    <a href="index.html">Home</a> |
+    <a href="applicants_crud.html">Applicants</a> |
+    <a href="applications_crud.html">Applications</a> |
+    <a href="companies_crud.html">Companies</a> |
+    <span>Positions</span> |
+    <a href="positionscompanyrecruiters_crud.html">Positions Company Recruiters</a> |
+    <a href="companyrecruiters_crud.html">Recruiters</a>
+    
+    <!-- Select (Show) Positions-->
+    <h3>Browse Positions</h3>
+
+    <table>
+      <!-- Table Head -->
+      <tr>
+        <th><a href="#" id="new-btn">New</a></th>
+        <th></th>
+        <th>Position ID</th>
+        <th>Company ID</th>
+        <th>Title</th>
+        <th>Location</th>
+        <th>Salary</th>
+        <th>Link</th>
+      </tr>
+      
+      <!-- Table rows -->
+      <tr>
+        <td><a href="#" class="edit-btn">Edit</a></td>
+        <td><a href="#" class="delete-btn">Delete</a></td>
+        <td>200</td>
+        <td>100</td>
+        <td>Software Engineer Intern</td>
+        <td>San Jose</td>
+        <td>NULL</td>
+        <td><a href="aptiv.com/software-engineer-intern">Job Posting</a></td>
+      </tr>
+      <tr>
+        <td><a href="#" class="edit-btn">Edit</a></td>
+        <td><a href="#" class="delete-btn">Delete</a></td>
+        <td>201</td>
+        <td>100</td>
+        <td>Application Developer</td>
+        <td>New York</td>
+        <td>90,000</td>
+        <td><a href="aptiv.com/application-developer">Job Posting</a></td>
+      </tr>
+      <tr>
+        <td><a href="#" class="edit-btn">Edit</a></td>
+        <td><a href="#" class="delete-btn">Delete</a></td>
+        <td>202</td>
+        <td>101</td>
+        <td>New Grad SWE</td>
+        <td>Seattle</td>
+        <td>120,000</td>
+        <td><a href="garmin.com/new-grad-SWE">Job Posting</a></td>
+      </tr>
+      <tr>
+        <td><a href="#" class="edit-btn">Edit</a></td>
+        <td><a href="#" class="delete-btn">Delete</a></td>
+        <td>203</td>
+        <td>102</td>
+        <td>Data Engineer Intern</td>
+        <td>San Diego</td>
+        <td>55,000</td>
+        <td><a href="apple.com/data-engineer-intern">Job Posting</a></td>
+      </tr>
+      <tr>
+        <td><a href="#" class="edit-btn">Edit</a></td>
+        <td><a href="#" class="delete-btn">Delete</a></td>
+        <td>204</td>
+        <td>101</td>
+        <td>Database Administrator</td>
+        <td>Denver</td>
+        <td>115,000</td>
+        <td><a href="garmin.com/database-administrator">Job Posting</a></td>
+      </tr>
+    </table>
+    
+    <p>&nbsp;</p>
+    
+    <!-- Add Position Form -->
+    <form action="#" id="add">
+      <legend><strong>Add Position</strong></legend>
+      <fieldset>
+        <label for="company">Company</label> <input type="text" name="company" />
+        <label for="title">Title</label> <input type="text" name="title" />
+        <label for="location">Location</label> <input type="text" name="location" />
+        <label for="salary">Salary</label> <input type="number" name="salary" />
+        <label for="link">Link</label> <input type="text" name="link" />
+      </fieldset>
+      <button type="submit">Add Position</button>
+      <button id="add-cancel">Cancel</button>
+    </form>
+    
+  </body>
+</html>
