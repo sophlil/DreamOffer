@@ -36,7 +36,8 @@ a {
 
 input[type="text"],
 input[type="number"],
-input[type="email"] {
+input[type="email"],
+input[type="url"] {
     cursor: text;
 }
 
