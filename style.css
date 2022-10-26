@@ -30,6 +30,10 @@ input {
     /* outline: none; */
 }
 
+a {
+    text-decoration: inherit;
+}
+
 input[type="text"],
 input[type="number"],
 input[type="email"] {
