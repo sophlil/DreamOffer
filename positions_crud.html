@@ -1,15 +1,13 @@
 <html>
   <body>
     
-    <h1>Positions</h1>
+    <h1>Positions & Company Recruiters</h1>
     
     <a href="index.html">Home</a> |
     <a href="applicants_crud.html">Applicants</a> |
     <a href="applications_crud.html">Applications</a> |
     <a href="companies_crud.html">Companies</a> |
-    <span>Positions</span> |
-    <a href="positionscompanyrecruiters_crud.html">Positions Company Recruiters</a> |
-    <a href="companyrecruiters_crud.html">Recruiters</a>
+    <span>Positions & Company Recruiters</span>
     
     <!-- Select (Show) Positions-->
     <h3>Browse Positions</h3>
@@ -20,11 +18,12 @@
         <th><a href="#" id="new-btn">New</a></th>
         <th></th>
         <th>Position ID</th>
-        <th>Company ID</th>
+        <th>Company</th>
         <th>Title</th>
         <th>Location</th>
         <th>Salary</th>
         <th>Link</th>
+        <th>Recruiters</th>
       </tr>
       
       <!-- Table rows -->
@@ -32,51 +31,56 @@
         <td><a href="#" class="edit-btn">Edit</a></td>
         <td><a href="#" class="delete-btn">Delete</a></td>
         <td>200</td>
-        <td>100</td>
+        <td>Aptiv</td>
         <td>Software Engineer Intern</td>
         <td>San Jose</td>
         <td>NULL</td>
         <td><a href="aptiv.com/software-engineer-intern">Job Posting</a></td>
+        <td>Kelsey Wang, Jon Snow</td>
       </tr>
       <tr>
         <td><a href="#" class="edit-btn">Edit</a></td>
         <td><a href="#" class="delete-btn">Delete</a></td>
         <td>201</td>
-        <td>100</td>
+        <td>Aptiv</td>
         <td>Application Developer</td>
         <td>New York</td>
         <td>90,000</td>
         <td><a href="aptiv.com/application-developer">Job Posting</a></td>
+        <td>NULL</td>
       </tr>
       <tr>
         <td><a href="#" class="edit-btn">Edit</a></td>
         <td><a href="#" class="delete-btn">Delete</a></td>
         <td>202</td>
-        <td>101</td>
+        <td>Garmin</td>
         <td>New Grad SWE</td>
         <td>Seattle</td>
         <td>120,000</td>
         <td><a href="garmin.com/new-grad-SWE">Job Posting</a></td>
+        <td>Adrian Portillo</td>
       </tr>
       <tr>
         <td><a href="#" class="edit-btn">Edit</a></td>
         <td><a href="#" class="delete-btn">Delete</a></td>
         <td>203</td>
-        <td>102</td>
+        <td>Apple</td>
         <td>Data Engineer Intern</td>
         <td>San Diego</td>
         <td>55,000</td>
         <td><a href="apple.com/data-engineer-intern">Job Posting</a></td>
+        <td>NULL</td>
       </tr>
       <tr>
         <td><a href="#" class="edit-btn">Edit</a></td>
         <td><a href="#" class="delete-btn">Delete</a></td>
         <td>204</td>
-        <td>101</td>
+        <td>Garmin</td>
         <td>Database Administrator</td>
         <td>Denver</td>
         <td>115,000</td>
         <td><a href="garmin.com/database-administrator">Job Posting</a></td>
+        <td>Adrian Portillo</td>
       </tr>
     </table>
     
@@ -91,10 +95,62 @@
         <label for="location">Location</label> <input type="text" name="location" />
         <label for="salary">Salary</label> <input type="number" name="salary" />
         <label for="link">Link</label> <input type="text" name="link" />
+        <label for="recruiters">Existing Recruiter</label>
+        <select name="recruiters" id="recruiters">
+            <option value="NULL">None</option>
+            <option value="300">Kelsey Wang</option>
+            <option value="301">Adrian Portillo</option>
+            <option value="302">Daenerys Targaryen</option>
+            <option value="303">Jon Snow</option>
+        </select>
       </fieldset>
       <button type="submit">Add Position</button>
       <button id="add-cancel">Cancel</button>
     </form>
+
+    <!-- Add Position & Recruiters Form -->
+    <form action="#" id="add">
+        <legend><strong>Add Position and Recruiter</strong></legend>
+        <fieldset>
+          <label for="company">Company</label> <input type="text" name="company" />
+          <label for="title">Title</label> <input type="text" name="title" />
+          <label for="location">Location</label> <input type="text" name="location" />
+          <label for="salary">Salary</label> <input type="number" name="salary" />
+          <label for="link">Link</label> <input type="text" name="link" />
+          <label for="name">Recruiter Name</label> <input type="text" name="name" />
+          <label for="email">Email</label> <input type="email" name="email" />
+          <label for="phone">Phone</label> <input type="text" name="phone" />
+          <label for="linkedin">LinkedIn</label> <input type="text" name="linkedin" />
+          <label for="lastContacted">Last Contacted</label> <input type="date" name="lastContacted" />
+          <label for="details">Details</label> <input type="text" name="details" />
+        </fieldset>
+        <button type="submit">Add Position and Recruiter</button>
+        <button id="add-cancel">Cancel</button>
+      </form>
+
+      <!-- Add Recruiter Form -->
+    <form action="#" id="add">
+        <legend><strong>Add Recruiter</strong></legend>
+        <fieldset>
+          <label for="name">Recruiter Name</label> <input type="text" name="name" />
+          <label for="email">Email</label> <input type="email" name="email" />
+          <label for="phone">Phone</label> <input type="text" name="phone" />
+          <label for="linkedin">LinkedIn</label> <input type="text" name="linkedin" />
+          <label for="lastContacted">Last Contacted</label> <input type="date" name="lastContacted" />
+          <label for="details">Details</label> <input type="text" name="details" />
+          <label for="recruiters">Existing Position</label>
+          <select name="positions" id="positions">
+            <option value="NULL">None</option>
+            <option value="200">Software Engineer Intern, Aptiv</option>
+            <option value="201">Application Developer, Aptiv</option>
+            <option value="202">New Grad SWE, Garmin</option>
+            <option value="203">Data Engineer Intern, Apple</option>
+            <option value="204">Database Administrator, Garmin</option>
+        </select>
+        </fieldset>
+        <button type="submit">Add Position and Recruiter</button>
+        <button id="add-cancel">Cancel</button>
+      </form>
     
   </body>
 </html>
