@@ -91,7 +91,7 @@
     <form action="#" id="add">
         <legend><strong>Add Application</strong></legend>
         <fieldset>
-          <label for="applicant">Applicant</label> 
+          <label for="applicants">Applicant</label> 
           <select name="applicants" id="applicants">
             <option value="001" selected>Jeff Johnson</option>
             <option value="002">Taya Howard</option>
@@ -104,7 +104,38 @@
         </fieldset>
         <button type="submit">Add Application</button>
         <button id="add-cancel">Cancel</button>
-      </form>
+    </form>
+
+    <!-- Update Application Form -->
+    <form action="#" id="update">
+        <legend><strong>Update Application</strong></legend>
+        <fieldset>
+          <label>ID: <span>002</span></label>
+          <label for="applicant">Applicant</label> 
+          <select name="applicants" id="applicants">
+            <option value="001">Jeff Johnson</option>
+            <option value="002">Taya Howard</option>
+            <option value="003">Elise McKinley</option>
+            <option value="004">John Seward</option>
+            <option value="005" selected>Xochit Lowe</option>
+          </select>
+          <label for="position">Position</label> 
+          <input type="text" name="position" value="Software Engineer Intern" />
+          <label for="dateApplied">Date Applied</label> 
+          <input type="date" name="dateApplied" value="2022-07-15" />
+          <label for="results">Result</label>
+          <select name="results" id="results">
+            <option value="0">Submitted</option>
+            <option value="1">In Process</option>
+            <option value="2">Offer</option>
+            <option value="3">Rejection</option>
+          </select>
+          <label for="dateResult">Result Date</label> 
+          <input type="date" name="dateResult" value="" />
+        </fieldset>
+        <button type="submit">Update Applicant</button>
+        <button id="update-cancel">Cancel</button>
+    </form>
     
 </body>
 </html>
