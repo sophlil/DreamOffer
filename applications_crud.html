@@ -83,6 +83,27 @@
             <td>Application Developer</td>
         </tr>
     </table>
+
+    <p>&nbsp;</p>
+    
+    <!-- Add Application Form -->
+    <form action="#" id="add">
+        <legend><strong>Add Application</strong></legend>
+        <fieldset>
+          <label for="applicant">Applicant</label> 
+          <select name="applicants" id="applicants">
+            <option value="001" selected>Jeff Johnson</option>
+            <option value="002">Taya Howard</option>
+            <option value="003">Elise McKinley</option>
+            <option value="004">John Seward</option>
+            <option value="005">Xochit Lowe</option>
+          </select>
+          <label for="position">Position</label> <input type="text" name="position" />
+          <label for="dateApplied">Date Applied</label> <input type="date" name="dateApplied" />
+        </fieldset>
+        <button type="submit">Add Application</button>
+        <button id="add-cancel">Cancel</button>
+      </form>
     
 </body>
 </html>
