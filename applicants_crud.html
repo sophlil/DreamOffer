@@ -9,7 +9,112 @@
 </head>
 <body>
     
+    <h1>Applicants</h1>
     
+    <span>Applicants</span>
+    <a href="applications_crud.html">Applications</a>
+    <a href="companies_crud.html">Companies</a>
+    <a href="positions_crud.html">Positions</a>
+    <a href="companyrecruiters_crud.html">Recruiters</a>
+    
+    <h3>Browse Applicants</h3>
+    <table>
+      <!-- Table Head -->
+      <tr>
+        <th><a href="#" id="new-btn">New</a></th>
+        <th></th>
+        <th>ID</th>
+        <th>Name</th>
+        <th>Email</th>
+        <th></th>
+      </tr>
+      
+      <!-- Table rows -->
+      <tr>
+        <td><a href="#" class="edit-btn">Edit</a></td>
+        <td><a href="#" class="delete-btn">Delete</a></td>
+        <td>001</td>
+        <td>Jeff Johnson</td>
+        <td>jjohnson@gmail.com</td>
+        <td><a href="#">Applications</a></td>
+      </tr>
+      <tr>
+        <td><a href="#" class="edit-btn">Edit</a></td>
+        <td><a href="#" class="delete-btn">Delete</a></td>
+        <td>002</td>
+        <td>Taya Howard</td>
+        <td>tayah9@icloud.com</td>
+        <td><a href="#">Applications</a></td>
+      </tr>
+      <tr>
+        <td><a href="#" class="edit-btn">Edit</a></td>
+        <td><a href="#" class="delete-btn">Delete</a></td>
+        <td>003</td>
+        <td>Elise McKinley</td>
+        <td>elise@yahoo.com</td>
+        <td><a href="#">Applications</a></td>
+      </tr>
+      <tr>
+        <td><a href="#" class="edit-btn">Edit</a></td>
+        <td><a href="#" class="delete-btn">Delete</a></td>
+        <td>004</td>
+        <td>John Seward</td>
+        <td>j.seward@gmail.com</td>
+        <td><a href="#">Applications</a></td>
+      </tr>
+      <tr>
+        <td><a href="#" class="edit-btn">Edit</a></td>
+        <td><a href="#" class="delete-btn">Delete</a></td>
+        <td>005</td>
+        <td>Xochit Lowe</td>
+        <td>xl56@gmail.com</td>
+        <td><a href="#">Applications</a></td>
+      </tr>
+    </table>
+    
+    <p>&nbsp;</p>
+    
+    <!-- Add Applicant Form -->
+    <form action="#" id="add">
+      <legend><strong>Add Applicant</strong></legend>
+      <fieldset>
+        <label for="fname">First name</label> <input type="text" name="fname" />
+        <label for="lname">Last name</label> <input type="text" name="lname" />
+        <label for="email">Email</label> <input type="email" name="email" />
+      </fieldset>
+      <button type="submit">Add Applicant</button>
+      <button id="add-cancel">Cancel</button>
+    </form>
+    
+    <!-- Update Applicant Form -->
+    <form action="#" id="update">
+      <legend><strong>Update Applicant</strong></legend>
+      <fieldset>
+        <label>ID: <span>001</span></label>
+        <label for="fname">First name</label> 
+        <input type="text" name="fname" value="Jeff"/>
+        <label for="lname">Last name</label> 
+        <input type="text" name="lname" value="Johnson"/>
+        <label for="email">Email</label> 
+        <input type="email" name="email" value="jjohnson@gmail.com"/>
+      </fieldset>
+      <button type="submit">Update Applicant</button>
+      <button id="update-cancel">Cancel</button>
+    </form>
+    
+    <!-- Delete Applicant Form -->
+    <form action="#" id="delete">
+      <legend><strong>Delete Applicant</strong></legend>
+      <fieldset>
+        <p>Are you sure you want to delete the applicant?</p>
+        <div>
+          <label><strong>ID: </strong><span>001</span></label>
+          <label><strong>Name: </strong><span>Jeff Johnson</span></label>
+        </div>
+      </fieldset>
+      <button type="submit">Delete Applicant</button>
+      <button id="delete-cancel">Cancel</button>
+    </form>
 
 </body>
 </html>
