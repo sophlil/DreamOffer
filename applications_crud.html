@@ -131,10 +131,24 @@
             <option value="3">Rejection</option>
           </select>
           <label for="dateResult">Result Date</label> 
-          <input type="date" name="dateResult" value="" />
+          <input type="date" name="dateResult" value="2022-10-18" />
         </fieldset>
         <button type="submit">Update Applicant</button>
         <button id="update-cancel">Cancel</button>
+    </form>
+
+    <!-- Delete Applicant Form -->
+    <form action="#" id="delete">
+        <legend><strong>Delete Application</strong></legend>
+        <fieldset>
+            <p>Are you sure you want to delete the application?</p>
+            <label><strong>ID: </strong><span>002</span></label>
+            <label><strong>Name: </strong><span>Xochit Lowe</span></label>
+            <label><strong>Position: </strong><span>Software Engineer Intern</span></label>
+            <label><strong>Company: </strong><span>Aptiv</span></label>
+        </fieldset>
+        <button type="submit">Delete Applicant</button>
+        <button id="delete-cancel">Cancel</button>
     </form>
     
 </body>
