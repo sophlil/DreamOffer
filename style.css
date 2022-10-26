@@ -15,17 +15,19 @@ html, body {
 
 body {
     box-sizing: border-box;
+    padding-left: 25px;
+    padding-top: 15px;
 }
 
 button,
 input {
-    border: none;
+    /* border: none; */
     color: inherit;
     font-family: inherit;
     font-size: inherit;
     font-weight: inherit;
     cursor: pointer;
-    outline: none;
+    /* outline: none; */
 }
 
 input[type="text"],
@@ -34,7 +36,38 @@ input[type="email"] {
     cursor: text;
 }
 
-table {
-	border-collapse: collapse;
-	border-spacing: 0;
+h3 {
+    /* margin-left: 5px; */
+    margin-top: 10px;
 }
+
+table {
+    width: 550px;
+    /* margin-left: 5px; */
+  }
+  
+  form {
+    width: 550px;
+    /* margin-left: 5px; */
+    margin-top: 10px;
+  }
+  
+  form > button {
+    margin-left: 2px;
+    margin-top: 3px;
+    margin-bottom: 5px;
+  }
+  
+  fieldset {
+    display: flex;
+    flex-direction: column;
+    padding: 5px;
+  }
+  
+  table, th, td {
+    border: 1px solid black;
+  }
+  
+  th, td {
+    padding: 3px;
+  }
