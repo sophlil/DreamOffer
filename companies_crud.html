@@ -57,17 +57,48 @@
         </tr>
     </table>
 
-        <!-- Add Company Form -->
-        <form action="#" id="add">
-            <legend><strong>Add Company</strong></legend>
-            <fieldset>
-              <label for="company">Company</label> <input type="text" name="company" />
-              <label for="website">Website</label> <input type="url" name="website" value="" />
-              <label for="description">Description</label> <input type="text" name="description" />
-            </fieldset>
-            <button type="submit">Add Company</button>
-            <button id="add-cancel">Cancel</button>
-        </form>
+    <!-- Add Company Form -->
+    <form action="#" id="add">
+        <legend><strong>Add Company</strong></legend>
+        <fieldset>
+            <label for="company">Company</label> <input type="text" name="company" />
+            <label for="website">Website</label> <input type="url" name="website" value="" />
+            <label for="description">Description</label> 
+            <input type="text" name="description" id="description" maxlength="255" />
+        </fieldset>
+        <button type="submit">Add Company</button>
+        <button id="add-cancel">Cancel</button>
+    </form>
+
+    <!-- Update Applicant Form -->
+    <form action="#" id="update">
+        <legend><strong>Update Applicant</strong></legend>
+        <fieldset>
+            <label>ID: <span>102</span></label>
+            <label for="company">Company</label> 
+            <input type="text" name="company" value="Apple" />
+            <label for="website">Website</label> 
+            <input type="url" name="website" value="https://www.apple.com/" />
+            <label for="description">Description</label> 
+            <input type="text" name="description" id="description" value="Hardware & software for personal computers, phones, tablets, etc." maxlength="255" />
+        </fieldset>
+        <button type="submit">Update Applicant</button>
+        <button id="update-cancel">Cancel</button>
+    </form>
+  
+    <!-- Delete Applicant Form -->
+    <form action="#" id="delete">
+        <legend><strong>Delete Company</strong></legend>
+        <fieldset>
+        <p>Are you sure you want to delete the company?</p>
+        <div>
+            <label><strong>ID: </strong><span>102</span></label>
+            <label><strong>Name: </strong><span>Apple</span></label>
+        </div>
+        </fieldset>
+        <button type="submit">Delete Company</button>
+        <button id="delete-cancel">Cancel</button>
+    </form>
     
 </body>
 </html>
