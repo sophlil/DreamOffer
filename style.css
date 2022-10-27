@@ -28,6 +28,10 @@ input {
     cursor: pointer;
 }
 
+button {
+    padding: 1px 5px;
+}
+
 a {
     text-decoration: inherit;
 }
