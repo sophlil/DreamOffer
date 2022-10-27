@@ -31,7 +31,6 @@
         <th>Location</th>
         <th>Salary</th>
         <th>Link</th>
-        <th>Recruiters</th>
       </tr>
       
       <!-- Table rows -->
@@ -43,7 +42,6 @@
         <td>San Jose</td>
         <td>NULL</td>
         <td><a href="aptiv.com/software-engineer-intern">Job Posting</a></td>
-        <td>Kelsey Wang, Jon Snow</td>
       </tr>
       <tr>
         <td><a href="#" class="edit-btn">Edit</a></td>
@@ -53,7 +51,6 @@
         <td>New York</td>
         <td>90,000</td>
         <td><a href="aptiv.com/application-developer">Job Posting</a></td>
-        <td>NULL</td>
       </tr>
       <tr>
         <td><a href="#" class="edit-btn">Edit</a></td>
@@ -63,7 +60,6 @@
         <td>Seattle</td>
         <td>120,000</td>
         <td><a href="garmin.com/new-grad-SWE">Job Posting</a></td>
-        <td>Adrian Portillo</td>
       </tr>
       <tr>
         <td><a href="#" class="edit-btn">Edit</a></td>
@@ -73,7 +69,6 @@
         <td>San Diego</td>
         <td>55,000</td>
         <td><a href="apple.com/data-engineer-intern">Job Posting</a></td>
-        <td>NULL</td>
       </tr>
       <tr>
         <td><a href="#" class="edit-btn">Edit</a></td>
@@ -83,7 +78,67 @@
         <td>Denver</td>
         <td>115,000</td>
         <td><a href="garmin.com/database-administrator">Job Posting</a></td>
+      </tr>
+    </table>
+    
+    <p>&nbsp;</p>
+
+    <!-- Select (Show) Positions and Recruiters-->
+    <h3>Browse Positions and Recruiters</h3>
+
+    <table>
+      <!-- Table Head -->
+      <tr>
+        <th><a href="#" id="new-btn">New</a></th>
+        <td></td>
+        <th>Title</th>
+        <th>Company</th>
+        <th>Link</th>
+        <th>Recruiter Name</th>
+        <th>Email</th>
+        <th>LinkedIn</th>
+      </tr>
+      
+      <!-- Table rows -->
+      <tr>
+        <td><a href="#" class="edit-btn">Edit</a></td>
+        <td><a href="#" class="delete-btn">Delete</a></td>
+        <td>Software Engineer Intern</td>
+        <td>Aptiv</td>
+        <td><a href="#">Job Posting</a></td>
+        <td>Kelsey Wang</td>
+        <td>kwang.1@gmail.com</td>
+        <td><a href="#">LinkedIn</a></td>
+      </tr>
+      <tr>
+        <td><a href="#" class="edit-btn">Edit</a></td>
+        <td><a href="#" class="delete-btn">Delete</a></td>
+        <td>Software Engineer Intern</td>
+        <td>Aptiv</td>
+        <td><a href="#">Job Posting</a></td>
+        <td>Jon Snow</td>
+        <td>jsnow@aptiv.com</td>
+        <td><a href="#">LinkedIn</a></td>
+      </tr>
+      <tr>
+        <td><a href="#" class="edit-btn">Edit</a></td>
+        <td><a href="#" class="delete-btn">Delete</a></td>
+        <td>Database Administrator</td>
+        <td>Garmin</td>
+        <td><a href="#">Job Posting</a></td>
         <td>Adrian Portillo</td>
+        <td>portilloa@garmin.com</td>
+        <td><a href="#">LinkedIn</a></td>
+      </tr>
+      <tr>
+        <td><a href="#" class="edit-btn">Edit</a></td>
+        <td><a href="#" class="delete-btn">Delete</a></td>
+        <td>New Grade SWE</td>
+        <td>Garmin</td>
+        <td><a href="#">Job Posting</a></td>
+        <td>Adrian Portillo</td>
+        <td>portilloa@garmin.com</td>
+        <td><a href="#">LinkedIn</a></td>
       </tr>
     </table>
     
@@ -103,8 +158,6 @@
         <th>LinkedIn</th>
         <th>Last Contacted</th>
         <th>Details</th>
-        <th>Positions</th>
-        <th>Company</th>
       </tr>
       
       <!-- Table rows -->
@@ -117,8 +170,6 @@
         <td><a href="#">LinkedIn</td>
         <td>10-01-2022</td>
         <td>Met at OSU Career Fair</td>
-        <td>Software Engineer Intern</td>
-        <td>Aptiv</td>
       </tr>
       <tr>
         <td><a href="#" class="edit-btn">Edit</a></td>
@@ -129,8 +180,6 @@
         <td><a href="#">LinkedIn</td>
         <td>09-29-2022</td>
         <td>NULL</td>
-        <td>New Grad SWE, Database Administrator</td>
-        <td>Garmin</td>
       </tr>
       <tr>
         <td><a href="#" class="edit-btn">Edit</a></td>
@@ -141,8 +190,6 @@
         <td><a href="#">LinkedIn</td>
         <td>NULL</td>
         <td>Reached out on LinkedIn</td>
-        <td>NULL</td>
-        <td>NULL</td>
       </tr>
       <tr>
         <td><a href="#" class="edit-btn">Edit</a></td>
@@ -153,8 +200,6 @@
         <td>NULL</td>
         <td>NULL</td>
         <td>NULL</td>
-        <td>Software Engineer Intern</td>
-        <td>Aptiv</td>
       </tr>
     </table>
     
@@ -225,6 +270,122 @@
         <button type="submit">Add Position and Recruiter</button>
         <button id="add-cancel">Cancel</button>
       </form>
+
+      <!-- Update Position Form -->
+      <form action="#" id="update">
+        <legend><strong>Update Position</strong></legend>
+        <fieldset>
+          <label>ID: <span>200</span></label>
+          <label for="title">Title</label> 
+          <input type="text" name="title" value="Software Engineer Intern"/>
+          <label for="location">Location</label> 
+          <input type="text" name="location" value="San Jose"/>
+          <label for="salary">Salary</label> 
+          <input type="text" name="salary" value="NULL"/>
+          <label for="link">Link</label> 
+          <input type="text" name="link" value="aptiv.com/software-engineer-intern"/>
+        </fieldset>
+        <button type="submit">Update Position</button>
+        <button id="update-cancel">Cancel</button>
+      </form>
+
+      <!-- Update Position and Recruiter Form -->
+      <form action="#" id="update">
+        <legend><strong>Update Position and Recruiter</strong></legend>
+        <fieldset>
+          <label>ID: <span>200</span></label>
+          <label for="title">Title</label> 
+          <input type="text" name="title" value="Software Engineer Intern"/>
+          <label for="location">Location</label> 
+          <input type="text" name="location" value="San Jose"/>
+          <label for="salary">Salary</label> 
+          <input type="text" name="salary" value="NULL"/>
+          <label for="link">Link</label> 
+          <input type="text" name="link" value="aptiv.com/software-engineer-intern"/>
+          <label>ID: <span>300</span></label>
+          <label for="name">Name</label> 
+          <input type="text" name="name" value="Kelsey Wang"/>
+          <label for="email">Email</label> 
+          <input type="email" name="email" value="kwang.1@gmail.com"/>
+          <label for="phone">Phone</label> 
+          <input type="text" name="phone" value="318-995-8456"/>
+          <label for="linkedin">LinkedIn</label> 
+          <input type="text" name="linkedin" value="linkedin.com/kelseywang"/>
+          <label for="lastContacted">Last Contacted</label> 
+          <input type="date" name="lastContacted" value="10-01-2022"/>
+          <label for="details">Details</label> 
+          <input type="text" name="details" value="Met at OSU Career Fair"/>
+          
+        </fieldset>
+        <button type="submit">Update Position and Recruiter</button>
+        <button id="update-cancel">Cancel</button>
+      </form>
+
+      <!-- Update Recruiter Form -->
+      <form action="#" id="update">
+        <legend><strong>Update Recruiter</strong></legend>
+        <fieldset>
+          <label>ID: <span>300</span></label>
+          <label for="name">Name</label> 
+          <input type="text" name="name" value="Kelsey Wang"/>
+          <label for="email">Email</label> 
+          <input type="email" name="email" value="kwang.1@gmail.com"/>
+          <label for="phone">Phone</label> 
+          <input type="text" name="phone" value="318-995-8456"/>
+          <label for="linkedin">LinkedIn</label> 
+          <input type="text" name="linkedin" value="linkedin.com/kelseywang"/>
+          <label for="lastContacted">Last Contacted</label> 
+          <input type="date" name="lastContacted" value="10-01-2022"/>
+          <label for="details">Details</label> 
+          <input type="text" name="details" value="Met at OSU Career Fair"/>
+        </fieldset>
+        <button type="submit">Update Position</button>
+        <button id="update-cancel">Cancel</button>
+      </form>
     
+    <!-- Delete Position Form -->
+    <form action="#" id="delete">
+      <legend><strong>Delete Position</strong></legend>
+      <fieldset>
+        <p>Are you sure you want to delete the position?</p>
+        <div>
+          <label><strong>ID: </strong><span>200</span></label>
+          <label><strong>Title: </strong><span>Software Engineer Intern</span></label>
+        </div>
+      </fieldset>
+      <button type="submit">Delete Position</button>
+      <button id="delete-cancel">Cancel</button>
+    </form>
+    
+    <!-- Delete Recruiter Form -->
+    <form action="#" id="delete">
+      <legend><strong>Delete Recruiter</strong></legend>
+      <fieldset>
+        <p>Are you sure you want to delete the recruiter?</p>
+        <div>
+          <label><strong>ID: </strong><span>300</span></label>
+          <label><strong>Name: </strong><span>Kelsey Wang</span></label>
+        </div>
+      </fieldset>
+      <button type="submit">Delete Recruiter</button>
+      <button id="delete-cancel">Cancel</button>
+    </form>
+
+    <!-- Delete Positions and Recruiter Form -->
+    <form action="#" id="delete">
+      <legend><strong>Delete Position and Recruiter</strong></legend>
+      <fieldset>
+        <p>Are you sure you want to delete the position and recruiter?</p>
+        <div>
+          <label><strong>ID: </strong><span>200</span></label>
+          <label><strong>Title: </strong><span>Software Engineer Intern</span></label>
+          <label><strong>ID: </strong><span>300</span></label>
+          <label><strong>Name: </strong><span>Kelsey Wang</span></label>
+        </div>
+      </fieldset>
+      <button type="submit">Delete Position and Recruiter</button>
+      <button id="delete-cancel">Cancel</button>
+    </form>
+
   </body>
 </html>
