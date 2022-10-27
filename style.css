@@ -21,13 +21,15 @@ body {
 
 button,
 input {
-    /* border: none; */
     color: inherit;
     font-family: inherit;
     font-size: inherit;
     font-weight: inherit;
     cursor: pointer;
-    /* outline: none; */
+}
+
+button {
+    padding: 1px 5px;
 }
 
 a {
@@ -42,18 +44,15 @@ input[type="url"] {
 }
 
 h3 {
-    /* margin-left: 5px; */
     margin-top: 10px;
 }
 
 table {
     width: 750px;
-    /* margin-left: 5px; */
   }
   
   form {
     width: 400px;
-    /* margin-left: 5px; */
     margin-top: 10px;
   }
   
