@@ -91,7 +91,6 @@
       <!-- Table Head -->
       <tr>
         <th><a href="#" id="new-btn">New</a></th>
-        <td></td>
         <th>Company</th>
         <th>Title</th>
         <th>Link</th>
@@ -102,7 +101,6 @@
       
       <!-- Table rows -->
       <tr>
-        <td><a href="#" class="edit-btn">Edit</a></td>
         <td><a href="#" class="delete-btn">Delete</a></td>
         <td>Aptiv</td>
         <td>Software Engineer Intern</td>
@@ -112,7 +110,6 @@
         <td>200</td>
       </tr>
       <tr>
-        <td><a href="#" class="edit-btn">Edit</a></td>
         <td><a href="#" class="delete-btn">Delete</a></td>
         <td>Aptiv</td>
         <td>Software Engineer Intern</td>
@@ -122,7 +119,6 @@
         <td>200</td>
       </tr>
       <tr>
-        <td><a href="#" class="edit-btn">Edit</a></td>
         <td><a href="#" class="delete-btn">Delete</a></td>
         <td>Garmin</td>
         <td>Database Administrator</td>
@@ -132,7 +128,6 @@
         <td>204</td>
       </tr>
       <tr>
-        <td><a href="#" class="edit-btn">Edit</a></td>
         <td><a href="#" class="delete-btn">Delete</a></td>
         <td>Garmin</td>
         <td>New Grad SWE</td>
@@ -158,6 +153,7 @@
         <th>LinkedIn</th>
         <th>Last Contacted</th>
         <th>Details</th>
+        <th>Company Name</th>
         <th>Recruiter ID</th>
       </tr>
       
@@ -170,6 +166,7 @@
         <td><a href="#">LinkedIn</td>
         <td>10-01-2022</td>
         <td>Met at OSU Career Fair</td>
+        <td>NULL</td>
         <td>300</td>
       </tr>
       <tr>
@@ -180,6 +177,7 @@
         <td><a href="#">LinkedIn</td>
         <td>09-29-2022</td>
         <td>NULL</td>
+        <td>Garmin</td>
         <td>301</td>
       </tr>
       <tr>
@@ -190,6 +188,7 @@
         <td><a href="#">LinkedIn</td>
         <td>NULL</td>
         <td>Reached out on LinkedIn</td>
+        <td>Apple</td>
         <td>302</td>
       </tr>
       <tr>
@@ -200,6 +199,7 @@
         <td>NULL</td>
         <td>NULL</td>
         <td>NULL</td>
+        <td>Aptiv</td>
         <td>303</td>
       </tr>
     </table>
@@ -290,6 +290,13 @@
           <label for="linkedin">LinkedIn</label> <input type="text" name="linkedin" />
           <label for="lastContacted">Last Contacted</label> <input type="date" name="lastContacted" />
           <label for="details">Details</label> <input type="text" name="details" />
+          <label for="company-name">Company Name</label>
+          <select name="company-name" id="company-name">
+            <option value="NULL" selected>NULL</option>
+            <option value="100">Aptiv</option>
+            <option value="101">Garmin</option>
+            <option value="102">Apple</option>
+        </select>
         </fieldset>
         <button type="submit">Add Recruiter</button>
         <button id="add-cancel">Cancel</button>
@@ -313,24 +320,6 @@
         <button id="update-cancel">Cancel</button>
       </form>
 
-      <!-- Update Position and Recruiter Affiliation Form -->
-      <form action="#" id="update">
-        <legend><strong>Update Position and Recruiter Affiliation</strong></legend>
-        <fieldset>
-          <label>ID: <span>200</span></label>
-          <label>Position Title: <span>Software Engineer Intern</span></label>
-          <label for="name">Recruiter Name</label>
-          <select name="name" id="name">
-              <option value="300" selected>Kelsey Wang</option>
-              <option value="301">Adrian Portillo</option>
-              <option value="302">Daenerys Targaryen</option>
-              <option value="303">Jon Snow</option>
-          </select>
-        </fieldset>
-        <button type="submit">Update Position and Recruiter Affiliation</button>
-        <button id="update-cancel">Cancel</button>
-      </form>
-
       <!-- Update Recruiter Form -->
       <form action="#" id="update">
         <legend><strong>Update Recruiter</strong></legend>
@@ -348,6 +337,13 @@
           <input type="date" name="lastContacted" value="10-01-2022"/>
           <label for="details">Details</label> 
           <input type="text" name="details" value="Met at OSU Career Fair"/>
+          <label for="company-name">Company Name</label>
+          <select name="company-name" id="company-name">
+            <option value="NULL" selected>NULL</option>
+            <option value="100">Aptiv</option>
+            <option value="101">Garmin</option>
+            <option value="102">Apple</option>
+        </select>
         </fieldset>
         <button type="submit">Update Recruiter</button>
         <button id="update-cancel">Cancel</button>
