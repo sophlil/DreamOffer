@@ -1,0 +1,56 @@
+<html>
+<!-- Based on the Flask Starter App by Professor Michael Curry -->
+<!-- Adapted from the applicants_crud.html UI design -->
+<head>
+    <title>Applicants</title>
+    <link rel="stylesheet" href="style.css" type="text/css">
+    <script language="JavaScript">
+    </script>
+</head>
+
+<body>
+    <h1>Applicants</h1>
+    
+    <a href="home">Home |
+    <span>Applicants</span> |
+    <a href="applications">Applications</a> |
+    <a href="companies">Companies</a> |
+    <a href="positionscompanyrecruiters">Positions & Company Recruiters</a>
+
+    <h3>Browse Applicants</h3>
+    <table>
+    <!-- Access data passed from app.py -->
+        <thead>
+            <tr>
+                <th><a href="#" id="new-btn">New</a></th>
+                <th></th>
+                <th>ID</th>
+                <th>Name</th>
+                <th>Email</th>
+                <th></th>
+            </tr>
+        </thead>
+    
+    {% if data %}
+        <tbody>
+        <!-- Iterate through every item in data -->
+        {% for item in data %}
+            <tr>
+            {% for key in item.keys() %}
+                <!-- Edit and Delete buttons for each item -->
+                <td><a href="edit_applicant/{{item.applicantID}}" class="edit-btn">Edit</a></td>
+                <td><a href="delete_applicant/{{item.applicantID}}" class="delete-btn">Delete</a></td>
+
+                <!-- Create a <td> element with the value of that key in it -->
+				<td> {{item[key]}} </td> 
+            {% endfor %}
+            </tr>
+        {% endfor %}
+        </tbody>
+    {% endif %}
+    </table>
+
+    <p>&nbsp;</p>
+
+</body>
+</html>
