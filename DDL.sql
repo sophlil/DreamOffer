@@ -33,7 +33,7 @@ CREATE TABLE Positions (
     location varchar(100),
     salary int(11),
     link varchar(100) NOT NULL,
-    companyID int(11) NOT NULL,
+    companyID int(11),
     PRIMARY KEY (positionID),
     FOREIGN KEY (companyID) REFERENCES Companies(companyID) ON DELETE CASCADE
 );
@@ -93,7 +93,8 @@ INSERT INTO Positions (positionID, title, location, salary, link, companyID) VAL
 (201, 'Application Developer', 'New York', 90000, 'aptiv.com/application-developer', (SELECT companyID FROM Companies WHERE name='Aptiv')),
 (202, 'New Grad SWE', 'Seattle', 120000, 'garmin.com/new-grad-SWE', (SELECT companyID FROM Companies WHERE name='Garmin')),
 (203, 'Data Engineer Intern', 'San Diego', 55000, 'apple.com/data-engineer-intern', (SELECT companyID FROM Companies WHERE name='Apple')),
-(204, 'Database Administrator', 'Denver', 115000, 'garmin.com/database-administrator', (SELECT companyID FROM Companies WHERE name='Garmin'));
+(204, 'Database Administrator', 'Denver', 115000, 'garmin.com/database-administrator', (SELECT companyID FROM Companies WHERE name='Garmin')),
+(205, 'Front-end Software Engineer', 'Remote', 35000, 'fiverr.com/front-end-software-engineer', NULL);
 
 INSERT INTO Applications (applicationID, dateApplied, result, dateResult, applicantID, positionID) VALUES
 (1, '2022-06-04', 3, '2022-06-29', (SELECT applicantID FROM Applicants WHERE email='jjohnson@gmail.com'), (SELECT positionID FROM Positions WHERE link='apple.com/data-engineer-intern')),
