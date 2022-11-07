@@ -45,4 +45,4 @@ def applicants():
 
 # Listener
 if __name__ == "__main__":
-    app.run(port=5642, debug=True)
+    app.run(port=5052, debug=True)
