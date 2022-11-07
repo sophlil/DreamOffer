@@ -58,9 +58,7 @@ CREATE TABLE CompanyRecruiters (
     linkedin varchar(100),
     lastContacted date,
     details varchar(500),
-    companyID int(11),
-    PRIMARY KEY (recruiterID),
-    FOREIGN KEY (companyID) REFERENCES Companies(companyID) ON DELETE SET NULL
+    PRIMARY KEY (recruiterID)
 );
 
 CREATE TABLE PositionsCompanyRecruiters (
@@ -84,11 +82,11 @@ INSERT INTO Companies (companyID, name, description, website) VALUES
 (101, 'Garmin', 'GPS tech company that creates navigation and communication products.', 'garmin.com'),
 (102, 'Apple', 'Hardware & software for personal computers, phones, tablets, etc.', 'apple.com');
 
-INSERT INTO CompanyRecruiters (recruiterID, name, email, phone, linkedin, lastContacted, details, companyID) VALUES
-(300, 'Kelsey Wang', 'kwang.1@gmail.com', '318-995-8456', 'linkedin.com/kwang', '2022-10-01', 'Met at OSU Career Fair.', NULL),
-(301, 'Adrian Portillo', 'portilloa@garmin.com', NULL, 'linkedin.com/aportillo', '2022-09-29', NULL, (SELECT companyID FROM Companies WHERE name='Garmin')),
-(302, 'Daenerys Targaryen', 'targaryensrule@apple.com', NULL, 'linkedin.com/targaryensrule', NULL, 'Reached out on Linkedin.', (SELECT companyID FROM Companies WHERE name='Apple')),
-(303, 'Jon Snow', 'jsnow@aptiv.com', '694-856-3144', NULL, NULL, NULL, (SELECT companyID FROM Companies WHERE name='Aptiv'));
+INSERT INTO CompanyRecruiters (recruiterID, name, email, phone, linkedin, lastContacted, details) VALUES
+(300, 'Kelsey Wang', 'kwang.1@gmail.com', '318-995-8456', 'linkedin.com/kwang', '2022-10-01', 'Met at OSU Career Fair.'),
+(301, 'Adrian Portillo', 'portilloa@garmin.com', NULL, 'linkedin.com/aportillo', '2022-09-29', NULL),
+(302, 'Daenerys Targaryen', 'targaryensrule@apple.com', NULL, 'linkedin.com/targaryensrule', NULL, 'Reached out on Linkedin.'),
+(303, 'Jon Snow', 'jsnow@aptiv.com', '694-856-3144', NULL, NULL, NULL);
 
 INSERT INTO Positions (positionID, title, location, salary, link, companyID) VALUES
 (200, 'Software Engineer Intern', 'San Jose', NULL, 'aptiv.com/software-engineer-intern', (SELECT companyID FROM Companies WHERE name='Aptiv')),
