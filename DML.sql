@@ -120,10 +120,8 @@ INNER JOIN PositionsCompanyRecruiters ON Positions.positionID = PositionsCompany
 INNER JOIN CompanyRecruiters ON PositionsCompanyRecruiters.recruiterID = CompanyRecruiters.recruiterID;
 
 -- Show all Recruiters and their respective Company name for Recruiters table on PositionsCompanyRecruiters page
-SELECT CompanyRecruiters.name, CompanyRecruiters.email, CompanyRecruiters.phone, CompanyRecruiters.linkedin, 
-CompanyRecruiters.lastContacted, CompanyRecruiters.details, CompanyRecruiters.recruiterID, Companies.name
-FROM CompanyRecruiters
-INNER JOIN Companies ON Companies.companyID = CompanyRecruiters.companyID;
+SELECT name, email, phone, linkedin, lastContacted, details, recruiterID
+FROM CompanyRecruiters;
 
 -- Show all Company names to populate the Company Name drop down
 SELECT companyID, name FROM Companies;
@@ -160,8 +158,8 @@ INSERT INTO PositionsCompanyRecruiters (positionID, recruiterID)
 VALUES (:positionID_from_the_add_form, :recruiterID_from_the_add_form);
 
 -- Add a new Recruiter
-INSERT INTO CompanyRecruiters (name, email, phone, linkedin, lastContacted, details, companyID)
-VALUES (:name_Input, :email_Input, :phone_Input, :linkedin_Input, :lastContacted_Input, :details_Input, :company_name_or_NULL_from_dropdown_Input);
+INSERT INTO CompanyRecruiters (name, email, phone, linkedin, lastContacted, details)
+VALUES (:name_Input, :email_Input, :phone_Input, :linkedin_Input, :lastContacted_Input, :details_Input);
 
 -- Get a single Position's data for the Update Position form
 SELECT positionID, title, location, salary, link 
@@ -173,15 +171,13 @@ UPDATE Positions SET title = :title_Input, location = :location_Input, salary = 
 WHERE positionID = :positionID_from_the_update_form;
 
 -- Get a single Recruiter's data for the Update Recruiter form
-SELECT CompanyRecruiters.recruiterID, CompanyRecruiters.name, CompanyRecruiters.email, CompanyRecruiters.phone, 
-CompanyRecruiters.linkedin, CompanyRecruiters.lastContacted, CompanyRecruiters.details, Companies.name
+SELECT recruiterID, name, email, phone, linkedin, lastContacted, details
 FROM CompanyRecruiters
-INNER JOIN Companies ON Companies.companyID = CompanyRecruiters.companyID
 WHERE recruiterID = :recruiterID_selected_from_browse_recruiters_page;
 
 -- Update an Recruiter's data based on submission of the Update Recruiter form 
 UPDATE CompanyRecruiters 
-SET name = :name_Input, email = :email_Input, phone = :phone_Input, linkedin = :linkedin_Input, lastContacted = :lastContacted_Input, details = :details_Input, companyID = :company_name_or_NULL_from_dropdown_Input 
+SET name = :name_Input, email = :email_Input, phone = :phone_Input, linkedin = :linkedin_Input, lastContacted = :lastContacted_Input, details = :details_Input 
 WHERE recruiterID = :recruiterID_from_the_update_form;
 
 -- Get a single Position and Recruiter's Affiliation data for the Delete Position and Recruiter Affiliation form
