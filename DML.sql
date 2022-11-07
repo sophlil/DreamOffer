@@ -107,7 +107,7 @@ DELETE FROM Companies WHERE companyID = :companyID_selected_from_the_delete_form
 
 SELECT Companies.name, Positions.title, Positions.location, Positions.salary, Positions.link, Positions.positionID
 FROM Positions
-INNER JOIN Companies ON Companies.companyID = Positions.companyID;
+INNER JOIN Companies ON Companies.companyID = Positions.companyID; -- May need to change this to OUTER JOIN or RIGHT/LEFT OUTER JOIN?
 
 -- Show all titles, companies, links, recruiter names, emails, and linkedins for 
 -- PositionsCompanyRecruiters table on PositionsCompanyRecruiters page
@@ -115,7 +115,7 @@ INNER JOIN Companies ON Companies.companyID = Positions.companyID;
 SELECT Companies.name, Positions.title, Positions.link, CompanyRecruiters.name,
 CompanyRecruiters.recruiterID, Positions.positionID
 FROM Positions
-INNER JOIN Companies ON Companies.companyID = Positions.companyID
+INNER JOIN Companies ON Companies.companyID = Positions.companyID -- May need to change this to OUTER JOIN or RIGHT/LEFT OUTER JOIN?
 INNER JOIN PositionsCompanyRecruiters ON Positions.positionID = PositionsCompanyRecruiters.positionID
 INNER JOIN CompanyRecruiters ON PositionsCompanyRecruiters.recruiterID = CompanyRecruiters.recruiterID;
 
@@ -132,23 +132,23 @@ SELECT positionID, title FROM Positions;
 -- Search Positions by associated Company name
 SELECT Companies.name, Positions.title, Positions.locations, Positions.salary, Positions.link
 FROM Positions
-INNER JOIN Companies ON Companies.companyID = Positions.companyID
+INNER JOIN Companies ON Companies.companyID = Positions.companyID -- May need to change this to OUTER JOIN or RIGHT/LEFT OUTER JOIN?
 WHERE Companies.name = :company_name_from_dropdown_Input;
 
 -- Search Positions by Positions Title
 SELECT Companies.name, Positions.title, Positions.locations, Positions.salary, Positions.link
 FROM Positions
-INNER JOIN Companies ON Companies.companyID = Positions.companyID
+INNER JOIN Companies ON Companies.companyID = Positions.companyID -- May need to change this to OUTER JOIN or RIGHT/LEFT OUTER JOIN?
 WHERE Positions.title = :position_title_from_dropdown_Input;
 
 -- Add a new Position
 INSERT INTO Positions (companyID, title, location, salary, link)
-VALUES (:companyID_from_dropdown_Input, :title_Input, :location_Input, :salary_Input, :link_Input);
+VALUES (:companyID_or_NULL_from_dropdown_Input, :title_Input, :location_Input, :salary_Input, :link_Input);
 
 -- Show all Position Titles and their respective Company names to populate Company & Position Title drop down
 SELECT Companies.name, Positions.title
 FROM Positions
-INNER JOIN Companies ON Companies.companyID = Positions.companyID;
+INNER JOIN Companies ON Companies.companyID = Positions.companyID; -- May need to change this to OUTER JOIN or RIGHT/LEFT OUTER JOIN?
 
 -- Show all Recruiters names to populate the Recruiter Name drop down
 SELECT recruiterID, name FROM CompanyRecruiters;
@@ -162,12 +162,13 @@ INSERT INTO CompanyRecruiters (name, email, phone, linkedin, lastContacted, deta
 VALUES (:name_Input, :email_Input, :phone_Input, :linkedin_Input, :lastContacted_Input, :details_Input);
 
 -- Get a single Position's data for the Update Position form
-SELECT positionID, title, location, salary, link 
+SELECT Positions.positionID, Companies.name, Positions.title, Positions.location, Positions.salary, Positions.link 
 FROM Positions 
+INNER JOIN Companies ON Companies.companyID = Positions.companyID -- May need to change this to OUTER JOIN or RIGHT/LEFT OUTER JOIN?
 WHERE positionID = :positionID_selected_from_browse_positions_page;
 
 -- Update an Position's data based on submission of the Update Position form 
-UPDATE Positions SET title = :title_Input, location = :location_Input, salary = :salary_Input, link = :link_Input 
+UPDATE Positions SET companyID = :companyID_from_dropdown_Input, title = :title_Input, location = :location_Input, salary = :salary_Input, link = :link_Input 
 WHERE positionID = :positionID_from_the_update_form;
 
 -- Get a single Recruiter's data for the Update Recruiter form
