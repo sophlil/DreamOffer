@@ -1,0 +1,8 @@
+/venv
+/lib64
+/lib
+/bin
+/__pycache__
+pip-selfcheck.json
+pyvenv.cfg
+/.vscode
