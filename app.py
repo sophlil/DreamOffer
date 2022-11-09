@@ -1,3 +1,6 @@
+# Based on the app.py file from the Flask Starter App repo by Professor Michael Curry
+# https://github.com/osu-cs340-ecampus/flask-starter-app/blob/master/bsg_people_app/app.py
+
 from flask import Flask, render_template, json, redirect
 from flask_mysqldb import MySQL
 from flask import request
