@@ -69,7 +69,7 @@ def edit_applicant(id):
         cur.execute(query)
         data = cur.fetchall()
 
-        return render_template("applicants.j2", data=data)
+        return render_template("edit_applicant.j2", data=data)
 
     # After user enters update info, updates Applicant in DB
     if request.method == "POST":
