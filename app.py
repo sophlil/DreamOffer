@@ -90,6 +90,28 @@ def edit_applicant(id):
         
             return redirect("/applicants")
 
+# route for DELETE Applicants form
+@app.route("/delete-applicant/<int:id>", methods=["POST", "GET"])
+def delete_applicant(id):
+    if request.method == "GET":
+        # mySQL query to grab Applicant-to-delete's attributes
+        query = "SELECT applicantID, name FROM Applicants WHERE applicantID = %s" % (id)
+        cur = mysql.connection.cursor()
+        cur.execute(query)
+        data = cur.fetchall()
+
+        return render_template("delete_applicant.j2", data=data)
+
+    if request.method == "POST":
+        # mySQL query to delete the Applicant
+        query = "DELETE FROM Applicants WHERE applicantID = %s"
+        cur = mysql.connection.cursor()
+        cur.execute(query, (id,))
+        mysql.connection.commit()
+
+        # redirect back to Applicants page
+        return redirect("/applicants")
+
 # Listener
 if __name__ == "__main__":
     app.run(port=56423, debug=True)

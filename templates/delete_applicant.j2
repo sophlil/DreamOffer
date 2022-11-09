@@ -1,0 +1,41 @@
+<html>
+<!-- 
+    Based on the edit_people.j2 file from the Flask Starter App repo by Professor Michael Curry
+    https://github.com/osu-cs340-ecampus/flask-starter-app/blob/master/bsg_people_app/templates/edit_people.j2
+-->
+<head>
+	<title>Delete Applicant</title>
+    <link href="style.css" rel="stylesheet" type="text/css" />
+</head>
+
+<body>
+
+    <!-- DELETE -->
+    <div id='delete'>
+    <!-- form for performing DELETE on an Applicant -->
+        <form id="deleteApplicant" action="/delete-applicant/{{data[0].applicantID}}" method="post">
+            <legend><strong>Delete Applicant</strong></legend>
+            <fieldset>
+                <p>Are you sure you want to delete the applicant?</p>
+                <div>
+                <label><strong>ID: </strong><span>{{data[0].applicantID}}</span></label>
+                <label><strong>Name: </strong><span>{{data[0].name}}</span></label>
+                </div>
+            </fieldset>
+            <input 
+                type="submit" 
+                value="Delete Applicant" 
+                name="Delete_Applicant" 
+                class="btn btn-primary" 
+                style="margin:.5rem;"
+            />
+            <button type="submit">Delete Applicant</button>
+            <a href='/applicants'>
+                <input class="btn" type="button" value="Cancel">
+            </a>
+        </form>
+    </div>
+    <!-- END DELETE -->
+
+</body>
+</html>
