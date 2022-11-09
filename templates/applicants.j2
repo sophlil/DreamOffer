@@ -82,8 +82,8 @@
             {% for item in data %}
                 <tr>
                     <!-- Edit and Delete buttons for each item -->
-                    <td><a href="edit-applicant/{{item.applicantID}}" class="edit-btn">Edit</a></td>
-                    <td><a href="delete-applicant/{{item.applicantID}}" class="delete-btn">Delete</a></td>
+                    <td><a href="/edit-applicant/{{item.applicantID}}" class="edit-btn">Edit</a></td>
+                    <td><a href="/delete-applicant/{{item.applicantID}}" class="delete-btn">Delete</a></td>
                 {% for key in item.keys() %}
 
                     <!-- Create a <td> element with the value of that key in it -->
