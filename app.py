@@ -28,7 +28,7 @@ mysql = MySQL(app)
 def home():
     return render_template('index.html')
 
-# route for Applicants page
+# route for READ & CREATE Applicants page
 @app.route("/applicants", methods=["POST", "GET"])
 def applicants():
     # Get Applicants data to send to our template to display - READ
@@ -54,6 +54,35 @@ def applicants():
             query = "INSERT INTO Applicants (name, email) VALUES (%s, %s)"
             cur = mysql.connection.cursor()
             cur.execute(query, (name, email))
+            mysql.connection.commit()
+        
+            return redirect("/applicants")
+
+# route for UPDATE Applicants page
+@app.route("/edit-applicant/<int:id>", methods=["POST", "GET"])
+def edit_applicant(id):
+    # Displays the specific Applicant's existing attributes
+    if request.method == "GET":
+        # mySQL query to grab the info of the Applicant with the passed id
+        query = "SELECT * FROM Applicants WHERE applicantID = %s" % (id)
+        cur = mysql.connection.cursor()
+        cur.execute(query)
+        data = cur.fetchall()
+
+        return render_template("applicants.j2", data=data)
+
+    # After user enters update info, updates Applicant in DB
+    if request.method == "POST":
+        # Fires off if user clicks the 'Update Applicant' button
+        if request.form.get("Update_Applicant"):
+            # Grabs user form inputs
+            name = request.form["name"]
+            email = request.form["email"]
+
+            # Since both name and email are required, this is the only query needed
+            query = "UPDATE Applicants SET name = %s, email = %s WHERE applicantID = %s"
+            cur = mysql.connection.cursor()
+            cur.execute(query, (name, email, id))
             mysql.connection.commit()
         
             return redirect("/applicants")
