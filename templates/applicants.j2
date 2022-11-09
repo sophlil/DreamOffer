@@ -11,7 +11,7 @@
                 document.getElementById('insert').style.display = 'block';
                 document.getElementById('edit').style.display = 'none';
                 document.getElementById('delete').style.display = 'none';
-            } else if (form == 'update') {
+            } else if (form == 'edit') {
                 document.getElementById('browse').style.display = 'none';
                 document.getElementById('insert').style.display = 'none';
                 document.getElementById('edit').style.display = 'block';
@@ -119,8 +119,8 @@
 
     <!-- EDIT -->
     <div id='edit'>
-        <!-- form to UPDATE an Applicant -->
-        <form id="editApplicant" action="/edit_applicant/{{data[0].applicantID}}" method="post">
+        <!-- form to Update an Applicant -->
+        <form id="editApplicant" action="/edit-applicant/{{data[0].applicantID}}" method="post">
             <legend><strong>Update Applicant</strong></legend>
             <fieldset>
                 <label>ID: <span>{{data[0].applicantID}}</span></label>
