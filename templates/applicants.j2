@@ -4,7 +4,7 @@
 <head>
     <title>Applicants</title>
     <link rel="stylesheet" href="style.css" type="text/css">
-    <script language="JavaScript">
+    <script language="JavaScript" defer>
         function showForm(form) {
             if (form == 'insert') {
                 document.getElementById('browse').style.display = 'none';
@@ -44,6 +44,10 @@
         function browseApplicants() {
             showForm('browse');
         }
+
+        window.addEventListener('load', () => {
+            showForm('browse');
+        });
     </script>
 </head>
 
@@ -52,8 +56,8 @@
     <!-- BROWSE -->
     <div id='browse'>
     
-        <p><a href="/">Home |
-        <span>Applicants</span> |
+        <a href="/">Home</a> |
+        <a href="/applicants">Applicants</a> |
         <a href="applications">Applications</a> |
         <a href="companies">Companies</a> |
         <a href="positionscompanyrecruiters">Positions & Company Recruiters</a></p>
@@ -98,6 +102,7 @@
 
     <!-- INSERT -->
     <div id='insert'>
+    <h3>Add Applicant</h3>
         <!-- form to INSERT new Applicant into Applicants entity -->
         <form id="insertApplicant" action="/applicants" method="post">
             <legend><strong>Add Applicant</strong></legend>
