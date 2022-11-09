@@ -5,11 +5,51 @@
     <title>Applicants</title>
     <link rel="stylesheet" href="style.css" type="text/css">
     <script language="JavaScript">
+        function showForm(form) {
+            if (form == 'insert') {
+                document.getElementById('browse').style.display = 'none';
+                document.getElementById('insert').style.display = 'block';
+                document.getElementById('edit').style.display = 'none';
+                document.getElementById('delete').style.display = 'none';
+            } else if (form == 'update') {
+                document.getElementById('browse').style.display = 'none';
+                document.getElementById('insert').style.display = 'none';
+                document.getElementById('edit').style.display = 'block';
+                document.getElementById('delete').style.display = 'none';
+            } else if (form == 'delete') {
+                document.getElementById('browse').style.display = 'none';
+                document.getElementById('insert').style.display = 'none';
+                document.getElementById('edit').style.display = 'none';
+                document.getElementById('delete').style.display = 'block';
+            } else { // display browse by default
+                document.getElementById('browse').style.display = 'block';
+                document.getElementById('insert').style.display = 'none';
+                document.getElementById('edit').style.display = 'none';
+                document.getElementById('delete').style.display = 'none';
+            }
+        }
+
+        function newApplicant() {
+            showForm('insert');
+        }
+
+        function updateApplicant(id) {
+            showForm('update');
+        }
+
+        function deleteApplicant(id) {
+            showForm('delete');
+        }
+
+        function browseApplicants() {
+            showForm('browse');
+        }
     </script>
 </head>
 
 <body>
     <h1>Applicants</h1>
+    <!-- BROWSE -->
     <div id='browse'>
     
         <p><a href="/">Home |
@@ -23,7 +63,7 @@
         <!-- Access data passed from app.py -->
             <thead>
                 <tr>
-                    <th><a href="applicants">New</a></th>
+                    <th><a href="#" onClick="newApplicant()">New</a></th>
                     <th></th>
                     <th>ID</th>
                     <th>Name</th>
