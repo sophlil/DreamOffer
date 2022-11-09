@@ -10,48 +10,71 @@
 
 <body>
     <h1>Applicants</h1>
+    <div id='browse'>
     
-    <a href="/">Home |
-    <span>Applicants</span> |
-    <a href="applications">Applications</a> |
-    <a href="companies">Companies</a> |
-    <a href="positionscompanyrecruiters">Positions & Company Recruiters</a>
+        <p><a href="/">Home |
+        <span>Applicants</span> |
+        <a href="applications">Applications</a> |
+        <a href="companies">Companies</a> |
+        <a href="positionscompanyrecruiters">Positions & Company Recruiters</a></p>
 
-    <h3>Browse Applicants</h3>
-    <table>
-    <!-- Access data passed from app.py -->
-        <thead>
-            <tr>
-                <th><a href="#" id="new-btn">New</a></th>
-                <th></th>
-                <th>ID</th>
-                <th>Name</th>
-                <th>Email</th>
-                <th></th>
-            </tr>
-        </thead>
-    
-    {% if data %}
-        <tbody>
-        <!-- Iterate through every item in data -->
-        {% for item in data %}
-            <tr>
-                <!-- Edit and Delete buttons for each item -->
-                <td><a href="edit_applicant/{{item.applicantID}}" class="edit-btn">Edit</a></td>
-                <td><a href="delete_applicant/{{item.applicantID}}" class="delete-btn">Delete</a></td>
-            {% for key in item.keys() %}
+        <h3>Browse Applicants</h3>
+        <table>
+        <!-- Access data passed from app.py -->
+            <thead>
+                <tr>
+                    <th><a href="applicants">New</a></th>
+                    <th></th>
+                    <th>ID</th>
+                    <th>Name</th>
+                    <th>Email</th>
+                    <th></th>
+                </tr>
+            </thead>
+        
+        {% if data %}
+            <tbody>
+            <!-- Iterate through every item in data -->
+            {% for item in data %}
+                <tr>
+                    <!-- Edit and Delete buttons for each item -->
+                    <td><a href="edit_applicant/{{item.applicantID}}" class="edit-btn">Edit</a></td>
+                    <td><a href="delete_applicant/{{item.applicantID}}" class="delete-btn">Delete</a></td>
+                {% for key in item.keys() %}
 
-                <!-- Create a <td> element with the value of that key in it -->
-				<td> {{item[key]}} </td> 
+                    <!-- Create a <td> element with the value of that key in it -->
+                    <td> {{item[key]}} </td> 
+                {% endfor %}
+                    <td><a href="applications">Applications</a></td>
+                </tr>
             {% endfor %}
-                <td><a href="applications">Applications</a></td>
-            </tr>
-        {% endfor %}
-        </tbody>
-    {% endif %}
-    </table>
+            </tbody>
+        {% endif %}
+        </table>
+        <p>&nbsp;</p>
+    </div>
 
-    <p>&nbsp;</p>
+
+    <!-- INSERT -->
+    <div id='insert'>
+        <!-- form to INSERT new Applicant into Applicants entity -->
+        <form id="insertApplicant" action="/applicants" method="post">
+            <legend><strong>Add Applicant</strong></legend>
+            <fieldset>
+                <!-- placeholder shows ghost text, required forces an input, pattern forces input adherance -->
+                <label for="name">Name: </label>
+                <input type="text" class="form-control" id="name" name="name" pattern="[A-Za-z]{1,}" placeholder="" required>
+
+                <label for="email">Email: </label>
+                <input type="email" class="form-control" id="email" name="email" placeholder="" required>
+            </fieldset>
+
+            <!-- Create 'Add Applicant' and 'Cancel' buttons -->
+            <input type="submit" value="Add Applicant" name="Add_Applicant" class="btn btn-primary" style="margin:.5rem;">
+            <input class="btn" type="button" value="Cancel">
+        </form>
+    </div>
+    <!-- END INSERT -->
 
 </body>
 </html>
