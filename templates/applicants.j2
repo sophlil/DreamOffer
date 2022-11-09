@@ -53,15 +53,15 @@
 
 <body>
     <h1>Applicants</h1>
+
+    <a href="/">Home</a> |
+    <a href="/applicants">Applicants</a> |
+    <a href="applications">Applications</a> |
+    <a href="companies">Companies</a> |
+    <a href="positionscompanyrecruiters">Positions & Company Recruiters</a></p>
+
     <!-- BROWSE -->
     <div id='browse'>
-    
-        <a href="/">Home</a> |
-        <a href="/applicants">Applicants</a> |
-        <a href="applications">Applications</a> |
-        <a href="companies">Companies</a> |
-        <a href="positionscompanyrecruiters">Positions & Company Recruiters</a></p>
-
         <h3>Browse Applicants</h3>
         <table>
         <!-- Access data passed from app.py -->
@@ -82,8 +82,8 @@
             {% for item in data %}
                 <tr>
                     <!-- Edit and Delete buttons for each item -->
-                    <td><a href="edit-applicant/{{item.applicantID}}" class="edit-btn">Edit</a></td>
-                    <td><a href="delete-applicant/{{item.applicantID}}" class="delete-btn">Delete</a></td>
+                    <td><a href="/edit-applicant/{{item.applicantID}}" class="edit-btn">Edit</a></td>
+                    <td><a href="/delete-applicant/{{item.applicantID}}" class="delete-btn">Delete</a></td>
                 {% for key in item.keys() %}
 
                     <!-- Create a <td> element with the value of that key in it -->
@@ -102,7 +102,6 @@
 
     <!-- INSERT -->
     <div id='insert'>
-    <h3>Add Applicant</h3>
         <!-- form to INSERT new Applicant into Applicants entity -->
         <form id="insertApplicant" action="/applicants" method="post">
             <legend><strong>Add Applicant</strong></legend>
