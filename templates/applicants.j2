@@ -53,15 +53,15 @@
 
 <body>
     <h1>Applicants</h1>
+
+    <a href="/">Home</a> |
+    <a href="/applicants">Applicants</a> |
+    <a href="applications">Applications</a> |
+    <a href="companies">Companies</a> |
+    <a href="positionscompanyrecruiters">Positions & Company Recruiters</a></p>
+
     <!-- BROWSE -->
     <div id='browse'>
-    
-        <a href="/">Home</a> |
-        <a href="/applicants">Applicants</a> |
-        <a href="applications">Applications</a> |
-        <a href="companies">Companies</a> |
-        <a href="positionscompanyrecruiters">Positions & Company Recruiters</a></p>
-
         <h3>Browse Applicants</h3>
         <table>
         <!-- Access data passed from app.py -->
@@ -102,7 +102,6 @@
 
     <!-- INSERT -->
     <div id='insert'>
-    <h3>Add Applicant</h3>
         <!-- form to INSERT new Applicant into Applicants entity -->
         <form id="insertApplicant" action="/applicants" method="post">
             <legend><strong>Add Applicant</strong></legend>
@@ -124,7 +123,6 @@
 
     <!-- EDIT -->
     <div id='edit'>
-        <h3>Edit Applicant</h3>
         <!-- form to UPDATE an Applicant -->
         <form id="editApplicant" action="/edit_applicant/{{data[0].applicantID}}" method="post">
             <legend><strong>Update Applicant</strong></legend>
