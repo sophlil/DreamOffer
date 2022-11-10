@@ -1,5 +1,8 @@
 <html>
-<!-- Based on the Flask Starter App by Professor Michael Curry -->
+<!-- 
+    Based on the people.j2 file from the Flask Starter App repo by Professor Michael Curry
+    https://github.com/osu-cs340-ecampus/flask-starter-app/blob/master/bsg_people_app/templates/people.j2
+-->
 <!-- Adapted from the applicants_crud.html UI design -->
 <head>
     <title>Applicants</title>
@@ -104,7 +107,14 @@
             <fieldset>
                 <!-- placeholder shows ghost text, required forces an input, pattern forces input adherance -->
                 <label for="name">Name: </label>
-                <input type="text" class="form-control" id="name" name="name" pattern="[A-Za-z]{1,}" placeholder="" required>
+                <input 
+                    type="text" 
+                    class="form-control" 
+                    id="name" name="name" 
+                    pattern="^[A-Z][a-z]+\s[A-Z][a-z]+$" 
+                    placeholder="" 
+                    required
+                />
 
                 <label for="email">Email: </label>
                 <input type="email" class="form-control" id="email" name="email" placeholder="" required>
@@ -112,7 +122,9 @@
 
             <!-- Create 'Add Applicant' and 'Cancel' buttons -->
             <input type="submit" value="Add Applicant" name="Add_Applicant" class="btn btn-primary" style="margin:.5rem;">
-            <input class="btn" type="button" value="Cancel">
+            <a href='/applicants'>
+                <input class="btn" type="button" value="Cancel">
+            </a>
         </form>
     </div>
     <!-- END INSERT -->
