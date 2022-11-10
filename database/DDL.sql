@@ -41,8 +41,8 @@ CREATE TABLE Positions (
 CREATE TABLE Applications (
     applicationID int(11) AUTO_INCREMENT NOT NULL UNIQUE,
     dateApplied date NOT NULL,
-    result tinyint(1),
-    dateResult date,
+    result tinyint(1) DEFAULT 0,
+    dateResult date DEFAULT NULL,
     applicantID int(11) NOT NULL,
     positionID int(11) NOT NULL, 
     PRIMARY KEY (applicationID),
