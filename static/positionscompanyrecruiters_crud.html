@@ -80,6 +80,15 @@
         <td><a href="garmin.com/database-administrator">Job Posting</a></td>
         <td>204</td>
       </tr>
+      <tr>
+        <td><a href="#" class="edit-btn">Edit</a></td>
+        <td>NULL</td>
+        <td>Front-end Software Engineer</td>
+        <td>Remote</td>
+        <td>35000</td>
+        <td><a href="fiverr.com/front-end-software-engineer">Job Posting</a></td>
+        <td>205</td>
+      </tr>
     </table>
     
     <p>&nbsp;</p>
@@ -237,7 +246,8 @@
       <fieldset>
         <label for="company-names">Company Name</label>
           <select name="company-names" id="company-names">
-              <option value="100" selected>Aptiv</option>
+              <option value="NULL" selected>NULL</option>
+              <option value="100">Aptiv</option>
               <option value="101">Garmin</option>
               <option value="102">Apple</option>
           </select>
@@ -261,6 +271,7 @@
               <option value="202">Garmin, New Grad SWE</option>
               <option value="203">Apple, Data Engineer Intern</option>
               <option value="204">Garmin, Database Administrator</option>
+              <option value="205">NULL, Front-end Software Engineer</option>
           </select>
           <label for="name">Recruiter Name</label>
           <select name="name" id="name">
@@ -295,6 +306,13 @@
         <legend><strong>Update Position</strong></legend>
         <fieldset>
           <label>ID: <span>200</span></label>
+          <label for="name">Company Name</label>
+          <select name="name" id="name">
+            <option value="100" selected>Aptiv</option>
+            <option value="101">Garmin</option>
+            <option value="102">Apple</option>
+            <option value="NULL">NULL</option>
+        </select>
           <label for="title">Title</label> 
           <input type="text" name="title" value="Software Engineer Intern"/>
           <label for="location">Location</label> 
@@ -325,7 +343,6 @@
           <input type="date" name="lastContacted" value="10-01-2022"/>
           <label for="details">Details</label> 
           <input type="text" name="details" value="Met at OSU Career Fair"/>
-          <label for="company-name">Company Name</label>
         </fieldset>
         <button type="submit">Update Recruiter</button>
         <button id="update-cancel">Cancel</button>
