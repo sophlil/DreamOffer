@@ -21,24 +21,14 @@
             if (form == 'insert') {
                 document.getElementById('browse').style.display = 'none';
                 document.getElementById('insert').style.display = 'block';
-                document.getElementById('delete').style.display = 'none';
-            } else if (form == 'delete') {
-                document.getElementById('browse').style.display = 'none';
-                document.getElementById('insert').style.display = 'none';
-                document.getElementById('delete').style.display = 'block';
             } else { // display browse by default
                 document.getElementById('browse').style.display = 'block';
                 document.getElementById('insert').style.display = 'none';
-                document.getElementById('delete').style.display = 'none';
             }
         }
 
         function newApplicant() {
             showForm('insert');
-        }
-
-        function deleteApplicant(id) {
-            showForm('delete');
         }
 
         function browseApplicants() {
