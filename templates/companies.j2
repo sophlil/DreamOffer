@@ -21,11 +21,11 @@
             }
         }
 
-        function newApplicant() {
+        function newCompany() {
             showForm('insert');
         }
 
-        function browseApplicants() {
+        function browseCompanies() {
             showForm('browse');
         }
 
@@ -43,6 +43,96 @@
     <a href="/applications">Applications</a> |
     <a href="/companies">Companies</a> |
     <a href="/positionscompanyrecruiters">Positions & Company Recruiters</a></p>
+
+    <!-- BROWSE -->
+    <div id='browse'>
+        <h3>Browse Companies</h3>
+        <table>
+        <!-- Access data passed from app.py -->
+            <thead>
+                <tr>
+                    <th><a href="#" onClick="newCompany()">New</a></th>
+                    <th></th>
+                    <th>ID</th>
+                    <th>Name</th>
+                    <th>Description</th>
+                    <th>Website</th>
+                </tr>
+            </thead>
+
+            {% if data %}
+            <tbody>
+            <!-- Iterate through every item in data -->
+            {% for item in data %}
+                <tr>
+                    <!-- Edit and Delete buttons for each item -->
+                    <td>
+                        <a href="/edit-company/{{item.companyID}}" class="edit-btn">
+                            Edit
+                        </a>
+                    </td>
+                    <td>
+                        <a href="/delete-company/{{item.companyID}}" class="delete-btn">
+                            Delete
+                        </a>
+                    </td>
+                {% for key in item.keys() %}
+
+                    <!-- Create a <td> element with the value of that key in it -->
+                    <td> {{item[key]}} </td> 
+                {% endfor %}
+                </tr>
+            {% endfor %}
+            </tbody>
+        {% endif %}
+
+        </table>
+        <p>&nbsp;</p>
+    </div>
+    <!-- END BROWSE -->
+
+    <!-- INSERT -->
+    <div id='insert'>
+        <!-- form to INSERT new Company into Companies entity -->
+        <form id="insertCompany" action="/companies" method="post">
+            <legend><strong>Add Company</strong></legend>
+            <fieldset>
+                <!-- placeholder shows ghost text, required forces an input, pattern forces input adherance -->
+                <label for="company">Company: </label>
+                <input 
+                    type="text" 
+                    class="form-control" 
+                    id="company" name="company"
+                    placeholder="" 
+                    required
+                />
+
+                <label for="website">Website: </label>
+                <input 
+                    type="url" 
+                    class="form-control" 
+                    id="website" name="website"
+                    placeholder="" 
+                />
+
+                <label for="description">Description: </label> 
+                <input 
+                    type="text" 
+                    class="form-control"
+                    id="description" name="description" 
+                    placeholder=""
+                    maxlength="255" 
+                />
+            </fieldset>
+
+            <!-- Create 'Add Company' and 'Cancel' buttons -->
+            <input type="submit" value="Add Company" name="Add_Company" class="btn btn-primary" style="margin:.5rem;">
+            <a href='/companies'>
+                <input class="btn" type="button" value="Cancel">
+            </a>
+        </form>
+    </div>
+    <!-- END INSERT -->
 
 </body>
 </html>
