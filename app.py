@@ -122,7 +122,7 @@ def companies():
     if request.method == "GET":
         # mySQL query to grab all the companies in Companies
         query = "SELECT companyID, name, description, website FROM Companies"
-        cur = mysql.connection.curson()
+        cur = mysql.connection.cursor()
         cur.execute(query)
         data = cur.fetchall()
 
