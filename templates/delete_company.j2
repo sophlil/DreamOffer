@@ -1,0 +1,43 @@
+<html>
+<!-- 
+    Citation for the following file:
+    11/16/2022
+    Based on:
+    edit_people.j2 from the Flask Starter App repo by Professor Michael Curry
+    https://github.com/osu-cs340-ecampus/flask-starter-app/blob/master/bsg_people_app/templates/edit_people.j2
+-->
+<head>
+	<title>Delete Company</title>
+    <link href="../static/style.css" rel="stylesheet" type="text/css" />
+</head>
+
+<body>
+
+    <!-- DELETE -->
+    <div id='delete'>
+    <!-- form for performing DELETE on a Company -->
+        <form id="deleteCompany" action="/delete-company/{{data[0].companyID}}" method="post">
+            <legend><strong>Delete Company</strong></legend>
+            <fieldset>
+                <p>Are you sure you want to delete the company?</p>
+                <div>
+                <label><strong>ID: </strong><span>{{data[0].companyID}}</span></label>
+                <label><strong>Name: </strong><span>{{data[0].name}}</span></label>
+                </div>
+            </fieldset>
+            <input 
+                type="submit" 
+                value="Delete Company" 
+                name="Delete_Company" 
+                class="btn btn-primary" 
+                style="margin:.5rem;"
+            />
+            <a href='/companies'>
+                <input class="btn" type="button" value="Cancel">
+            </a>
+        </form>
+    </div>
+    <!-- END DELETE -->
+
+</body>
+</html>
