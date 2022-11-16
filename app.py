@@ -21,9 +21,9 @@ app = Flask(__name__)
 
 # database connection info
 app.config["MYSQL_HOST"] = "classmysql.engr.oregonstate.edu"
-app.config["MYSQL_USER"] = "cs340_lilients"
-app.config["MYSQL_PASSWORD"] = "9464"
-app.config["MYSQL_DB"] = "cs340_lilients"
+app.config["MYSQL_USER"] = "cs340_OSUusername"
+app.config["MYSQL_PASSWORD"] = "XXXX"
+app.config["MYSQL_DB"] = "cs340_OSUusername"
 app.config["MYSQL_CURSORCLASS"] = "DictCursor"
 
 mysql = MySQL(app)
@@ -167,6 +167,58 @@ def companies():
                 mysql.connection.commit()
             
             # Redirect back to Companies page
+            return redirect("/companies")
+
+# route for UPDATE Companies page
+@app.route("/edit-company/<int:id>", methods=["POST", "GET"])
+def edit_company(id):
+    # Displays the specific Company's existing attributes
+    if request.method == "GET":
+        # mySQL query to grab the info of the Company with the passed id
+        query = "SELECT * FROM Companies WHERE companyID = %s" % (id)
+        cur = mysql.connection.cursor()
+        cur.execute(query)
+        data = cur.fetchall()
+
+        return render_template("edit_company.j2", data=data)
+
+    # After user enters update info, updates specific Company in DB
+    if request.method == "POST":
+        # Fires off if user clicks the 'Update Company' button
+        if request.form.get("Update_Company"):
+            # Grabs user form inputs
+            name = request.form["name"]  # Required
+            description = request.form["description"]  # Optional
+            website = request.form["website"]  # Optional
+
+            # NULL description AND NULL website
+            if (description == "" or description == "None") and (website == "" or website == "None"):
+                query = "UPDATE Companies SET name = %s, description = NULL, website = NULL WHERE companyID = %s"
+                cur = mysql.connection.cursor()
+                cur.execute(query, (name, id))
+                mysql.connection.commit()
+
+            # NULL description
+            elif description == "" or description == "None":
+                query = "UPDATE Companies SET name = %s, description = NULL, website = %s WHERE companyID = %s"
+                cur = mysql.connection.cursor()
+                cur.execute(query, (name, website, id))
+                mysql.connection.commit()
+            
+            # NULL website
+            elif website == "" or website == "None":
+                query = "UPDATE Companies SET name = %s, description = %s, website = NULL WHERE companyID = %s"
+                cur = mysql.connection.cursor()
+                cur.execute(query, (name, description, id))
+                mysql.connection.commit()
+
+            # No NULL inputs
+            else:
+                query = "UPDATE Companies SET name = %s, description = %s, website = %s WHERE companyID = %s"
+                cur = mysql.connection.cursor()
+                cur.execute(query, (name, description, website, id))
+                mysql.connection.commit()
+        
             return redirect("/companies")
 
 
