@@ -259,7 +259,7 @@ def applications():
         query2 = "SELECT applicantID, name FROM Applicants;"
         cur = mysql.connection.cursor()
         cur.execute(query2)
-        names = cur.fetchall()
+        applicants = cur.fetchall()
 
         # query to populate the Position Title dropdown for Search and Add forms
         query3 = "SELECT positionID, title FROM Positions;"
@@ -274,7 +274,7 @@ def applications():
         companies = cur.fetchall()
 
         # render Applications page passing our query data to the template
-        return render_template("applications.j2", data=data, names=names, positions=positions, companies=companies)
+        return render_template("applications.j2", data=data, applicants=applicants, positions=positions, companies=companies)
 
     # Insert new Application into Applications entity - CREATE
     if request.method == "POST":
