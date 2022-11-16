@@ -13,5 +13,54 @@
 
 <body>
 
+    <!-- EDIT --> 
+    <div id='edit'>
+        <!-- form to UPDATE a Company -->
+        <form id="editCompany" action="/edit-company/{{data[0].companyID}}" method="post">
+            <legend><strong>Update Company</strong></legend>
+            <fieldset>
+                <label>ID: <span>{{data[0].companyID}}</span></label>
+                <label for="company">Company</label>
+                <input 
+                    type="text" 
+                    class="form-control" 
+                    id="company" 
+                    name="company" 
+                    value="{{data[0].name}}"
+                    required
+                />
+                <label for="website">Website</label> 
+                <input 
+                    type="url" 
+                    class="form-control" 
+                    id="website" 
+                    name="website" 
+                    value="{{data[0].website}}"
+                />
+                <label for="description">Description</label> 
+                <input 
+                    type="text" 
+                    class="form-control"
+                    id="description" 
+                    name="description" 
+                    value="{{data[0].description}}"
+                    maxlength="255" 
+                />
+            </fieldset>
+            <input 
+                type="submit" 
+                value="Update Company"
+                name="Update_Company"
+                class="btn btn-primary" 
+                style="margin:.5rem;"
+            />
+            <a href='/companies'>
+                <input class="btn" type="button" value="Cancel">
+            </a>
+        </form>
+    </div>
+    <!-- END EDIT -->
+
+
 </body>
 </html>
