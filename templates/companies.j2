@@ -60,6 +60,32 @@
                 </tr>
             </thead>
 
+            {% if data %}
+            <tbody>
+            <!-- Iterate through every item in data -->
+            {% for item in data %}
+                <tr>
+                    <!-- Edit and Delete buttons for each item -->
+                    <td>
+                        <a href="/edit-company/{{item.companyID}}" class="edit-btn">
+                            Edit
+                        </a>
+                    </td>
+                    <td>
+                        <a href="/delete-company/{{item.companyID}}" class="delete-btn">
+                            Delete
+                        </a>
+                    </td>
+                {% for key in item.keys() %}
+
+                    <!-- Create a <td> element with the value of that key in it -->
+                    <td> {{item[key]}} </td> 
+                {% endfor %}
+                </tr>
+            {% endfor %}
+            </tbody>
+        {% endif %}
+
         </table>
         <p>&nbsp;</p>
     </div>
