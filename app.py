@@ -273,8 +273,25 @@ def applications():
         cur.execute(query4)
         companies = cur.fetchall()
 
-        # render Applicants page passing our query data to the template
+        # render Applications page passing our query data to the template
         return render_template("applications.j2", data=data, names=names, positions=positions, companies=companies)
+
+    # Insert new Application into Applications entity - CREATE
+    if request.method == "POST":
+        # Fires off if user presses the Add Application button
+        if request.form.get("Add_Application"):
+            # Grabs user form inputs
+            applicant = request.form["applicant"]  # Required
+            position = request.form["position"]  # Required
+            dateApplied = request.form["dateApplied"] # Required
+
+            # This is the only query needed since each attribute is required
+            query = "INSERT INTO Applications (dateApplied, applicantID, positionID) VALUES (%s, %s, %s);"
+            cur = mysql.connection.cursor()
+            cur.execute(query, (dateApplied, applicant, position))
+            mysql.connection.commit()
+        
+            return redirect("/applications")
 
 
 # Listener
