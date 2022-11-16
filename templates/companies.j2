@@ -21,11 +21,11 @@
             }
         }
 
-        function newApplicant() {
+        function newCompany() {
             showForm('insert');
         }
 
-        function browseApplicants() {
+        function browseCompanies() {
             showForm('browse');
         }
 
@@ -43,6 +43,27 @@
     <a href="/applications">Applications</a> |
     <a href="/companies">Companies</a> |
     <a href="/positionscompanyrecruiters">Positions & Company Recruiters</a></p>
+
+    <!-- BROWSE -->
+    <div id='browse'>
+        <h3>Browse Companies</h3>
+        <table>
+        <!-- Access data passed from app.py -->
+            <thead>
+                <tr>
+                    <th><a href="#" onClick="newCompany()">New</a></th>
+                    <th></th>
+                    <th>ID</th>
+                    <th>Name</th>
+                    <th>Description</th>
+                    <th>Website</th>
+                </tr>
+            </thead>
+
+        </table>
+        <p>&nbsp;</p>
+    </div>
+    <!-- END BROWSE -->
 
 </body>
 </html>
