@@ -1,0 +1,48 @@
+<html>
+<!-- 
+    Citation for the following file:
+    11/16/2022
+    Based on:
+    people.j2 file from the Flask Starter App repo by Professor Michael Curry
+    https://github.com/osu-cs340-ecampus/flask-starter-app/blob/master/bsg_people_app/templates/people.j2
+-->
+<!-- Adapted from the companies_crud.html UI design -->
+<head>
+    <title>Companies</title>
+    <link rel="stylesheet" href="../static/style.css" type="text/css">
+    <script language="JavaScript" defer>
+        function showForm(form) {
+            if (form == 'insert') {
+                document.getElementById('browse').style.display = 'none';
+                document.getElementById('insert').style.display = 'block';
+            } else { // display browse by default
+                document.getElementById('browse').style.display = 'block';
+                document.getElementById('insert').style.display = 'none';
+            }
+        }
+
+        function newApplicant() {
+            showForm('insert');
+        }
+
+        function browseApplicants() {
+            showForm('browse');
+        }
+
+        window.addEventListener('load', () => {
+            showForm('browse');
+        });
+    </script>
+</head>
+
+<body>
+    <h1>Companies</h1>
+
+    <a href="/">Home</a> |
+    <a href="/applicants">Applicants</a> |
+    <a href="/applications">Applications</a> |
+    <a href="/companies">Companies</a> |
+    <a href="/positionscompanyrecruiters">Positions & Company Recruiters</a></p>
+
+</body>
+</html>
