@@ -256,21 +256,21 @@ def applications():
         data = cur.fetchall()
 
         # query to populate the Applicant Name dropdown for Search and Add forms
-        query = "SELECT applicantID, name FROM Applicants;"
+        query2 = "SELECT applicantID, name FROM Applicants;"
         cur = mysql.connection.cursor()
-        cur.execute(query)
+        cur.execute(query2)
         names = cur.fetchall()
 
         # query to populate the Position Title dropdown for Search and Add forms
-        query = "SELECT positionID, title FROM Positions;"
+        query3 = "SELECT positionID, title FROM Positions;"
         cur = mysql.connection.cursor()
-        cur.execute(query)
+        cur.execute(query3)
         positions = cur.fetchall()
 
         # query to populate the Companies Name dropdown for Search form
-        query = "SELECT companyID, name FROM Companies;"
+        query4 = "SELECT companyID, name FROM Companies;"
         cur = mysql.connection.cursor()
-        cur.execute(query)
+        cur.execute(query4)
         companies = cur.fetchall()
 
         # render Applicants page passing our query data to the template
