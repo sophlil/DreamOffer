@@ -21,9 +21,9 @@ app = Flask(__name__)
 
 # database connection info
 app.config["MYSQL_HOST"] = "classmysql.engr.oregonstate.edu"
-app.config["MYSQL_USER"] = "cs340_lilients"
-app.config["MYSQL_PASSWORD"] = "9464"
-app.config["MYSQL_DB"] = "cs340_lilients"
+app.config["MYSQL_USER"] = "cs340_OSUusername"
+app.config["MYSQL_PASSWORD"] = "XXXX"
+app.config["MYSQL_DB"] = "cs340_OSUusername"
 app.config["MYSQL_CURSORCLASS"] = "DictCursor"
 
 mysql = MySQL(app)
@@ -53,8 +53,8 @@ def applicants():
         # Fires off if user presses the Add Applicant button
         if request.form.get("Add_Applicant"):
             # Grabs user form inputs
-            name = request.form["name"]
-            email = request.form["email"]
+            name = request.form["name"]  # Required
+            email = request.form["email"]  # Required
 
             # Since both name and email are required, this is the only query needed
             query = "INSERT INTO Applicants (name, email) VALUES (%s, %s)"
@@ -82,8 +82,8 @@ def edit_applicant(id):
         # Fires off if user clicks the 'Update Applicant' button
         if request.form.get("Update_Applicant"):
             # Grabs user form inputs
-            name = request.form["name"]
-            email = request.form["email"]
+            name = request.form["name"]  # Required
+            email = request.form["email"]  # Required
 
             # Since both name and email are required, this is the only query needed
             query = "UPDATE Applicants SET name = %s, email = %s WHERE applicantID = %s"
@@ -114,6 +114,61 @@ def delete_applicant(id):
 
         # redirect back to Applicants page
         return redirect("/applicants")
+
+# route for READ & CREATE Companies page
+@app.route("/companies", methods=["POST", "GET"])
+def companies():
+    # Grabs Companies data so we can send it to our template to display
+    if request.method == "GET":
+        # mySQL query to grab all the companies in Companies
+        query = "SELECT companyID, name, description, website FROM Companies"
+        cur = mysql.connection.curson()
+        cur.execute(query)
+        data = cur.fetchall()
+
+        return render_template("companies.j2", data=data)
+    
+    # Insert a company into the Companies entity
+    if request.method == "POST":
+        # Fires off if user presses the Add Company button
+        if request.form.get("Add_Company"):
+            # Grabs user form inputs
+            name = request.form["name"]  # Required
+            description = request.form["description"]  # Optional
+            website = request.form["website"]  # Optional
+
+            # NULL description AND NULL website
+            if description == "" and website == "":
+                # mySQL query to insert new Company into Companies with user form inputs
+                query = "INSERT INTO Companies (name) VALUES (%s)"
+                cur = mysql.connection.cursor()
+                cur.execute(query, (name))
+                mysql.connection.commit()
+            
+            # NULL description
+            elif description == "":
+                query = "INSERT INTO Companies (name, website) VALUES (%s, %s)"
+                cur = mysql.connection.cursor()
+                cur.execute(query, (name, website))
+                mysql.connection.commit()
+            
+            # NULL website
+            elif website == "":
+                query = "INSERT INTO Companies (name, description) VALUES (%s, %s)"
+                cur = mysql.connection.cursor()
+                cur.execute(query, (name, description))
+                mysql.connection.commit()
+
+            # No NULL inputs
+            else:
+                query = "INSERT INTO Companies (name, description, website) VALUES (%s, %s, %s)"
+                cur = mysql.connection.cursor()
+                cur.execute(query, (name, description, website))
+                mysql.connection.commit()
+            
+            # Redirect back to Companies page
+            return redirect("/companies")
+
 
 # Listener
 if __name__ == "__main__":

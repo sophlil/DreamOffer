@@ -15,7 +15,7 @@ DROP TABLE IF EXISTS PositionsCompanyRecruiters;
 CREATE TABLE Applicants (
     applicantID int(11) AUTO_INCREMENT NOT NULL UNIQUE,
     name varchar(50) NOT NULL,
-    email varchar(50),
+    email varchar(50) NOT NULL,
     PRIMARY KEY (applicantID)
 );
 
