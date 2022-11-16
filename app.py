@@ -243,6 +243,39 @@ def delete_company(id):
         # redirect back to Companies page
         return redirect("/companies")
 
+# 
+# route for READ & CREATE Applications page
+@app.route("/applications", methods=["POST", "GET"])
+def applications():
+    # Get Applications data to send to our template to display - READ
+    if request.method == "GET":
+        # mySQL query to grab all applications
+        query = "SELECT applicationID, dateApplied, result, dateResult, Applicants.name, Positions.title FROM Applications INNER JOIN Applicants ON Applications.applicantID = Applicants.applicantID INNER JOIN Positions ON Applications.positionID = Positions.positionID;"
+        cur = mysql.connection.cursor()
+        cur.execute(query)
+        data = cur.fetchall()
+
+        # query to populate the Applicant Name dropdown for Search and Add forms
+        query = "SELECT applicantID, name FROM Applicants;"
+        cur = mysql.connection.cursor()
+        cur.execute(query)
+        names = cur.fetchall()
+
+        # query to populate the Position Title dropdown for Search and Add forms
+        query = "SELECT positionID, title FROM Positions;"
+        cur = mysql.connection.cursor()
+        cur.execute(query)
+        positions = cur.fetchall()
+
+        # query to populate the Companies Name dropdown for Search form
+        query = "SELECT companyID, name FROM Companies;"
+        cur = mysql.connection.cursor()
+        cur.execute(query)
+        companies = cur.fetchall()
+
+        # render Applicants page passing our query data to the template
+        return render_template("applications.j2", data=data, names=names, positions=positions, companies=companies)
+
 
 # Listener
 if __name__ == "__main__":
