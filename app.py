@@ -221,6 +221,28 @@ def edit_company(id):
         
             return redirect("/companies")
 
+# route for DELETE Company form
+@app.route("/delete-company/<int:id>", methods=["POST", "GET"])
+def delete_company(id):
+    if request.method == "GET":
+        # mySQL query to grab Company-to-delete's attributes
+        query = "SELECT companyID, name FROM Companies WHERE companyID = %s" % (id)
+        cur = mysql.connection.cursor()
+        cur.execute(query)
+        data = cur.fetchall()
+
+        return render_template("delete_company.j2", data=data)
+
+    if request.method == "POST":
+        # mySQL query to delete the Company
+        query = "DELETE FROM Companies WHERE companyID = %s"
+        cur = mysql.connection.cursor()
+        cur.execute(query, (id,))
+        mysql.connection.commit()
+
+        # redirect back to Companies page
+        return redirect("/companies")
+
 
 # Listener
 if __name__ == "__main__":
