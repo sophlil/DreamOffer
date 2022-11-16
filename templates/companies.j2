@@ -91,5 +91,48 @@
     </div>
     <!-- END BROWSE -->
 
+    <!-- INSERT -->
+    <div id='insert'>
+        <!-- form to INSERT new Company into Companies entity -->
+        <form id="insertCompany" action="/companies" method="post">
+            <legend><strong>Add Company</strong></legend>
+            <fieldset>
+                <!-- placeholder shows ghost text, required forces an input, pattern forces input adherance -->
+                <label for="company">Company: </label>
+                <input 
+                    type="text" 
+                    class="form-control" 
+                    id="company" name="company"
+                    placeholder="" 
+                    required
+                />
+
+                <label for="website">Website: </label>
+                <input 
+                    type="url" 
+                    class="form-control" 
+                    id="website" name="website"
+                    placeholder="" 
+                />
+
+                <label for="description">Description</label> 
+                <input 
+                    type="text" 
+                    class="form-control"
+                    id="description" name="description" 
+                    placeholder=""
+                    maxlength="255" 
+                />
+            </fieldset>
+
+            <!-- Create 'Add Company' and 'Cancel' buttons -->
+            <input type="submit" value="Add Company" name="Add_Company" class="btn btn-primary" style="margin:.5rem;">
+            <a href='/companies'>
+                <input class="btn" type="button" value="Cancel">
+            </a>
+        </form>
+    </div>
+    <!-- END INSERT -->
+
 </body>
 </html>
