@@ -34,15 +34,13 @@
 
                 <label for="results">Result:</label>
                 <select class="form-control" name="result" id="result" required>
-                {% for item in applicationResults %}
-                    {% for key in item.keys() %}
+                    {% for key in applicationResults.keys() %}
                         {% if data[0].result == key %}
-                            <option value="{{ key }}" selected>{{item[key]}}</option>
+                            <option value="{{ key }}" selected>{{applicationResults[key]}}</option>
                         {% else %}
-                            <option value="{{ key }}">{{item[key]}}</option>
+                            <option value="{{ key }}">{{applicationResults[key]}}</option>
                         {% endif %}
                     {% endfor %}
-                {% endfor %}
                 </select>
 
                 <label for="dateResult">Result Date:</label> 

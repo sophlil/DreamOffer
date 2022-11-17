@@ -79,20 +79,10 @@
                         </a>
                     </td>
 
-                <!-- Create a <td> element with the value of that key in it -->
                 {% for key in item.keys() %}
-                    {% if key == "result" %}
-                        {% if item[key] == 0 %}
-                            <td>"Submitted"</td>
-                        {% elif item[key] == 1 %}
-                            <td>"In Process"</td>
-                        {% elif item[key] == 2 %}
-                            <td>"Offer"</td>
-                        {% elif item[key] == 3 %}
-                            <td>"Rejection"</td>
-                    {% else %}
-                        <td> {{item[key]}} </td> 
-                    {% endif %}
+
+                    <!-- Create a <td> element with the value of that key in it -->
+                    <td> {{item[key]}} </td> 
                 {% endfor %}
                 </tr>
             {% endfor %}
