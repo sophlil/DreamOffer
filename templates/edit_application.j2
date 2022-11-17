@@ -40,6 +40,9 @@
                             <option value="{{ key }}" selected>{{item[key]}}</option>
                         {% else %}
                             <option value="{{ key }}">{{item[key]}}</option>
+                        {% endif %}
+                    {% endfor %}
+                {% endfor %}
                 </select>
 
                 <label for="dateResult">Result Date:</label> 
