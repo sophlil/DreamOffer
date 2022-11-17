@@ -350,6 +350,16 @@ def delete_application(id):
 
         return render_template("delete_application.j2", data=data)
 
+    if request.method == "POST":
+        # mySQL query to delete the Application
+        query = "DELETE FROM Applications WHERE applicationID = %s"
+        cur = mysql.connection.cursor()
+        cur.execute(query, (id,))
+        mysql.connection.commit()
+
+        # redirect back to Applications page
+        return redirect("/applications")
+
 
 
 # Listener
