@@ -1,0 +1,138 @@
+<html>
+<!-- 
+    Citation for the following file:
+    11/16/2022
+    Based on:
+    people.j2 file from the Flask Starter App repo by Professor Michael Curry
+    https://github.com/osu-cs340-ecampus/flask-starter-app/blob/master/bsg_people_app/templates/people.j2
+-->
+<!-- Adapted from the applications_crud.html UI design -->
+<head>
+    <title>Applications</title>
+    <link rel="stylesheet" href="../static/style.css" type="text/css">
+    <script language="JavaScript" defer>
+        function showForm(form) {
+            if (form == 'insert') {
+                document.getElementById('browse').style.display = 'none';
+                document.getElementById('insert').style.display = 'block';
+            } else { // display browse by default
+                document.getElementById('browse').style.display = 'block';
+                document.getElementById('insert').style.display = 'none';
+            }
+        }
+
+        function newApplication() {
+            showForm('insert');
+        }
+
+        function browseApplications() {
+            showForm('browse');
+        }
+
+        window.addEventListener('load', () => {
+            showForm('browse');
+        });
+    </script>
+</head>
+
+<body>
+    <h1>Applications</h1>
+
+    <a href="/">Home</a> |
+    <a href="/applicants">Applicants</a> |
+    <a href="/applications">Applications</a> |
+    <a href="/companies">Companies</a> |
+    <a href="/positionscompanyrecruiters">Positions & Company Recruiters</a></p>
+
+    <!-- BROWSE -->
+    <div id='browse'>
+        <h3>Browse Applications</h3>
+        <table>
+        <!-- Access data passed from app.py -->
+            <thead>
+                <tr>
+                    <th><a href="#" onClick="newApplication()">New</a></th>
+                    <th></th>
+                    <th>ID</th>
+                    <th>Date Applied</th>
+                    <th>Result</th>
+                    <th>Result Date</th>
+                    <th>Applicant</th>
+                    <th>Position</th>
+                </tr>
+            </thead>
+
+            {% if data %}
+            <tbody>
+            <!-- Iterate through every item in data -->
+            {% for item in data %}
+                <tr>
+                    <!-- Edit and Delete buttons for each item -->
+                    <td>
+                        <a href="/edit-application/{{item.applicationID}}" class="edit-btn">
+                            Edit
+                        </a>
+                    </td>
+                    <td>
+                        <a href="/delete-application/{{item.applicationID}}" class="delete-btn">
+                            Delete
+                        </a>
+                    </td>
+                {% for key in item.keys() %}
+
+                    <!-- Create a <td> element with the value of that key in it -->
+                    <td> {{item[key]}} </td> 
+                {% endfor %}
+                </tr>
+            {% endfor %}
+            </tbody>
+        {% endif %}
+
+        </table>
+        <p>&nbsp;</p>
+    </div>
+    <!-- END BROWSE -->
+
+    <!-- INSERT -->
+    <div id='insert'>
+        <!-- form to INSERT new Application into Applications entity -->
+        <form id="insertApplication" action="/applications" method="post">
+            <legend><strong>Add Application</strong></legend>
+            <fieldset>
+                <!-- placeholder shows ghost text, required forces an input, pattern forces input adherance -->
+                
+                <label for="applicant">Applicant Name:</label>
+                <select class="form-control" id="applicant" name="applicant" pattern="[0-4]{1}" placeholder="" required>
+                {% for applicant in applicants %}
+                    <option value="{{ applicant['applicantID'] }}"> {{applicant['name']}}</option>
+                {% endfor %}
+                </select>
+
+                <label for="position">Position:</label>
+                <select class="form-control" id="position" name="position" placeholder="" required>
+                {% for position in positions %}
+                    <option value="{{ position['positionID'] }}"> {{position['title']}}</option>
+                {% endfor %}
+                </select>
+
+                <label for="dateApplied">Date Applied:</label>
+                <input 
+                    type="date" 
+                    class="form-control" 
+                    id="dateApplied" name="dateApplied"
+                    placeholder="" 
+                    required
+                />
+            </fieldset>
+
+            <!-- Create 'Add Application' and 'Cancel' buttons -->
+            <input type="submit" value="Add Application" name="Add_Application" class="btn btn-primary" style="margin:.5rem;">
+            <a href='/applications'>
+                <input class="btn" type="button" value="Cancel">
+            </a>
+        </form>
+    </div>
+    <!-- END INSERT -->
+
+</body>
+</html>
