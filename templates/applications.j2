@@ -105,6 +105,26 @@
     </div>
     <!-- END BROWSE -->
 
+    <!-- SEARCH -->
+    <div id='search'>
+        <!-- form to SEARCH Applications for an Application -->
+        <form id="searchApplication" action="/search-application/{{data[0].applicantID}}" method="get">
+            <legend><strong>Search Applications</strong></legend>
+            <fieldset>
+                
+                <label for="applicant">Applicant Name:</label>
+                <select class="form-control" id="applicant" name="applicant" pattern="[0-4]{1}" placeholder="" required>
+                {% for applicant in applicants %}
+                    <option value="{{ applicant['applicantID'] }}"> {{ applicant['applicantID'] }} - {{applicant['name']}}</option>
+                {% endfor %}
+                </select>
+
+            </fieldset>
+            <input type="submit" value="Search Application" name="Search_Application" class="btn btn-primary" style="margin:.5rem;">
+        </form>
+    </div>
+    <!-- END SEARCH -->
+
     <!-- INSERT -->
     <div id='insert'>
         <!-- form to INSERT new Application into Applications entity -->
