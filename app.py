@@ -338,6 +338,28 @@ def edit_application(id):
         
             return redirect("/applications")
 
+# route for DELETE Application form
+@app.route("/delete-application/<int:id>", methods=["POST", "GET"])
+def delete_application(id):
+    if request.method == "GET":
+        # mySQL query to grab Application-to-delete's attributes
+        query = "SELECT applicationID, Applicants.name, Positions.title, Companies.name FROM Applications INNER JOIN Applicants ON Applications.applicantID = Applicants.applicantID INNER JOIN Positions ON Applications.positionID = Positions.positionID INNER JOIN Companies ON Positions.companyID = Companies.companyID WHERE Applications.applicationID = %s;" % (id)
+        cur = mysql.connection.cursor()
+        cur.execute(query)
+        data = cur.fetchall()
+
+        return render_template("delete_application.j2", data=data)
+
+    if request.method == "POST":
+        # mySQL query to delete the Application
+        query = "DELETE FROM Applications WHERE applicationID = %s"
+        cur = mysql.connection.cursor()
+        cur.execute(query, (id,))
+        mysql.connection.commit()
+
+        # redirect back to Applications page
+        return redirect("/applications")
+
 
 
 # Listener
