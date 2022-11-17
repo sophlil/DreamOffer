@@ -21,9 +21,9 @@ app = Flask(__name__)
 
 # database connection info
 app.config["MYSQL_HOST"] = "classmysql.engr.oregonstate.edu"
-app.config["MYSQL_USER"] = "cs340_lilients"
-app.config["MYSQL_PASSWORD"] = "9464"
-app.config["MYSQL_DB"] = "cs340_lilients"
+app.config["MYSQL_USER"] = "cs340_OSUusername"
+app.config["MYSQL_PASSWORD"] = "XXXX"
+app.config["MYSQL_DB"] = "cs340_OSUusername"
 app.config["MYSQL_CURSORCLASS"] = "DictCursor"
 
 mysql = MySQL(app)
@@ -292,6 +292,52 @@ def applications():
             mysql.connection.commit()
         
             return redirect("/applications")
+
+# route for UPDATE Applications page
+@app.route("/edit-application/<int:id>", methods=["POST", "GET"])
+def edit_application(id):
+    # Displays the specific Application's existing attributes
+    if request.method == "GET":
+        # mySQL query to grab the info of the Company with the passed id
+        query = "SELECT applicationID, dateApplied, result, dateResult FROM Applications WHERE applicationID = %s" % (id)
+        cur = mysql.connection.cursor()
+        cur.execute(query)
+        data = cur.fetchall()
+
+        applicationResults = {
+            0: "Submitted", 
+            1: "In Process", 
+            2: "Offer", 
+            3: "Rejection"
+        }
+
+        return render_template("edit_application.j2", data=data, applicationResults=applicationResults)
+
+    # After user enters update info, updates specific Application in DB
+    if request.method == "POST":
+        # Fires off if user clicks the 'Update Application' button
+        if request.form.get("Update_Application"):
+            # Grabs user form inputs
+            dateApplied = request.form["dateApplied"]  # Required
+            result = request.form["result"]  # Required
+            dateResult = request.form["dateResult"]  # Optional
+
+            # NULL dateResult
+            if (dateResult == "" or dateResult == "None"):
+                query = "UPDATE Applications SET dateApplied = %s, result = %s, dateResult = NULL WHERE applicationID = %s;"
+                cur = mysql.connection.cursor()
+                cur.execute(query, (dateApplied, result, id))
+                mysql.connection.commit()
+
+            # No NULL inputs
+            else:
+                query = "UPDATE Applications SET dateApplied = %s, result = %s, dateResult = %s WHERE applicationID = %s;"
+                cur = mysql.connection.cursor()
+                cur.execute(query, (dateApplied, result, dateResult, id))
+                mysql.connection.commit()
+        
+            return redirect("/applications")
+
 
 
 # Listener
