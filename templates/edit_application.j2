@@ -1,0 +1,69 @@
+<html>
+<!-- 
+    Citation for the following file:
+    11/17/2022
+    Based on:
+    edit_people.j2 file from the Flask Starter App repo by Professor Michael Curry
+    https://github.com/osu-cs340-ecampus/flask-starter-app/blob/master/bsg_people_app/templates/edit_people.j2
+-->
+
+<head>
+	<title>Edit Application</title>
+    <link href="../static/style.css" rel="stylesheet" type="text/css" />
+</head>
+
+<body>
+
+    <!-- EDIT --> 
+    <div id='edit'>
+        <!-- form to UPDATE an Application -->
+        <form id="editApplication" action="/edit-application/{{data[0].applicationID}}" method="post">
+            <legend><strong>Update Application</strong></legend>
+            <fieldset>
+                <label>ID: <span>{{data[0].applicationID}}</span></label>
+
+                <label for="dateApplied">Date Applied:</label>
+                <input 
+                    type="date" 
+                    class="form-control" 
+                    id="dateApplied" 
+                    name="dateApplied" 
+                    value="{{data[0].dateApplied}}"
+                    required
+                />
+
+                <label for="results">Result:</label>
+                <select class="form-control" name="result" id="result" required>
+                {% for item in applicationResults %}
+                    {% for key in item.keys() %}
+                        {% if data[0].result == key %}
+                            <option value="{{ key }}" selected>{{item[key]}}</option>
+                        {% else %}
+                            <option value="{{ key }}">{{item[key]}}</option>
+                </select>
+
+                <label for="dateResult">Result Date:</label> 
+                <input 
+                    type="date" 
+                    class="form-control" 
+                    id="dateResult" 
+                    name="dateResult" 
+                    value="{{data[0].dateResult}}"
+                />
+            </fieldset>
+            <input 
+                type="submit" 
+                value="Update Application"
+                name="Update_Application"
+                class="btn btn-primary" 
+                style="margin:.5rem;"
+            />
+            <a href='/applications'>
+                <input class="btn" type="button" value="Cancel">
+            </a>
+        </form>
+    </div>
+    <!-- END EDIT -->
+
+</body>
+</html>
