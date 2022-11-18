@@ -1,0 +1,56 @@
+<html>
+<head>
+	<title>Search Applications</title>
+    <link href="../static/style.css" rel="stylesheet" type="text/css" />
+</head>
+
+<body>
+
+<!-- BROWSE -->
+    <div id='searchApplication'>
+        <h3>Search Results</h3>
+        <table>
+        <!-- Access data passed from app.py -->
+            <thead>
+                <tr>
+                    <th>ID</th>
+                    <th>Date Applied</th>
+                    <th>Result</th>
+                    <th>Result Date</th>
+                    <th>Applicant</th>
+                    <th>Position</th>
+                </tr>
+            </thead>
+
+
+            <tbody>
+            <!-- Iterate through every item in data -->
+            {% for item in search_data %}
+                <tr>
+                {% for key in item.keys() %}
+                    {% if key == result %}
+                        {% if item[key] == 0 %}
+                            <td>Submitted</td>
+                        {% elif item[key] == 1 %}
+                            <td>In Process</td>
+                        {% elif item[key] == 2 %}
+                            <td>Offer</td>
+                        {% elif item[key] == 3 %}
+                            <td>Rejection</td>
+                        {% endif %}
+                    {% else %}
+                        <!-- Create a <td> element with the value of that key in it -->
+                        <td> {{item[key]}} </td> 
+                    {% endif %}
+                {% endfor %}
+                </tr>
+            {% endfor %}
+            </tbody>
+
+        </table>
+        <p>&nbsp;</p>
+    </div>
+    <!-- END BROWSE -->
+
+</body>
+</html>
