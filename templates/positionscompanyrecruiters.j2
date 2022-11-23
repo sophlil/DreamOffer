@@ -6,6 +6,12 @@
     people.j2 file from the Flask Starter App repo by Professor Michael Curry
     https://github.com/osu-cs340-ecampus/flask-starter-app/blob/master/bsg_people_app/templates/people.j2
 -->
+<!--
+    Citation for regex in pattern attribute of INSERT form's text input for "name":
+    11/23/2022
+    Copied from:
+    https://stackoverflow.com/questions/26821463/regex-exact-match-first-and-last-name-with-one-space-between
+-->
 <!-- Adapted from the positionscompanyrecruiters_crud.html UI design -->
 <head>
     <title>Positions and Recruiters</title>
@@ -277,6 +283,47 @@
         <form id="insertRecruiter" action="/positionscompanyrecruiters" method="post">
             <legend><strong>Add Recruiter</strong></legend>
             <fieldset>
+                <label for="name">Recruiter Name</label> 
+                <input 
+                    type="text" 
+                    class="form-control"
+                    id="rec-name" name="rec-name" 
+                    pattern="^[A-Z][a-z]+\s[A-Z][a-z]+$" 
+                    placeholder="" 
+                    required
+                />
+                <label for="email">Email</label> 
+                <input 
+                    type="email" 
+                    class="form-control"
+                    id="email" name="email" 
+                />
+                <label for="phone">Phone</label> 
+                <input 
+                    type="text" 
+                    class="form-control"
+                    id="phone" name="phone" 
+                    pattern="^(\+\d{1,2}\s?)?1?\-?\.?\s?\(?\d{3}\)?[\s.-]?\d{3}[\s.-]?\d{4}$"
+                    placeholder=""
+                />
+                <label for="linkedin">LinkedIn</label> 
+                <input 
+                    type="text" 
+                    class="form-control"
+                    id="linkedin" name="linkedin" 
+                />
+                <label for="lastContacted">Last Contacted</label> 
+                <input 
+                    type="date" 
+                    class="form-control"
+                    id="lastContacted" name="lastContacted" 
+                />
+                <label for="details">Details</label> 
+                <input 
+                    type="text" 
+                    class="form-control"
+                    id="details" name="details" 
+                />
             </fieldset>
             <!-- Create 'Add Recruiter' and 'Cancel' buttons -->
             <input type="submit" value="Add Recruiter" name="Add_Recruiter" class="btn btn-primary" style="margin:.5rem;">
