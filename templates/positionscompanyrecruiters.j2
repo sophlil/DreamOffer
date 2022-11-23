@@ -13,25 +13,25 @@
     <script language="JavaScript" defer>
         function showForm(form) {
             if (form == 'insert-pos') {
-                document.getElementsByClassName('browse').style.display = 'none';
+                document.getElementsById('browse').style.display = 'none';
                 document.getElementById('insert-pos').style.display = 'block';
                 document.getElementById('insert-aff').style.display = 'none';
                 document.getElementById('insert-rec').style.display = 'none';
             } else if (form == 'insert-aff') {
-                document.getElementsByClassName('browse').style.display = 'none';
+                document.getElementsById('browse').style.display = 'none';
                 document.getElementById('insert-pos').style.display = 'none';
                 document.getElementById('insert-aff').style.display = 'block';
                 document.getElementById('insert-rec').style.display = 'none';
             } else if (form == 'insert-rec') {
-                document.getElementsByClassName('browse').style.display = 'none';
+                document.getElementsById('browse').style.display = 'none';
                 document.getElementById('insert-pos').style.display = 'none';
                 document.getElementById('insert-aff').style.display = 'none';
                 document.getElementById('insert-rec').style.display = 'block';
             } else { // display browse by default
-                document.getElementsByClassName('browse').style.display = 'block';
-                document.getElementById('insert').style.display = 'none';
-                document.getElementById('insert').style.display = 'none';
-                document.getElementById('insert').style.display = 'none';
+                document.getElementsById('browse').style.display = 'block';
+                document.getElementById('insert-pos').style.display = 'none';
+                document.getElementById('insert-aff').style.display = 'none';
+                document.getElementById('insert-rec').style.display = 'none';
             }
         }
 
@@ -66,8 +66,8 @@
     <a href="/companies">Companies</a> |
     <a href="/positionscompanyrecruiters">Positions & Company Recruiters</a>
     
+    <div id='browse'>
     <!-- Select (Show) Positions-->
-    <div class='browse'>
         <h3>Browse Positions</h3>
         <table>
         <!-- Access data passed from app.py -->
@@ -105,10 +105,8 @@
         {% endif %}
         </table>
         <p>&nbsp;</p>
-    </div>
 
     <!-- Select (Show) Positions and Recruiters-->
-    <div class='browse'>
         <h3>Browse Position and Recruiter Affiliations</h3>
         <table>
         <!-- Access data passed from app.py -->
@@ -152,10 +150,8 @@
         {% endif %}
         </table>
         <p>&nbsp;</p>
-    </div>
 
     <!-- Select (Show) Recruiters-->
-    <div class='browse'>
         <h3>Browse Recruiters</h3>
         <table>
             <!-- Access data passed from app.py -->
@@ -200,6 +196,51 @@
     <div id='insert-pos'>
         <!-- form to INSERT new Position into Positions entity -->
         <form id="insertPosition" action="/positionscompanyrecruiters" method="post">
+            <legend><strong>Add Position</strong></legend>
+            <fieldset>
+                <label for="company-names">Company Name</label>
+                    <select class="form-control" name="company-names" id="company-names" required>
+                        <option value="NULL" selected>NULL</option>
+                        {% for company in companies %}
+                            <option value="{{ company['companyID'] }}"> {{company['name']}}</option>
+                        {% endfor %}
+                    </select>
+                <label for="title">Title</label> 
+                <input 
+                    type="text" 
+                    class="form-control"
+                    id="pos-title" name="pos-title" 
+                    placeholder=""
+                    required
+                />
+                <label for="location">Location</label> 
+                <input 
+                    type="text" 
+                    class="form-control"
+                    id="location" name="location" 
+                    placeholder=""
+                />
+                <label for="salary">Salary</label> 
+                <input 
+                    type="number" 
+                    class="form-control"
+                    id="salary" name="salary" 
+                    placeholder=""
+                />
+                <label for="link">Link</label> 
+                <input 
+                    type="text" 
+                    class="form-control"
+                    id="link" name="link" 
+                    placeholder=""
+                    required 
+                />
+            </fieldset>
+            <!-- Create 'Add Position' and 'Cancel' buttons -->
+            <input type="submit" value="Add Position" name="Add_Position" class="btn btn-primary" style="margin:.5rem;">
+            <a href='/positionscompanyrecruiters'>
+                <input class="btn" type="button" value="Cancel">
+            </a>
         </form>
     </div>
 
@@ -207,6 +248,26 @@
     <div id='insert-aff'>
         <!-- form to INSERT new Position & Recruiter Affiliation -->
         <form id="insertAffiliation" action="/positionscompanyrecruiters" method="post">
+            <legend><strong>Add Position and Recruiter Affiliation</strong></legend>
+            <fieldset>
+                <label for="title">Position Title</label>
+                    <select name="title" id="title">
+                        {% for position in positions %}
+                            <option value="{{ position['positionID'] }}"> {{position['title']}}</option>
+                        {% endfor %}
+                    </select>
+                <label for="name">Recruiter Name</label>
+                    <select name="name" id="name">
+                        {% for recruiter in recruiters %}
+                            <option value="{{ recruiter['recruiterID'] }}"> {{recruiter['name']}}</option>
+                        {% endfor %}
+                    </select>
+            </fieldset>
+            <!-- Create 'Add Position and Recruiter Affiliation' and 'Cancel' buttons -->
+            <input type="submit" value="Add Position and Recruiter Affiliation" name="Add_Affiliation" class="btn btn-primary" style="margin:.5rem;">
+            <a href='/positionscompanyrecruiters'>
+                <input class="btn" type="button" value="Cancel">
+            </a>
         </form>
     </div>
 
@@ -214,6 +275,14 @@
     <div id='insert-rec'>
         <!-- form to INSERT new Recruiter into Recruiters entity -->
         <form id="insertRecruiter" action="/positionscompanyrecruiters" method="post">
+            <legend><strong>Add Recruiter</strong></legend>
+            <fieldset>
+            </fieldset>
+            <!-- Create 'Add Recruiter' and 'Cancel' buttons -->
+            <input type="submit" value="Add Recruiter" name="Add_Recruiter" class="btn btn-primary" style="margin:.5rem;">
+            <a href='/positionscompanyrecruiters'>
+                <input class="btn" type="button" value="Cancel">
+            </a>
         </form>
     </div>
 </body>
