@@ -21,9 +21,9 @@ app = Flask(__name__)
 
 # database connection info
 app.config["MYSQL_HOST"] = "classmysql.engr.oregonstate.edu"
-app.config["MYSQL_USER"] = "cs340_lilients"
-app.config["MYSQL_PASSWORD"] = "9464"
-app.config["MYSQL_DB"] = "cs340_lilients"
+app.config["MYSQL_USER"] = "cs340_OSUusername"
+app.config["MYSQL_PASSWORD"] = "XXXX"
+app.config["MYSQL_DB"] = "cs340_OSUusername"
 app.config["MYSQL_CURSORCLASS"] = "DictCursor"
 
 mysql = MySQL(app)
@@ -401,7 +401,7 @@ def positionscompanyrecruiters():
         # Fires off if user presses the Add Position button
         if request.form.get("Add_Position"):
             # Grabs user form inputs
-            companyID = request.form["companyID"]  # Optional
+            companyID = request.form["company-names"]  # Optional
             title = request.form["title"]  # Required
             location = request.form["location"] # Optional
             salary = request.form["salary"]  # Optional
