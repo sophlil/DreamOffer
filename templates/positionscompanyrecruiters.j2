@@ -198,6 +198,43 @@
         <form id="insertPosition" action="/positionscompanyrecruiters" method="post">
             <legend><strong>Add Position</strong></legend>
             <fieldset>
+                <label for="company-names">Company Name</label>
+                    <select class="form-control" name="company-names" id="company-names" required>
+                        <option value="NULL" selected>NULL</option>
+                        {% for company in companies %}
+                            <option value="{{ company['companyID'] }}"> {{company['name']}}</option>
+                        {% endfor %}
+                    </select>
+                <label for="title">Title</label> 
+                <input 
+                    type="text" 
+                    class="form-control"
+                    id="title" name="title" 
+                    placeholder=""
+                    required
+                />
+                <label for="location">Location</label> 
+                <input 
+                    type="text" 
+                    class="form-control"
+                    id="location" name="location" 
+                    placeholder=""
+                />
+                <label for="salary">Salary</label> 
+                <input 
+                    type="number" 
+                    class="form-control"
+                    id="salary" name="salary" 
+                    placeholder=""
+                />
+                <label for="link">Link</label> 
+                <input 
+                    type="text" 
+                    class="form-control"
+                    id="link" name="link" 
+                    placeholder=""
+                    required 
+                />
             </fieldset>
             <!-- Create 'Add Position' and 'Cancel' buttons -->
             <input type="submit" value="Add Position" name="Add_Position" class="btn btn-primary" style="margin:.5rem;">
