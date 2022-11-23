@@ -209,7 +209,7 @@
                 <input 
                     type="text" 
                     class="form-control"
-                    id="title" name="title" 
+                    id="pos-title" name="pos-title" 
                     placeholder=""
                     required
                 />
@@ -250,6 +250,18 @@
         <form id="insertAffiliation" action="/positionscompanyrecruiters" method="post">
             <legend><strong>Add Position and Recruiter Affiliation</strong></legend>
             <fieldset>
+                <label for="title">Position Title</label>
+                    <select name="title" id="title">
+                        {% for position in positions %}
+                            <option value="{{ position['positionID'] }}"> {{position['title']}}</option>
+                        {% endfor %}
+                    </select>
+                <label for="name">Recruiter Name</label>
+                    <select name="name" id="name">
+                        {% for recruiter in recruiters %}
+                            <option value="{{ recruiter['recruiterID'] }}"> {{recruiter['name']}}</option>
+                        {% endfor %}
+                    </select>
             </fieldset>
             <!-- Create 'Add Position and Recruiter Affiliation' and 'Cancel' buttons -->
             <input type="submit" value="Add Position and Recruiter Affiliation" name="Add_Affiliation" class="btn btn-primary" style="margin:.5rem;">
