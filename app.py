@@ -293,6 +293,17 @@ def applications():
         
             return redirect("/applications")
 
+# route for SEARCH Applications page
+@app.route("/search-applications/<int:id>", methods=["POST", "GET"])
+def search_application(id):
+    if request.method == "GET":
+        query = "SELECT applicationID, dateApplied, result, dateResult, Applicants.name, Positions.title FROM Applications INNER JOIN Applicants ON Applications.applicantID = Applicants.applicantID INNER JOIN Positions ON Applications.positionID = Positions.positionID WHERE Applications.applicantID = %s;" % (id)
+        cur = mysql.connection.cursor()
+        cur.execute(query)
+        data = cur.fetchall()
+
+        return render_template("search_application.j2", search_data=data)
+
 # route for UPDATE Applications page
 @app.route("/edit-application/<int:id>", methods=["POST", "GET"])
 def edit_application(id):
@@ -360,6 +371,30 @@ def delete_application(id):
         # redirect back to Applications page
         return redirect("/applications")
 
+# 
+# route for READ & CREATE Positions and Recruiters page
+@app.route("/positionscompanyrecruiters", methods=["POST", "GET"])
+def positionscompanyrecruiters():
+    if request.method == "GET":
+        # Get Positions data to send to our template to display - READ
+        query1 = "SELECT Companies.name, Positions.title, Positions.location, Positions.salary, Positions.link, Positions.positionID FROM Positions INNER JOIN Companies ON Companies.companyID = Positions.companyID;"
+        cur = mysql.connection.cursor()
+        cur.execute(query1)
+        position_data = cur.fetchall()
+
+        # Get PositionsCompanyRecruiters data to send to our template to display - READ
+        query2 = "SELECT Companies.name, Positions.title, Positions.link, CompanyRecruiters.name, CompanyRecruiters.recruiterID, Positions.positionID FROM Positions INNER JOIN Companies ON Companies.companyID = Positions.companyID INNER JOIN PositionsCompanyRecruiters ON Positions.positionID = PositionsCompanyRecruiters.positionID INNER JOIN CompanyRecruiters ON PositionsCompanyRecruiters.recruiterID = CompanyRecruiters.recruiterID;"
+        cur = mysql.connection.cursor()
+        cur.execute(query2)
+        affiliation_data = cur.fetchall()
+
+        # Get Recruiters data to send to our template to display - READ
+        query3 = "SELECT name, email, phone, linkedin, lastContacted, details, recruiterID FROM CompanyRecruiters;"
+        cur = mysql.connection.cursor()
+        cur.execute(query3)
+        recruiter_data = cur.fetchall()
+
+        return render_template("positionscompanyrecruiters.j2", position_data=position_data, affiliation_data=affiliation_data, recruiter_data=recruiter_data)
 
 
 # Listener

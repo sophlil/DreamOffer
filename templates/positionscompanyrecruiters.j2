@@ -1,0 +1,220 @@
+<html>
+<!-- 
+    Citation for the following file:
+    11/22/2022
+    Based on:
+    people.j2 file from the Flask Starter App repo by Professor Michael Curry
+    https://github.com/osu-cs340-ecampus/flask-starter-app/blob/master/bsg_people_app/templates/people.j2
+-->
+<!-- Adapted from the positionscompanyrecruiters_crud.html UI design -->
+<head>
+    <title>Positions and Recruiters</title>
+    <link rel="stylesheet" href="../static/style.css" type="text/css">
+    <script language="JavaScript" defer>
+        function showForm(form) {
+            if (form == 'insert-pos') {
+                document.getElementsByClassName('browse').style.display = 'none';
+                document.getElementById('insert-pos').style.display = 'block';
+                document.getElementById('insert-aff').style.display = 'none';
+                document.getElementById('insert-rec').style.display = 'none';
+            } else if (form == 'insert-aff') {
+                document.getElementsByClassName('browse').style.display = 'none';
+                document.getElementById('insert-pos').style.display = 'none';
+                document.getElementById('insert-aff').style.display = 'block';
+                document.getElementById('insert-rec').style.display = 'none';
+            } else if (form == 'insert-rec') {
+                document.getElementsByClassName('browse').style.display = 'none';
+                document.getElementById('insert-pos').style.display = 'none';
+                document.getElementById('insert-aff').style.display = 'none';
+                document.getElementById('insert-rec').style.display = 'block';
+            } else { // display browse by default
+                document.getElementsByClassName('browse').style.display = 'block';
+                document.getElementById('insert').style.display = 'none';
+                document.getElementById('insert').style.display = 'none';
+                document.getElementById('insert').style.display = 'none';
+            }
+        }
+
+        function newPosition() {
+            showForm('insert-pos');
+        }
+
+        function newAffiliation() {
+            showForm('insert-aff');
+        }
+
+        function newRecruiter() {
+            showForm('insert-rec');
+        }
+
+        function browseAll() {
+            showForm('browse');
+        }
+
+        window.addEventListener('load', () => {
+            showForm('browse');
+        });
+    </script>
+</head>
+
+<body>
+    <h1>Positions & Company Recruiters</h1>
+
+    <a href="/">Home</a> |
+    <a href="/applicants">Applicants</a> |
+    <a href="/applications">Applications</a> |
+    <a href="/companies">Companies</a> |
+    <a href="/positionscompanyrecruiters">Positions & Company Recruiters</a>
+    
+    <!-- Select (Show) Positions-->
+    <div class='browse'>
+        <h3>Browse Positions</h3>
+        <table>
+        <!-- Access data passed from app.py -->
+            <thead>
+                <tr>
+                    <th><a href="#" onClick="newPosition()">New</a></th>
+                    <th>Company</th>
+                    <th>Title</th>
+                    <th>Location</th>
+                    <th>Salary</th>
+                    <th>Link</th>
+                    <th>Position ID</th>
+                </tr>
+            </thead>
+
+        {% if position_data %}
+            <tbody>
+            <!-- Iterate through every item in data -->
+            {% for item in position_data %}
+                <tr>
+                    <!-- Edit button for each item -->
+                    <td>
+                        <a href="/edit-position/{{item.positionID}}" class="edit-btn">
+                            Edit
+                        </a>
+                    </td>
+                {% for key in item.keys() %}
+
+                    <!-- Create a <td> element with the value of that key in it -->
+                    <td> {{item[key]}} </td> 
+                {% endfor %}
+                </tr>
+            {% endfor %}
+            </tbody>
+        {% endif %}
+        </table>
+        <p>&nbsp;</p>
+    </div>
+
+    <!-- Select (Show) Positions and Recruiters-->
+    <div class='browse'>
+        <h3>Browse Position and Recruiter Affiliations</h3>
+        <table>
+        <!-- Access data passed from app.py -->
+            <thead>
+                <tr>
+                    <th><a href="#" onClick="newAffiliation()">New</a></th>
+                    <th></th>
+                    <th>Company</th>
+                    <th>Title</th>
+                    <th>Link</th>
+                    <th>Recruiter Name</th>
+                    <th>Recruiter ID</th>
+                    <th>Position ID</th>
+                </tr>
+            </thead>
+        
+        {% if affiliation_data %}
+            <tbody>
+            <!-- Iterate through every item in data -->
+            {% for item in affiliation_data %}
+                <tr>
+                    <!-- Edit and Delete buttons for each item -->
+                    <td>
+                        <a href="/edit-affiliation/{{item.positionsCompanyRecruitersID}}" class="edit-btn">
+                            Edit
+                        </a>
+                    </td>
+                    <td>
+                        <a href="/delete-affiliation/{{item.positionsCompanyRecruitersID}}" class="delete-btn">
+                            Delete
+                        </a>
+                    </td>
+                {% for key in item.keys() %}
+
+                    <!-- Create a <td> element with the value of that key in it -->
+                    <td> {{item[key]}} </td> 
+                {% endfor %}
+                </tr>
+            {% endfor %}
+            </tbody>
+        {% endif %}
+        </table>
+        <p>&nbsp;</p>
+    </div>
+
+    <!-- Select (Show) Recruiters-->
+    <div class='browse'>
+        <h3>Browse Recruiters</h3>
+        <table>
+            <!-- Access data passed from app.py -->
+            <thead>
+                <tr>
+                    <th><a href="#" onClick="newRecruiter()">New</a></th>
+                    <th>Name</th>
+                    <th>Email</th>
+                    <th>Phone</th>
+                    <th>LinkedIn</th>
+                    <th>Last Contacted</th>
+                    <th>Details</th>
+                    <th>Recruiter ID</th>
+                </tr>
+            </thead>
+        
+        {% if recruiter_data %}
+            <tbody>
+            <!-- Iterate through every item in data -->
+            {% for item in recruiter_data %}
+                <tr>
+                    <!-- Edit button for each item -->
+                    <td>
+                        <a href="/edit-recruiter/{{item.recruiterID}}" class="edit-btn">
+                            Edit
+                        </a>
+                    </td>
+                {% for key in item.keys() %}
+
+                    <!-- Create a <td> element with the value of that key in it -->
+                    <td> {{item[key]}} </td> 
+                {% endfor %}
+                </tr>
+            {% endfor %}
+            </tbody>
+        {% endif %}
+        </table>
+        <p>&nbsp;</p>
+    </div>
+
+    <!-- Add Position Form -->
+    <div id='insert-pos'>
+        <!-- form to INSERT new Position into Positions entity -->
+        <form id="insertPosition" action="/positionscompanyrecruiters" method="post">
+        </form>
+    </div>
+
+    <!-- Add Position & Recruiter Affiliation Form -->
+    <div id='insert-aff'>
+        <!-- form to INSERT new Position & Recruiter Affiliation -->
+        <form id="insertAffiliation" action="/positionscompanyrecruiters" method="post">
+        </form>
+    </div>
+
+    <!-- Add Recruiter Form -->
+    <div id='insert-rec'>
+        <!-- form to INSERT new Recruiter into Recruiters entity -->
+        <form id="insertRecruiter" action="/positionscompanyrecruiters" method="post">
+        </form>
+    </div>
+</body>
+</html>
