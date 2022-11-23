@@ -25,22 +25,22 @@
     <script language="JavaScript" defer>
         function showForm(form) {
             if (form == 'insert-pos') {
-                document.getElementsById('browse').style.display = 'none';
+                document.getElementById('browse').style.display = 'none';
                 document.getElementById('insert-pos').style.display = 'block';
                 document.getElementById('insert-aff').style.display = 'none';
                 document.getElementById('insert-rec').style.display = 'none';
             } else if (form == 'insert-aff') {
-                document.getElementsById('browse').style.display = 'none';
+                document.getElementById('browse').style.display = 'none';
                 document.getElementById('insert-pos').style.display = 'none';
                 document.getElementById('insert-aff').style.display = 'block';
                 document.getElementById('insert-rec').style.display = 'none';
             } else if (form == 'insert-rec') {
-                document.getElementsById('browse').style.display = 'none';
+                document.getElementById('browse').style.display = 'none';
                 document.getElementById('insert-pos').style.display = 'none';
                 document.getElementById('insert-aff').style.display = 'none';
                 document.getElementById('insert-rec').style.display = 'block';
             } else { // display browse by default
-                document.getElementsById('browse').style.display = 'block';
+                document.getElementById('browse').style.display = 'block';
                 document.getElementById('insert-pos').style.display = 'none';
                 document.getElementById('insert-aff').style.display = 'none';
                 document.getElementById('insert-rec').style.display = 'none';
