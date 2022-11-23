@@ -377,7 +377,7 @@ def delete_application(id):
 def positionscompanyrecruiters():
     if request.method == "GET":
         # Get Positions data to send to our template to display - READ
-        query1 = "SELECT Companies.name, Positions.title, Positions.location, Positions.salary, Positions.link, Positions.positionID FROM Positions INNER JOIN Companies ON Companies.companyID = Positions.companyID;"
+        query1 = "SELECT Companies.name, Positions.title, Positions.location, Positions.salary, Positions.link, Positions.positionID FROM Positions LEFT JOIN Companies ON Companies.companyID = Positions.companyID;"
         cur = mysql.connection.cursor()
         cur.execute(query1)
         position_data = cur.fetchall()
@@ -394,7 +394,13 @@ def positionscompanyrecruiters():
         cur.execute(query3)
         recruiter_data = cur.fetchall()
 
-        return render_template("positionscompanyrecruiters.j2", position_data=position_data, affiliation_data=affiliation_data, recruiter_data=recruiter_data)
+        # Get Companies data to send to our template to display - READ
+        query4 = "SELECT companyID, name FROM Companies;"
+        cur = mysql.connection.cursor()
+        cur.execute(query4)
+        company_data = cur.fetchall()
+
+        return render_template("positionscompanyrecruiters.j2", position_data=position_data, affiliation_data=affiliation_data, recruiter_data=recruiter_data, company_data=company_data)
 
     # Insert new Position into Positions entity - CREATE
     if request.method == "POST":
