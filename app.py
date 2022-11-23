@@ -21,9 +21,9 @@ app = Flask(__name__)
 
 # database connection info
 app.config["MYSQL_HOST"] = "classmysql.engr.oregonstate.edu"
-app.config["MYSQL_USER"] = "cs340_lilients"
-app.config["MYSQL_PASSWORD"] = "9464"
-app.config["MYSQL_DB"] = "cs340_lilients"
+app.config["MYSQL_USER"] = "cs340_OSUusername"
+app.config["MYSQL_PASSWORD"] = "XXXX"
+app.config["MYSQL_DB"] = "cs340_OSUusername"
 app.config["MYSQL_CURSORCLASS"] = "DictCursor"
 
 mysql = MySQL(app)
@@ -396,6 +396,74 @@ def positionscompanyrecruiters():
 
         return render_template("positionscompanyrecruiters.j2", position_data=position_data, affiliation_data=affiliation_data, recruiter_data=recruiter_data)
 
+    # Insert new Position into Positions entity - CREATE
+    if request.method == "POST":
+        # Fires off if user presses the Add Position button
+        if request.form.get("Add_Position"):
+            # Grabs user form inputs
+            companyID = request.form["companyID"]  # Optional
+            title = request.form["title"]  # Required
+            location = request.form["location"] # Optional
+            salary = request.form["salary"]  # Optional
+            link = request.form["link"]  # Required
+
+             # NULL companyID AND NULL location AND NULL salary
+            if (companyID == "" or companyID == "None") and (location == "" or location == "None") and (salary == "" or salary == "None"):
+                query = "INSERT INTO Positions (title, link) VALUES (%s, %s)"
+                cur = mysql.connection.cursor()
+                cur.execute(query, (title, link))
+                mysql.connection.commit()
+
+            # NULL companyID AND NULL location
+            elif (companyID == "" or companyID == "None") and (location == "" or location == "None"):
+                query = "INSERT INTO Positions (title, salary, link) VALUES (%s, %s, %s)"
+                cur = mysql.connection.cursor()
+                cur.execute(query, (title, salary, link))
+                mysql.connection.commit()
+            
+            # NULL companyID AND NULL salary
+            elif (companyID == "" or companyID == "None") and (salary == "" or salary == "None"):
+                query = "INSERT INTO Positions (title, location, link) VALUES (%s, %s, %s)"
+                cur = mysql.connection.cursor()
+                cur.execute(query, (title, location, link))
+                mysql.connection.commit()
+            
+            # NULL location AND NULL salary
+            elif (location == "" or location == "None") and (salary == "" or salary == "None"):
+                query = "INSERT INTO Positions (companyID, title, link) VALUES (%s, %s, %s)"
+                cur = mysql.connection.cursor()
+                cur.execute(query, (companyID, title, link))
+                mysql.connection.commit()
+            
+            # NULL location
+            elif location == "" or location == "None":
+                query = "INSERT INTO Positions (companyID, title, salary, link) VALUES (%s, %s, %s, %s)"
+                cur = mysql.connection.cursor()
+                cur.execute(query, (companyID, title, salary, link))
+                mysql.connection.commit()
+            
+            # NULL companyID
+            elif companyID == "" or companyID == "None":
+                query = "INSERT INTO Positions (title, location, salary, link) VALUES (%s, %s, %s, %s)"
+                cur = mysql.connection.cursor()
+                cur.execute(query, (title, location, salary, link))
+                mysql.connection.commit()
+            
+            # NULL salary
+            elif salary == "" or salary == "None":
+                query = "INSERT INTO Positions (companyID, title, location, link) VALUES (%s, %s, %s, %s)"
+                cur = mysql.connection.cursor()
+                cur.execute(query, (companyID, title, location, link))
+                mysql.connection.commit()
+
+            # No NULL inputs
+            else:
+                query = "INSERT INTO Positions (companyID, title, location, salary, link) VALUES (%s, %s, %s, %s, %s)"
+                cur = mysql.connection.cursor()
+                cur.execute(query, (companyID, title, location, salary, link))
+                mysql.connection.commit()
+        
+            return redirect("/positionscompanyrecruiters")
 
 # Listener
 if __name__ == "__main__":
