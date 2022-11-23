@@ -11,7 +11,50 @@
     <title>Positions and Recruiters</title>
     <link rel="stylesheet" href="../static/style.css" type="text/css">
     <script language="JavaScript" defer>
-    <script>
+        function showForm(form) {
+            if (form == 'insert-pos') {
+                document.getElementsByClassName('browse').style.display = 'none';
+                document.getElementById('insert-pos').style.display = 'block';
+                document.getElementById('insert-aff').style.display = 'none';
+                document.getElementById('insert-rec').style.display = 'none';
+            } else if (form == 'insert-aff') {
+                document.getElementsByClassName('browse').style.display = 'none';
+                document.getElementById('insert-pos').style.display = 'none';
+                document.getElementById('insert-aff').style.display = 'block';
+                document.getElementById('insert-rec').style.display = 'none';
+            } else if (form == 'insert-rec') {
+                document.getElementsByClassName('browse').style.display = 'none';
+                document.getElementById('insert-pos').style.display = 'none';
+                document.getElementById('insert-aff').style.display = 'none';
+                document.getElementById('insert-rec').style.display = 'block';
+            } else { // display browse by default
+                document.getElementsByClassName('browse').style.display = 'block';
+                document.getElementById('insert').style.display = 'none';
+                document.getElementById('insert').style.display = 'none';
+                document.getElementById('insert').style.display = 'none';
+            }
+        }
+
+        function newPosition() {
+            showForm('insert-pos');
+        }
+
+        function newAffiliation() {
+            showForm('insert-aff');
+        }
+
+        function newRecruiter() {
+            showForm('insert-rec');
+        }
+
+        function browseAll() {
+            showForm('browse');
+        }
+
+        window.addEventListener('load', () => {
+            showForm('browse');
+        });
+    </script>
 </head>
 
 <body>
@@ -22,15 +65,15 @@
     <a href="/applications">Applications</a> |
     <a href="/companies">Companies</a> |
     <a href="/positionscompanyrecruiters">Positions & Company Recruiters</a>
-
+    
     <!-- Select (Show) Positions-->
-    <div id='browse-pos'>
+    <div class='browse'>
         <h3>Browse Positions</h3>
         <table>
         <!-- Access data passed from app.py -->
             <thead>
                 <tr>
-                    <th><a href="#" onClick="newApplication()">New</a></th>
+                    <th><a href="#" onClick="newPosition()">New</a></th>
                     <th>Company</th>
                     <th>Title</th>
                     <th>Location</th>
@@ -65,13 +108,13 @@
     </div>
 
     <!-- Select (Show) Positions and Recruiters-->
-    <div id='browse-aff'>
+    <div class='browse'>
         <h3>Browse Position and Recruiter Affiliations</h3>
         <table>
         <!-- Access data passed from app.py -->
             <thead>
                 <tr>
-                    <th><a href="#" onClick="newApplicant()">New</a></th>
+                    <th><a href="#" onClick="newAffiliation()">New</a></th>
                     <th></th>
                     <th>Company</th>
                     <th>Title</th>
@@ -112,7 +155,7 @@
     </div>
 
     <!-- Select (Show) Recruiters-->
-    <div id='browse-rec'>
+    <div class='browse'>
         <h3>Browse Recruiters</h3>
         <table>
             <!-- Access data passed from app.py -->
