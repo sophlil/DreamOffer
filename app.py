@@ -21,9 +21,9 @@ app = Flask(__name__)
 
 # database connection info
 app.config["MYSQL_HOST"] = "classmysql.engr.oregonstate.edu"
-app.config["MYSQL_USER"] = "cs340_lilients"
-app.config["MYSQL_PASSWORD"] = "9464"
-app.config["MYSQL_DB"] = "cs340_lilients"
+app.config["MYSQL_USER"] = "cs340_OSUusername"
+app.config["MYSQL_PASSWORD"] = "XXXX"
+app.config["MYSQL_DB"] = "cs340_OSUusername"
 app.config["MYSQL_CURSORCLASS"] = "DictCursor"
 
 mysql = MySQL(app)
@@ -402,7 +402,7 @@ def positionscompanyrecruiters():
 
         return render_template("positionscompanyrecruiters.j2", position_data=position_data, affiliation_data=affiliation_data, recruiter_data=recruiter_data, company_data=company_data)
 
-    # Insert new Position into Positions entity - CREATE
+    # Insert new Position or Affiliation or Recruiter into respective entities - CREATE
     if request.method == "POST":
         # Fires off if user presses the Add Position button
         if request.form.get("Add_Position"):
@@ -468,6 +468,21 @@ def positionscompanyrecruiters():
                 cur = mysql.connection.cursor()
                 cur.execute(query, (companyID, title, location, salary, link))
                 mysql.connection.commit()
+        
+            return redirect("/positionscompanyrecruiters")
+
+        # Fires off if user presses the Add Affiliation button
+        if request.form.get("Add_Affiliation"):
+            # Grabs user form inputs
+            positionID = request.form["title"]  # Required
+            recruiterID = request.form["name"]  # Required
+
+             # Since both inputs are required, this is the only query
+            
+            query = "INSERT INTO PositionsCompanyRecruiters (positionID, recruiterID) VALUES (%s, %s)"
+            cur = mysql.connection.cursor()
+            cur.execute(query, (positionID, recruiterID))
+            mysql.connection.commit()
         
             return redirect("/positionscompanyrecruiters")
 
