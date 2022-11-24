@@ -19,8 +19,8 @@
             <legend><strong>Update Position</strong></legend>
             <fieldset>
                 <label>ID: <span>{{data[0].positionID}}</span></label>
-                <label for="name">Company Name</label>
-                <select class="form-control" name="company_name" id="company_name" required>
+                <label for="company">Company Name</label>
+                <select class="form-control" name="company" id="company" required>
                 {% for company in companies_data %}
                     {% if data[0].companyID == company['companyID'] %}
                         <option value="{{ company['companyID'] }}" selected> {{ company['name'] }} </option>
@@ -60,6 +60,7 @@
                     id="link" name="link" 
                     value="{{data[0].link}}"
                     maxlength="100"
+                    required
                 />
             </fieldset>
             <input 
