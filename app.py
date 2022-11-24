@@ -486,7 +486,7 @@ def positionscompanyrecruiters():
         
             return redirect("/positionscompanyrecruiters")
 
-# route for UPDATE Positions page
+# route for UPDATE Position page
 @app.route("/edit-position/<int:id>", methods=["POST", "GET"])
 def edit_position(id):
     # Displays the specific Position's existing attributes
@@ -504,6 +504,19 @@ def edit_position(id):
         companies_data = cur.fetchall()
 
         return render_template("edit_position.j2", data=data, companies_data=companies_data)
+
+# route for UPDATE Recruiter page
+@app.route("/edit-recruiter/<int:id>", methods=["POST", "GET"])
+def edit_recruiter(id):
+    # Displays the specific Recruiter's existing attributes
+    if request.method == "GET":
+        #mySQL query to grab the info of the Recruiter with the passed id
+        query = "SELECT recruiterID, name, email, phone, linkedin, lastContacted, details FROM CompanyRecruiters WHERE recruiterID = %s;" % (id)
+        cur = mysql.connection.cursor()
+        cur.execute(query)
+        data = cur.fetchall()
+
+        return render_template("edit_recruiter.j2", data=data)
 
 # Listener
 if __name__ == "__main__":
