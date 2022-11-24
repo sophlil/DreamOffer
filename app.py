@@ -486,6 +486,25 @@ def positionscompanyrecruiters():
         
             return redirect("/positionscompanyrecruiters")
 
+# route for UPDATE Positions page
+@app.route("/edit-position/<int:id>", methods=["POST", "GET"])
+def edit_position(id):
+    # Displays the specific Position's existing attributes
+    if request.method == "GET":
+        # mySQL query to grab the info of the Position with the passed id
+        query = "SELECT Positions.positionID, Positions.companyID, Companies.name, Positions.title, Positions.location, Positions.salary, Positions.link FROM Positions INNER JOIN Companies ON Companies.companyID = Positions.companyID WHERE positionID = %s;" % (id)
+        cur = mysql.connection.cursor()
+        cur.execute(query)
+        data = cur.fetchall()
+
+        # Show all Company names to populate the Company Name drop down
+        query2 = "SELECT companyID, name FROM Companies;"
+        cur = mysql.connection.cursor()
+        cur.execute(query2)
+        companies_data = cur.fetchall()
+
+        return render_template("edit_position.j2", data=data, companies_data=companies_data)
+
 # Listener
 if __name__ == "__main__":
     app.run(port=56429, debug=True)
