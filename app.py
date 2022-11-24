@@ -505,6 +505,47 @@ def edit_position(id):
 
         return render_template("edit_position.j2", data=data, companies_data=companies_data)
 
+    # After user enters update info, updates specific Position in DB
+    if request.method == "POST":
+        # Fires off if user clicks the 'Update Position' button
+        if request.form.get("Update_Position"):
+            # Grabs user form inputs
+            company = request.form["company"] # Required
+            title = request.form["title"]  # Required
+            location = request.form["location"]  # Optional
+            salary = request.form["salary"]  # Optional
+            link = request.form["link"] # Required
+
+            # NULL location and NULL salary
+            if (location == "" or location == "None") and (salary == "" or salary == "None"):
+                query = "UPDATE Positions SET companyID = %s, title = %s, location = NULL, salary = NULL, link = %s WHERE positionID = %s;"
+                cur = mysql.connection.cursor()
+                cur.execute(query, (company, title, link, id))
+                mysql.connection.commit()
+
+            # NULL location
+            elif (location == "" or location == "None"):
+                query = "UPDATE Positions SET companyID = %s, title = %s, location = NULL, salary = %s, link = %s WHERE positionID = %s;"
+                cur = mysql.connection.cursor()
+                cur.execute(query, (company, title, salary, link, id))
+                mysql.connection.commit()
+
+            # NULL salary
+            elif (salary == "" or salary == "None"):
+                query = "UPDATE Positions SET companyID = %s, title = %s, location = %s, salary = NULL, link = %s WHERE positionID = %s;"
+                cur = mysql.connection.cursor()
+                cur.execute(query, (company, title, location, link, id))
+                mysql.connection.commit()
+
+            # No NULL inputs
+            else:
+                query = "UPDATE Positions SET companyID = %s, title = %s, location = %s, salary = %s, link = %s WHERE positionID = %s;"
+                cur = mysql.connection.cursor()
+                cur.execute(query, (company, title, location, salary, link, id))
+                mysql.connection.commit()
+            
+            return redirect("/positionscompanyrecruiters")
+
 # route for UPDATE Recruiter page
 @app.route("/edit-recruiter/<int:id>", methods=["POST", "GET"])
 def edit_recruiter(id):
