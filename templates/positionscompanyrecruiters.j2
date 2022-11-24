@@ -12,12 +12,6 @@
     Copied from:
     https://stackoverflow.com/questions/26821463/regex-exact-match-first-and-last-name-with-one-space-between
 -->
-<!--
-    Citation for regex in pattern attribute of INSERT Recruiter form's input for "phone":
-    11/23/2022
-    Copied from:
-    https://stackoverflow.com/questions/16699007/regular-expression-to-match-standard-10-digit-phone-number
--->
 <!-- Adapted from the positionscompanyrecruiters_crud.html UI design -->
 <head>
     <title>Positions and Recruiters</title>
@@ -125,7 +119,6 @@
             <thead>
                 <tr>
                     <th><a href="#" onClick="newAffiliation()">New</a></th>
-                    <th></th>
                     <th>Company</th>
                     <th>Title</th>
                     <th>Link</th>
@@ -140,12 +133,7 @@
             <!-- Iterate through every item in data -->
             {% for item in affiliation_data %}
                 <tr>
-                    <!-- Edit and Delete buttons for each item -->
-                    <td>
-                        <a href="/edit-affiliation/{{item.positionsCompanyRecruitersID}}" class="edit-btn">
-                            Edit
-                        </a>
-                    </td>
+                    <!-- Delete buttons for each item -->
                     <td>
                         <a href="/delete-affiliation/{{item.positionsCompanyRecruitersID}}" class="delete-btn">
                             Delete
@@ -223,6 +211,7 @@
                     class="form-control"
                     id="title" name="title" 
                     placeholder=""
+                    maxlength="100"
                     required
                 />
                 <label for="location">Location</label> 
@@ -230,6 +219,7 @@
                     type="text" 
                     class="form-control"
                     id="location" name="location" 
+                    maxlength="100"
                     placeholder=""
                 />
                 <label for="salary">Salary</label> 
@@ -245,6 +235,7 @@
                     class="form-control"
                     id="link" name="link" 
                     placeholder=""
+                    maxlength="100"
                     required 
                 />
             </fieldset>
@@ -295,7 +286,7 @@
                     class="form-control"
                     id="rec-name" name="rec-name" 
                     pattern="^[A-Z][a-z]+\s[A-Z][a-z]+$" 
-                    placeholder="" 
+                    placeholder="John Smith" 
                     required
                 />
                 <label for="email">Email</label> 
@@ -303,14 +294,15 @@
                     type="email" 
                     class="form-control"
                     id="email" name="email" 
+                    placeholder="smithj@gmail.com"
                 />
                 <label for="phone">Phone</label> 
                 <input 
                     type="text" 
                     class="form-control"
                     id="phone" name="phone" 
-                    pattern="^(\+\d{1,2}\s?)?1?\-?\.?\s?\(?\d{3}\)?[\s.-]?\d{3}[\s.-]?\d{4}$"
-                    placeholder=""
+                    pattern="^[0-9]{3}[-][0-9]{3}[-][0-9]{4}$" 
+                    placeholder="XXX-XXX-XXXX"
                 />
                 <label for="linkedin">LinkedIn</label> 
                 <input 
