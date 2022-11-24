@@ -6,6 +6,12 @@
     edit_people.j2 file from the Flask Starter App repo by Professor Michael Curry
     https://github.com/osu-cs340-ecampus/flask-starter-app/blob/master/bsg_people_app/templates/edit_people.j2
 -->
+<!--
+    Citation for regex in pattern attribute for "name":
+    11/24/2022
+    Copied from:
+    https://stackoverflow.com/questions/26821463/regex-exact-match-first-and-last-name-with-one-space-between
+-->
 <head>
 	<title>Edit Recruiter</title>
     <link href="../static/style.css" rel="stylesheet" type="text/css" />
@@ -18,7 +24,67 @@
         <form id="editRecruiter" action="/edit-position/{{data[0].recruiterID}}" method="post">
             <legend><strong>Update Recruiter</strong></legend>
             <fieldset>
+                <label>ID: <span>{{data[0].recruiterID}}</span></label>
+                <label for="name">Name</label> 
+                <input 
+                    type="text" 
+                    class="form-control"
+                    id="name" name="name" 
+                    value="{{ data[0].name }}"
+                    pattern="^[A-Z][a-z]+\s[A-Z][a-z]+$"
+                    maxlength="50" 
+                    required
+                />
+                <label for="email">Email</label> 
+                <input 
+                    type="email" 
+                    class="form-control"
+                    id="name" name="email" 
+                    value="{{ data[0].email }}"
+                    maxlength="50"
+                />
+                <label for="phone">Phone</label> 
+                <input 
+                    type="text" 
+                    class="form-control"
+                    id="phone" name="phone" 
+                    value="{{ data[0].phone }}"
+                    pattern="^[0-9]{3}[-][0-9]{3}[-][0-9]{4}$"
+                />
+                <label for="linkedin">LinkedIn</label> 
+                <input 
+                    type="text" 
+                    class="form-control"
+                    id="linkedin" name="linkedin" 
+                    value="{{ data[0].linkedin }}"
+                    maxlength="100"
+                />
+                <label for="lastContacted">Last Contacted</label> 
+                <input 
+                    type="date" 
+                    class="form-control"
+                    id="lastContacted" name="lastContacted" 
+                    value="{{ data[0].lastContacted }}"
+                />
+                <label for="details">Details</label> 
+                <input 
+                    type="text" 
+                    class="form-control"
+                    id="details" name="details" 
+                    value="{{ data[0].details }}"
+                    maxlength="500"
+                />
             </fieldset>
+            <input 
+                type="submit" 
+                value="Update Recruiter"
+                name="Update_Recruiter"
+                class="btn btn-primary" 
+                style="margin:.5rem;"
+            />
+            <a href='/positionscompanyrecruiters'>
+                <input class="btn" type="button" value="Cancel">
+            </a>
         </form>
     </div>
 
