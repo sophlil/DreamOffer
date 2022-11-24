@@ -559,6 +559,23 @@ def edit_recruiter(id):
 
         return render_template("edit_recruiter.j2", data=data)
 
+    # After user enters update info, updates specific Recruiter in DB
+    if request.method == "POST":
+        # Fires off if user clicks the 'Update Recruiter' button
+        if request.form.get("Update_Recruiter"):
+            # Grabs user form inputs
+            name = request.form["name"] # Required
+            email = request.form["email"]  # Optional
+            phone = request.form["phone"]  # Optional
+            linkedin = request.form["linkedin"]  # Optional
+            lastContacted = request.form["lastContacted"] # Optional
+            details = request.form["details"] # Optional
+
+            # if-elif-else for Optional NULLs
+            #
+            #
+            #
+
 # Listener
 if __name__ == "__main__":
     app.run(port=56429, debug=True)
