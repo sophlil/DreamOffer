@@ -1,0 +1,41 @@
+<html>
+<!-- 
+    Citation for the following file:
+    11/25/2022
+    Based on:
+    edit_people.j2 from the Flask Starter App repo by Professor Michael Curry
+    https://github.com/osu-cs340-ecampus/flask-starter-app/blob/master/bsg_people_app/templates/edit_people.j2
+-->
+<head>
+	<title>Delete Position and Recruiter Affiliation</title>
+    <link href="../static/style.css" rel="stylesheet" type="text/css" />
+</head>
+
+<body>
+
+    <div id='delete'>
+        <!-- form for performing DELETE on a Position and Recruiter Affiliation -->
+        <form id="deleteAffiliation" action="/delete-affiliation/{{data[0].positionsCompanyRecruitersID}}" method="post">
+            <legend><strong>Delete Position and Recruiter Affiliation</strong></legend>
+            <fieldset>
+                <p>Are you sure you want to delete the position and recruiter affiliation?</p>
+                <label><strong>ID: </strong><span>{{data[0].positionID}}</span></label>
+                <label><strong>Title: </strong><span>{{data[0].title}}</span></label>
+                <label><strong>ID: </strong><span>{{data[0].recruiterID}}</span></label>
+                <label><strong>Name: </strong><span>{{data[0].name}}</span></label>
+            </fieldset>
+            <input 
+                type="submit" 
+                value="Delete Affiliation" 
+                name="Delete_Affiliation" 
+                class="btn btn-primary" 
+                style="margin:.5rem;"
+            />
+            <a href='/applications'>
+                <input class="btn" type="button" value="Cancel">
+            </a>
+        </form>
+    </div>
+
+</body>
+</html>
