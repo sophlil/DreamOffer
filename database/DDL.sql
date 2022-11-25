@@ -55,9 +55,9 @@ CREATE TABLE CompanyRecruiters (
     name varchar(50) NOT NULL,
     email varchar(50),
     phone varchar(10),
-    linkedin varchar(100),
-    lastContacted date,
-    details varchar(500),
+    linkedin varchar(100) NOT NULL,
+    lastContacted date NOT NULL,
+    details varchar(500) NOT NULL,
     PRIMARY KEY (recruiterID)
 );
 
@@ -84,9 +84,9 @@ INSERT INTO Companies (companyID, name, description, website) VALUES
 
 INSERT INTO CompanyRecruiters (recruiterID, name, email, phone, linkedin, lastContacted, details) VALUES
 (300, 'Kelsey Wang', 'kwang.1@gmail.com', '318-995-8456', 'linkedin.com/kwang', '2022-10-01', 'Met at OSU Career Fair.'),
-(301, 'Adrian Portillo', 'portilloa@garmin.com', NULL, 'linkedin.com/aportillo', '2022-09-29', NULL),
-(302, 'Daenerys Targaryen', 'targaryensrule@apple.com', NULL, 'linkedin.com/targaryensrule', NULL, 'Reached out on Linkedin.'),
-(303, 'Jon Snow', 'jsnow@aptiv.com', '694-856-3144', NULL, NULL, NULL);
+(301, 'Adrian Portillo', 'portilloa@garmin.com', NULL, 'linkedin.com/aportillo', '2022-09-29', 'Messaged me on Handshake.'),
+(302, 'Daenerys Targaryen', 'targaryensrule@apple.com', NULL, 'linkedin.com/targaryensrule', '2022-01-11', 'Reached out on Linkedin.'),
+(303, 'Jon Snow', 'jsnow@aptiv.com', '694-856-3144', 'linkedin.com/snow', '2022-11-25', 'Found on Aptiv website');
 
 INSERT INTO Positions (positionID, title, location, salary, link, companyID) VALUES
 (200, 'Software Engineer Intern', 'San Jose', NULL, 'aptiv.com/software-engineer-intern', (SELECT companyID FROM Companies WHERE name='Aptiv')),

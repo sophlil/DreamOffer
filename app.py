@@ -485,6 +485,47 @@ def positionscompanyrecruiters():
             mysql.connection.commit()
         
             return redirect("/positionscompanyrecruiters")
+        
+       
+    # Fires off if user presses the Add Recruiter button
+        if request.form.get("Add_Recruiter"):
+            # Grabs user form inputs
+            name = request.form["name"]  # Required
+            email = request.form["email"]  # Optional
+            phone = request.form["phone"] # Optional
+            linkedin = request.form["linkedin"]  # Required
+            lastContacted = request.form["lastContacted"]  # Required
+            details = request.form["details"]  # Required
+
+            # NULL email AND NULL phone
+            if (email == "" or email == "None") and (phone == "" or phone == "None"):
+                query = "INSERT INTO CompanyRecruiters (name, linkedin, lastContacted, details) VALUES (%s, %s, %s, %s)"
+                cur = mysql.connection.cursor()
+                cur.execute(query, (name, linkedin, lastContacted, details))
+                mysql.connection.commit()
+
+            # NULL email
+            elif email == "" or email == "None":
+                query = "INSERT INTO CompanyRecruiters (name, phone, linkedin, lastContacted, details) VALUES (%s, %s, %s, %s, %s)"
+                cur = mysql.connection.cursor()
+                cur.execute(query, (name, phone, linkedin, lastContacted, details))
+                mysql.connection.commit()
+        
+            # NULL phone
+            elif phone == "" or phone == "None":
+                query = "INSERT INTO CompanyRecruiters (name, email, linkedin, lastContacted, details) VALUES (%s, %s, %s, %s, %s)"
+                cur = mysql.connection.cursor()
+                cur.execute(query, (name, email, linkedin, lastContacted, details))
+                mysql.connection.commit()
+
+            # No NULL inputs
+            else:
+                query = "INSERT INTO CompanyRecruiters (name, email, phone, linkedin, lastContacted, details) VALUES (%s, %s, %s, %s, %s, %s)"
+                cur = mysql.connection.cursor()
+                cur.execute(query, (name, email, phone, linkedin, lastContacted, details))
+                mysql.connection.commit()
+    
+            return redirect("/positionscompanyrecruiters")
 
 # route for UPDATE Position page
 @app.route("/edit-position/<int:id>", methods=["POST", "GET"])
