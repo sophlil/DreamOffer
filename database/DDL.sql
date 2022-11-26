@@ -54,7 +54,7 @@ CREATE TABLE CompanyRecruiters (
     recruiterID int(11) AUTO_INCREMENT NOT NULL UNIQUE,
     name varchar(50) NOT NULL,
     email varchar(50),
-    phone varchar(10),
+    phone varchar(12),
     linkedin varchar(100) NOT NULL,
     lastContacted date NOT NULL,
     details varchar(500) NOT NULL,

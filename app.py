@@ -612,10 +612,35 @@ def edit_recruiter(id):
             lastContacted = request.form["lastContacted"] # Optional
             details = request.form["details"] # Optional
 
-            # if-elif-else for Optional NULLs
-            #
-            #
-            #
+            # NULL email AND NULL phone
+            if (email == "" or email == "None") and (phone == "" or phone == "None"):
+                query = "UPDATE CompanyRecruiters SET name = %s, email = NULL, phone = NULL, linkedin = %s, lastContacted = %s, details = %s WHERE recruiterID = %s;"
+                cur = mysql.connection.cursor()
+                cur.execute(query, (name, linkedin, lastContacted, details, id))
+                mysql.connection.commit()
+
+            # NULL email
+            elif email == "" or email == "None":
+                query = "UPDATE CompanyRecruiters SET name = %s, email = NULL, phone = %s, linkedin = %s, lastContacted = %s, details = %s WHERE recruiterID = %s;"
+                cur = mysql.connection.cursor()
+                cur.execute(query, (name, phone, linkedin, lastContacted, details, id))
+                mysql.connection.commit()
+        
+            # NULL phone
+            elif phone == "" or phone == "None":
+                query = "UPDATE CompanyRecruiters SET name = %s, email = %s, phone = NULL, linkedin = %s, lastContacted = %s, details = %s WHERE recruiterID = %s;"
+                cur = mysql.connection.cursor()
+                cur.execute(query, (name, email, linkedin, lastContacted, details, id))
+                mysql.connection.commit()
+
+            # No NULL inputs
+            else:
+                query = "UPDATE CompanyRecruiters SET name = %s, email = %s, phone = %s, linkedin = %s, lastContacted = %s, details = %s WHERE recruiterID = %s;"
+                cur = mysql.connection.cursor()
+                cur.execute(query, (name, email, phone, linkedin, lastContacted, details, id))
+                mysql.connection.commit()
+    
+            return redirect("/positionscompanyrecruiters")
 
 # Listener
 if __name__ == "__main__":
