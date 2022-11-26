@@ -383,7 +383,7 @@ def positionscompanyrecruiters():
         position_data = cur.fetchall()
 
         # Get PositionsCompanyRecruiters data to send to our template to display - READ
-        query2 = "SELECT Companies.name, Positions.title, Positions.link, CompanyRecruiters.name, CompanyRecruiters.recruiterID, Positions.positionID FROM Positions INNER JOIN Companies ON Companies.companyID = Positions.companyID INNER JOIN PositionsCompanyRecruiters ON Positions.positionID = PositionsCompanyRecruiters.positionID INNER JOIN CompanyRecruiters ON PositionsCompanyRecruiters.recruiterID = CompanyRecruiters.recruiterID;"
+        query2 = "SELECT Companies.name, Positions.title, Positions.link, CompanyRecruiters.name, CompanyRecruiters.recruiterID, Positions.positionID, PositionsCompanyRecruiters.positionsCompanyRecruitersID FROM Positions INNER JOIN Companies ON Companies.companyID = Positions.companyID INNER JOIN PositionsCompanyRecruiters ON Positions.positionID = PositionsCompanyRecruiters.positionID INNER JOIN CompanyRecruiters ON PositionsCompanyRecruiters.recruiterID = CompanyRecruiters.recruiterID;"
         cur = mysql.connection.cursor()
         cur.execute(query2)
         affiliation_data = cur.fetchall()
@@ -641,6 +641,28 @@ def edit_recruiter(id):
                 mysql.connection.commit()
     
             return redirect("/positionscompanyrecruiters")
+
+# route for DELETE Affiliation form
+@app.route("/delete-affiliation/<int:id>", methods=["POST", "GET"])
+def delete_affiliation(id):
+    if request.method == "GET":
+        # mySQL query to grab Affiliation-to-delete's attributes
+        query = "SELECT PositionsCompanyRecruiters.positionID, Positions.title, PositionsCompanyRecruiters.recruiterID, CompanyRecruiters.name, PositionsCompanyRecruiters.positionsCompanyRecruitersID FROM PositionsCompanyRecruiters INNER JOIN Positions ON Positions.positionID = PositionsCompanyRecruiters.positionID INNER JOIN CompanyRecruiters ON CompanyRecruiters.recruiterID = PositionsCompanyRecruiters.recruiterID WHERE PositionsCompanyRecruiters.positionsCompanyRecruitersID = %s;" % (id)
+        cur = mysql.connection.cursor()
+        cur.execute(query)
+        data = cur.fetchall()
+
+        return render_template("delete_positionsrecruiters.j2", data=data)
+
+    if request.method == "POST":
+        # mySQL query to delete the Affiliation
+        query = "DELETE FROM PositionsCompanyRecruiters WHERE positionsCompanyRecruitersID = %s;"
+        cur = mysql.connection.cursor()
+        cur.execute(query, (id,))
+        mysql.connection.commit()
+
+        # redirect back to Applications page
+        return redirect("/positionscompanyrecruiters")
 
 # Listener
 if __name__ == "__main__":
