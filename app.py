@@ -294,10 +294,11 @@ def applications():
             return redirect("/applications")
 
 # route for SEARCH Applications page
-@app.route("/search-applications/<int:id>", methods=["POST", "GET"])
-def search_application(id):
+@app.route("/search-applications", methods=["POST", "GET"])
+def search_applications():
     if request.method == "GET":
-        query = "SELECT applicationID, dateApplied, result, dateResult, Applicants.name, Positions.title FROM Applications INNER JOIN Applicants ON Applications.applicantID = Applicants.applicantID INNER JOIN Positions ON Applications.positionID = Positions.positionID WHERE Applications.applicantID = %s;" % (id)
+        applicant = request.args.get("applicant")
+        query = "SELECT applicationID, dateApplied, result, dateResult, Applicants.name, Positions.title FROM Applications INNER JOIN Applicants ON Applications.applicantID = Applicants.applicantID INNER JOIN Positions ON Applications.positionID = Positions.positionID WHERE Applications.applicantID = %s;" % (applicant)
         cur = mysql.connection.cursor()
         cur.execute(query)
         data = cur.fetchall()

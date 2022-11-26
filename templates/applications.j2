@@ -108,12 +108,12 @@
     <!-- SEARCH -->
     <div id='search'>
         <!-- form to SEARCH Applications for an Application -->
-        <form id="searchApplication" action="/search-applications/{{data[0].applicantID}}" method="get">
+        <form id="searchApplications" action="/search-applications" method="get">
             <legend><strong>Search Applications</strong></legend>
             <fieldset>
                 
                 <label for="applicant">Applicant Name:</label>
-                <select class="form-control" id="applicant" name="applicant" pattern="[0-4]{1}" placeholder="" required>
+                <select class="form-control" id="applicant" name="applicant" placeholder="">
                 {% for applicant in applicants %}
                     <option value="{{ applicant['applicantID'] }}"> {{ applicant['applicantID'] }} - {{applicant['name']}}</option>
                 {% endfor %}
