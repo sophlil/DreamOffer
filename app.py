@@ -620,9 +620,9 @@ def edit_recruiter(id):
             name = request.form["name"] # Required
             email = request.form["email"]  # Optional
             phone = request.form["phone"]  # Optional
-            linkedin = request.form["linkedin"]  # Optional
-            lastContacted = request.form["lastContacted"] # Optional
-            details = request.form["details"] # Optional
+            linkedin = request.form["linkedin"]  # Required
+            lastContacted = request.form["lastContacted"] # Required
+            details = request.form["details"] # Required
 
             # NULL email AND NULL phone
             if (email == "" or email == "None") and (phone == "" or phone == "None"):
