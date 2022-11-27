@@ -43,11 +43,11 @@ input[type="url"] {
     cursor: text;
 }
 
-input:valid {
+input:not([type='submit']):valid {
   color: green;
 }
 
-input:invalid {
+input:not([type='submit']):invalid {
   color: red;
 }
 
@@ -57,6 +57,7 @@ h3 {
 
 table {
     width: 750px;
+    margin-bottom: 5px;
   }
   
   form {
