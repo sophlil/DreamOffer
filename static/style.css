@@ -43,6 +43,14 @@ input[type="url"] {
     cursor: text;
 }
 
+input:valid {
+  color: green;
+}
+
+input:invalid {
+  color: red;
+}
+
 h3 {
     margin-top: 10px;
 }
