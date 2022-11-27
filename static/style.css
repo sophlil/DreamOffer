@@ -75,3 +75,8 @@ table {
   th, td {
     padding: 3px;
   }
+
+.btn-anchor {
+  text-decoration: none;
+  color: inherit;
+}
