@@ -676,6 +676,24 @@ def delete_affiliation(id):
         # redirect back to Applications page
         return redirect("/positionscompanyrecruiters")
 
+# route for SEARCH Positions page
+@app.route("/search-positions", methods=["POST", "GET"])
+def search_positions():
+    if request.method == "GET":
+        company = request.args.get("company-name")
+        title = request.args.get("position-title")
+        if (company):
+            query = "SELECT Companies.name, Positions.title, Positions.location, Positions.salary, Positions.link, Positions.positionID FROM Positions INNER JOIN Companies ON Companies.companyID = Positions.companyID WHERE Companies.companyID = %s;" % (company)
+
+        if (title):
+            query = "SELECT Companies.name, Positions.title, Positions.location, Positions.salary, Positions.link, Positions.positionID FROM Positions INNER JOIN Companies ON Companies.companyID = Positions.companyID WHERE Positions.positionID = %s;" % (title)
+            
+        cur = mysql.connection.cursor()
+        cur.execute(query)
+        data = cur.fetchall()
+
+        return render_template("search_positions.j2", search_data=data)
+
 # Listener
 if __name__ == "__main__":
     app.run(port=56429, debug=True)
