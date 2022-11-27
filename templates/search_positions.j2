@@ -1,0 +1,57 @@
+<html>
+<head>
+	<title>Search Positions</title>
+    <link href="../static/style.css" rel="stylesheet" type="text/css" />
+</head>
+
+<body>
+
+<h1>Positions</h1>
+
+    <a href="/">Home</a> |
+    <a href="/applicants">Applicants</a> |
+    <a href="/applications">Applications</a> |
+    <a href="/companies">Companies</a> |
+    <a href="/positionscompanyrecruiters">Positions & Company Recruiters</a></p>
+
+    <!-- BROWSE -->
+    <div id='searchPositions'>
+        <h3>Positions Search Results</h3>
+        <table>
+        <!-- Access data passed from app.py -->
+            <thead>
+                <tr>
+                    <th>Company</th>
+                    <th>Title</th>
+                    <th>Location</th>
+                    <th>Salary</th>
+                    <th>Link</th>
+                    <th>Position ID</th>
+                </tr>
+            </thead>
+
+
+            <tbody>
+            <!-- Iterate through every item in data -->
+            {% for item in search_data %}
+                <tr>
+                {% for key in item.keys() %}
+                    <!-- Create a <td> element with the value of that key in it -->
+                    <td> {{item[key]}} </td> 
+                {% endfor %}
+                </tr>
+            {% endfor %}
+            </tbody>
+
+        </table>
+        <p>&nbsp;</p>
+
+        <!-- Return to All Applications Button -->
+        <a href='/positionscompanyrecruiters'>
+                <input class="btn" type="button" value="Return to All Positions">
+            </a>
+    </div>
+    <!-- END BROWSE -->
+
+</body>
+</html>
