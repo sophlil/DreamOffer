@@ -36,7 +36,8 @@ h3 {
 
 /* BUTTON STYLES */
 
-button {
+button,
+.btn {
     padding: 1px 5px;
 }
 
