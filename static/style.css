@@ -28,6 +28,14 @@ input {
     cursor: pointer;
 }
 
+/* TYPOGRAPHY STYLES */
+
+h3 {
+  margin-top: 10px;
+}
+
+/* BUTTON STYLES */
+
 button {
     padding: 1px 5px;
 }
@@ -35,6 +43,13 @@ button {
 a {
     text-decoration: inherit;
 }
+
+.btn-anchor {
+  text-decoration: none;
+  color: inherit;
+}
+
+/* INPUT STYLES */
 
 input[type="text"],
 input[type="number"],
@@ -51,9 +66,7 @@ input:not([type='submit']):invalid {
   color: red;
 }
 
-h3 {
-    margin-top: 10px;
-}
+/* TABLE STYLES */
 
 table {
     width: 750px;
@@ -84,8 +97,3 @@ table {
   th, td {
     padding: 3px;
   }
-
-.btn-anchor {
-  text-decoration: none;
-  color: inherit;
-}
