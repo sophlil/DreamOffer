@@ -131,6 +131,13 @@ th, td {
   border-bottom: 5px solid #6DBDDE;
 }
 
+.table-class tbody tr:hover {
+  z-index: 9;
+  transform: scale(1.01);
+  background-color: #ffffff;
+  box-shadow: 0 0 20px rgba(0, 0, 0, 0.15);
+}
+
 .new-btn {
   background-image: linear-gradient(#73b8ed, #3687b3);
   color: white;
