@@ -63,11 +63,11 @@ input[type="url"] {
 }
 
 input:not([type='submit']):valid {
-  color: green;
+  color: #38b000;
 }
 
 input:not([type='submit']):invalid {
-  color: red;
+  color: #f94144;
 }
 
 /* TABLE STYLES */
@@ -109,7 +109,7 @@ th, td {
 }
 
 .table-class thead tr {
-  background-color: #78C4E3;
+  background-color: #6DBDDE;
   color: white;
   text-align: left;
 }
@@ -128,7 +128,7 @@ th, td {
 }
 
 .table-class tbody tr:last-of-type {
-  border-bottom: 2px solid #78C4E3;
+  border-bottom: 5px solid #6DBDDE;
 }
 
 .new-btn {
@@ -140,4 +140,53 @@ th, td {
   padding: 4px 15px;
   box-shadow: 0 2px 5px rgba(0, 0, 0, 0.15);
   font-weight: 500;
+}
+
+.new-btn:hover {
+  background-image: linear-gradient(#7cbef0, #4195c2);
+  border-color: #4190bb;
+}
+
+.new-btn:active {
+  background-image: linear-gradient(#5da8e1, #2476a3);
+  border-color: #2877a2;
+  box-shadow: 0 1px 2px rgba(0, 0, 0, 0.5);
+}
+
+.edit-btn,
+.delete-btn,
+.app-link {
+  text-decoration: none;
+  color: inherit;
+  font-weight: 500;
+}
+
+.edit-btn {
+  color: #38b000;
+}
+
+.delete-btn {
+  color: #f94144;
+}
+
+.app-link {
+  background-image: linear-gradient(#73b8ed, #3687b3);
+  color: white;
+  border: 1px solid #3687b3;
+  border-radius: 4px;
+  text-align: center;
+  padding: 4px 15px;
+  box-shadow: 0 2px 5px rgba(0, 0, 0, 0.15);
+  font-weight: 500;
+}
+
+.app-link:hover {
+  background-image: linear-gradient(#7cbef0, #4195c2);
+  border-color: #4190bb;
+}
+
+.app-link:active {
+  background-image: linear-gradient(#5da8e1, #2476a3);
+  border-color: #2877a2;
+  box-shadow: 0 1px 2px rgba(0, 0, 0, 0.5);
 }
