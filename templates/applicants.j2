@@ -53,12 +53,13 @@
     <!-- BROWSE -->
     <div id='browse'>
         <h3>Browse Applicants</h3>
-        <table>
+        <table class="table-class">
         <!-- Access data passed from app.py -->
             <thead>
                 <tr>
-                    <th><a href="#" onClick="newApplicant()">New</a></th>
-                    <th></th>
+                    <th colspan="2">
+                        <button class="new-btn" onClick="newApplicant()">Add a New Applicant</button>
+                    </th>
                     <th>ID</th>
                     <th>Name</th>
                     <th>Email</th>
