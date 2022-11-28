@@ -158,26 +158,8 @@ input:not([type='submit']):invalid {
 /* TABLE STYLES */
 
 table {
-  /* width: 750px; */
   width: max-content;
   margin-bottom: 5px;
-}
-  
-form {
-  width: 400px;
-  margin-top: 10px;
-}
-  
-form > button {
-  margin-left: 2px;
-  margin-top: 3px;
-  margin-bottom: 5px;
-}
-  
-fieldset {
-  display: flex;
-  flex-direction: column;
-  padding: 5px;
 }
 
 .table-class {
@@ -214,4 +196,43 @@ fieldset {
   transform: scale(1.01);
   background-color: #ffffff;
   box-shadow: 0 0 20px rgba(0, 0, 0, 0.15);
+}
+
+/* FORM STYLES */
+
+form {
+  width: 400px;
+  margin-top: 25px;
+}
+  
+fieldset {
+  display: flex;
+  flex-direction: column;
+  padding: 25px;
+  border: none;
+  box-shadow: 0 6px 20px rgba(0, 0, 0, 0.35);
+}
+
+fieldset > h3 {
+  margin-top: -10px;
+  margin-bottom: 10px;
+  padding-bottom: 5px;
+  text-align: center;
+  font-size: 20px;
+  font-weight: 300;
+  border-bottom: 1px solid #dddddd;
+}
+
+fieldset > input {
+  padding: 10px;
+}
+
+fieldset > label {
+  margin-top: 8px;
+}
+
+fieldset > .wrapper {
+  display: flex;
+  align-items: center;
+  justify-content: center;
 }
