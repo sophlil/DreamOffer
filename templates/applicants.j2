@@ -63,7 +63,7 @@
                     <th>ID</th>
                     <th>Name</th>
                     <th>Email</th>
-                    <th></th>
+                    <th>Applications</th>
                 </tr>
             </thead>
         
@@ -88,7 +88,7 @@
                     <!-- Create a <td> element with the value of that key in it -->
                     <td> {{item[key]}} </td> 
                 {% endfor %}
-                    <td><a href="/search-applications/{{item.applicantID}}">Applications</a></td>
+                    <td><a class="app-link" href="/search-applications/{{item.applicantID}}">Search</a></td>
                 </tr>
             {% endfor %}
             </tbody>
