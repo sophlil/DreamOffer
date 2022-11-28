@@ -78,92 +78,6 @@ a {
   box-shadow: 0 1px 2px rgba(0, 0, 0, 0.5);
 }
 
-/* INPUT STYLES */
-
-input[type="text"],
-input[type="number"],
-input[type="email"],
-input[type="url"] {
-    cursor: text;
-}
-
-input:not([type='submit']):valid {
-  color: #38b000;
-}
-
-input:not([type='submit']):invalid {
-  color: #f94144;
-}
-
-/* TABLE STYLES */
-
-table {
-  /* width: 750px; */
-  width: max-content;
-  margin-bottom: 5px;
-}
-  
-form {
-  width: 400px;
-  margin-top: 10px;
-}
-  
-form > button {
-  margin-left: 2px;
-  margin-top: 3px;
-  margin-bottom: 5px;
-}
-  
-fieldset {
-  display: flex;
-  flex-direction: column;
-  padding: 5px;
-}
-  
-/* table, th, td {
-  border: 1px solid black;
-}
-  
-th, td {
-  padding: 3px;
-} */
-
-.table-class {
-  border-collapse: collapse;
-  margin: 25px 0;
-  box-shadow: 0 0 20px rgba(0, 0, 0, 0.15);
-}
-
-.table-class thead tr {
-  background-color: #6DBDDE;
-  color: white;
-  text-align: left;
-}
-
-.table-class th,
-.table-class td {
-  padding: 12px 15px;
-}
-
-.table-class tbody tr {
-  border-bottom: 1px solid #dddddd;
-}
-
-.table-class tbody tr:nth-of-type(even) {
-  background-color: #f3f3f3;
-}
-
-.table-class tbody tr:last-of-type {
-  border-bottom: 5px solid #6DBDDE;
-}
-
-.table-class tbody tr:hover {
-  z-index: 9;
-  transform: scale(1.01);
-  background-color: #ffffff;
-  box-shadow: 0 0 20px rgba(0, 0, 0, 0.15);
-}
-
 .new-btn {
   background-image: linear-gradient(#73b8ed, #3687b3);
   color: white;
@@ -222,4 +136,82 @@ th, td {
   background-image: linear-gradient(#5da8e1, #2476a3);
   border-color: #2877a2;
   box-shadow: 0 1px 2px rgba(0, 0, 0, 0.5);
+}
+
+/* INPUT STYLES */
+
+input[type="text"],
+input[type="number"],
+input[type="email"],
+input[type="url"] {
+    cursor: text;
+}
+
+input:not([type='submit']):valid {
+  color: #38b000;
+}
+
+input:not([type='submit']):invalid {
+  color: #f94144;
+}
+
+/* TABLE STYLES */
+
+table {
+  /* width: 750px; */
+  width: max-content;
+  margin-bottom: 5px;
+}
+  
+form {
+  width: 400px;
+  margin-top: 10px;
+}
+  
+form > button {
+  margin-left: 2px;
+  margin-top: 3px;
+  margin-bottom: 5px;
+}
+  
+fieldset {
+  display: flex;
+  flex-direction: column;
+  padding: 5px;
+}
+
+.table-class {
+  border-collapse: collapse;
+  margin: 25px 0;
+  box-shadow: 0 0 20px rgba(0, 0, 0, 0.15);
+}
+
+.table-class thead tr {
+  background-color: #6DBDDE;
+  color: white;
+  text-align: left;
+}
+
+.table-class th,
+.table-class td {
+  padding: 12px 15px;
+}
+
+.table-class tbody tr {
+  border-bottom: 1px solid #dddddd;
+}
+
+.table-class tbody tr:nth-of-type(even) {
+  background-color: #f3f3f3;
+}
+
+.table-class tbody tr:last-of-type {
+  border-bottom: 5px solid #6DBDDE;
+}
+
+.table-class tbody tr:hover {
+  z-index: 9;
+  transform: scale(1.01);
+  background-color: #ffffff;
+  box-shadow: 0 0 20px rgba(0, 0, 0, 0.15);
 }
