@@ -47,12 +47,13 @@
     <!-- BROWSE -->
     <div id='browse'>
         <h3>Browse Applications</h3>
-        <table>
+        <table class="table-class">
         <!-- Access data passed from app.py -->
             <thead>
                 <tr>
-                    <th><a href="#" onClick="newApplication()">New</a></th>
-                    <th></th>
+                    <th colspan="2">
+                        <button class="new-btn" onClick="newApplication()">Add a New Application</button>
+                    </th>
                     <th>ID</th>
                     <th>Date Applied</th>
                     <th>Result</th>

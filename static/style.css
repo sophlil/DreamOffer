@@ -73,7 +73,8 @@ input:not([type='submit']):invalid {
 /* TABLE STYLES */
 
 table {
-  width: 750px;
+  /* width: 750px; */
+  width: max-content;
   margin-bottom: 5px;
 }
   
