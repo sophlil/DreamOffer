@@ -78,9 +78,9 @@ INSERT INTO Applicants (applicantID, name, email) VALUES
 (5, 'Xochit Lowe', 'xl56@gmail.com');
 
 INSERT INTO Companies (companyID, name, description, website) VALUES
-(100, 'Aptiv', 'Global tech company that develops safer, greener solutions which enable future of mobility.', 'aptiv.com'),
-(101, 'Garmin', 'GPS tech company that creates navigation and communication products.', 'garmin.com'),
-(102, 'Apple', 'Hardware & software for personal computers, phones, tablets, etc.', 'apple.com');
+(100, 'Aptiv', 'Global tech company that develops safer, greener solutions which enable future of mobility.', 'https://aptiv.com'),
+(101, 'Garmin', 'GPS tech company that creates navigation and communication products.', 'https://garmin.com'),
+(102, 'Apple', 'Hardware & software for personal computers, phones, tablets, etc.', 'https://apple.com');
 
 INSERT INTO CompanyRecruiters (recruiterID, name, email, phone, linkedin, lastContacted, details) VALUES
 (300, 'Kelsey Wang', 'kwang.1@gmail.com', '318-995-8456', 'linkedin.com/kwang', '2022-10-01', 'Met at OSU Career Fair.'),
@@ -100,7 +100,7 @@ INSERT INTO Applications (applicationID, dateApplied, result, dateResult, applic
 (1, '2022-06-04', 3, '2022-06-29', (SELECT applicantID FROM Applicants WHERE email='jjohnson@gmail.com'), (SELECT positionID FROM Positions WHERE link='apple.com/data-engineer-intern')),
 (2, '2022-07-15', 2, '2022-10-18', (SELECT applicantID FROM Applicants WHERE email='xl56@gmail.com'), (SELECT positionID FROM Positions WHERE link='aptiv.com/software-engineer-intern')),
 (3, '2021-12-30', 3, '2022-05-30', (SELECT applicantID FROM Applicants WHERE email='tayah9@icloud.com'), (SELECT positionID FROM Positions WHERE link='garmin.com/database-administrator')),
-(4, '2022-10-01', 1, NULL, (SELECT applicantID FROM Applicants WHERE email='j.seward@gmail.com'), (SELECT positionID FROM Positions WHERE link='garmin.com/database-administrator')),
+(4, '2022-10-01', 1, '2022-10-05', (SELECT applicantID FROM Applicants WHERE email='j.seward@gmail.com'), (SELECT positionID FROM Positions WHERE link='garmin.com/database-administrator')),
 (5, '2022-09-23', 0, NULL, (SELECT applicantID FROM Applicants WHERE email='jjohnson@gmail.com'), (SELECT positionID FROM Positions WHERE link='aptiv.com/application-developer'));
 
 INSERT INTO PositionsCompanyRecruiters (positionsCompanyRecruitersID, positionID, recruiterID) VALUES
