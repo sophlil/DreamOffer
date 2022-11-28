@@ -36,7 +36,7 @@
             {% for item in search_data %}
                 <tr>
                 {% for key in item.keys() %}
-                    {% if key == result %}
+                    {% if key == 'result' %}
                         {% if item[key] == 0 %}
                             <td>Submitted</td>
                         {% elif item[key] == 1 %}

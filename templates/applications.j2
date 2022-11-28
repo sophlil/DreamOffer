@@ -80,7 +80,7 @@
                     </td>
 
                 {% for key in item.keys() %}
-                    {% if key == result %}
+                    {% if key == 'result' %}
                         {% if item[key] == 0 %}
                             <td>Submitted</td>
                         {% elif item[key] == 1 %}
@@ -159,7 +159,7 @@
 
             <!-- Create 'Add Application' and 'Cancel' buttons -->
             <input type="submit" value="Add Application" name="Add_Application" class="btn btn-primary" style="margin:.5rem;">
-            <a href='/applications'>
+            <a class="btn-anchor" href='/applications'>
                 <input class="btn" type="button" value="Cancel">
             </a>
         </form>
