@@ -133,7 +133,7 @@ def companies():
         # Fires off if user presses the Add Company button
         if request.form.get("Add_Company"):
             # Grabs user form inputs
-            name = request.form["name"]  # Required
+            name = request.form["company"]  # Required
             description = request.form["description"]  # Optional
             website = request.form["website"]  # Optional
 
