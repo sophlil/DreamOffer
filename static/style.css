@@ -223,15 +223,27 @@ fieldset > h3 {
   border-bottom: 1px solid #dddddd;
 }
 
-fieldset > input {
+fieldset > input,
+fieldset > select {
+  border: 1px solid #c8c8c8;
   padding: 10px;
+}
+
+fieldset > select {
+  font-family: inherit;
+  font-size: inherit;
 }
 
 fieldset > label {
   margin-top: 8px;
+  padding-bottom: 2px;
+  margin-left: 1px;
+  font-weight: 500;
+  font-size: 16px;
 }
 
 fieldset > .wrapper {
+  margin-top: 10px;
   display: flex;
   align-items: center;
   justify-content: center;
