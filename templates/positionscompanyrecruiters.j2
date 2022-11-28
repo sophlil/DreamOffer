@@ -24,42 +24,30 @@
                 document.getElementById('insert-aff').style.display = 'none';
                 document.getElementById('insert-rec').style.display = 'none';
                 document.getElementById('search-company').style.display = 'none';
-                document.getElementById('search-title').style.display = 'none';
             } else if (form == 'insert-aff') {
                 document.getElementById('browse').style.display = 'none';
                 document.getElementById('insert-pos').style.display = 'none';
                 document.getElementById('insert-aff').style.display = 'block';
                 document.getElementById('insert-rec').style.display = 'none';
                 document.getElementById('search-company').style.display = 'none';
-                document.getElementById('search-title').style.display = 'none';
             } else if (form == 'insert-rec') {
                 document.getElementById('browse').style.display = 'none';
                 document.getElementById('insert-pos').style.display = 'none';
                 document.getElementById('insert-aff').style.display = 'none';
                 document.getElementById('insert-rec').style.display = 'block';
                 document.getElementById('search-company').style.display = 'none';
-                document.getElementById('search-title').style.display = 'none';
             } else if (form == 'search-company') {
                 document.getElementById('browse').style.display = 'none';
                 document.getElementById('insert-pos').style.display = 'none';
                 document.getElementById('insert-aff').style.display = 'none';
                 document.getElementById('insert-rec').style.display = 'none';
                 document.getElementById('search-company').style.display = 'block';
-                document.getElementById('search-title').style.display = 'none';
-            } else if (form == 'search-title') {
-                document.getElementById('browse').style.display = 'none';
-                document.getElementById('insert-pos').style.display = 'none';
-                document.getElementById('insert-aff').style.display = 'none';
-                document.getElementById('insert-rec').style.display = 'none';
-                document.getElementById('search-company').style.display = 'none';
-                document.getElementById('search-title').style.display = 'block';
             } else { // display browse by default
                 document.getElementById('browse').style.display = 'block';
                 document.getElementById('insert-pos').style.display = 'none';
                 document.getElementById('insert-aff').style.display = 'none';
                 document.getElementById('insert-rec').style.display = 'none';
                 document.getElementById('search-company').style.display = 'none';
-                document.getElementById('search-title').style.display = 'none';
             }
         }
 
@@ -77,10 +65,6 @@
 
         function searchCompany() {
             showForm('search-company');
-        }
-
-        function searchTitle() {
-            showForm('search-title');
         }
 
         function browseAll() {
@@ -142,9 +126,6 @@
         </table>
         <a class="btn-anchor" href="#" onClick="searchCompany()">
             <input class="btn" type="button" value="Search by Company">
-        </a>
-        <a class="btn-anchor" href="#" onClick="searchTitle()">
-            <input class="btn" type="button" value="Search by Title">
         </a>
         <p>&nbsp;</p>
 
@@ -392,23 +373,5 @@
         </form>
     </div>
 
-    <div id='search-title'>
-        <!-- form to SEARCH Positions by Title -->
-        <form id="searchPositionsByTitle" action="/search-positions" method="get">
-            <legend><strong>Search Positions by Title</strong></legend>
-            <fieldset>
-                <label for="position-title">Position Title</label>
-                    <select name="position-title" id="position-title">
-                        {% for position in position_data %}
-                            <option value="{{ position['positionID'] }}"> {{position['title']}}</option>
-                        {% endfor %}
-                    </select>
-            </fieldset>
-            <input type="submit" value="Search Positions" name="Search_Position_By_Title" class="btn btn-primary" style="margin:.5rem;">
-            <a class="btn-anchor" href='/positionscompanyrecruiters'>
-                <input class="btn" type="button" value="Cancel">
-            </a>
-        </form>
-    </div>
 </body>
 </html>

@@ -681,13 +681,7 @@ def delete_affiliation(id):
 def search_positions():
     if request.method == "GET":
         company = request.args.get("company-name")
-        title = request.args.get("position-title")
-        if (company):
-            query = "SELECT Companies.name, Positions.title, Positions.location, Positions.salary, Positions.link, Positions.positionID FROM Positions INNER JOIN Companies ON Companies.companyID = Positions.companyID WHERE Companies.companyID = %s;" % (company)
-
-        if (title):
-            query = "SELECT Companies.name, Positions.title, Positions.location, Positions.salary, Positions.link, Positions.positionID FROM Positions INNER JOIN Companies ON Companies.companyID = Positions.companyID WHERE Positions.positionID = %s;" % (title)
-            
+        query = "SELECT Companies.name, Positions.title, Positions.location, Positions.salary, Positions.link, Positions.positionID FROM Positions INNER JOIN Companies ON Companies.companyID = Positions.companyID WHERE Companies.companyID = %s;" % (company)
         cur = mysql.connection.cursor()
         cur.execute(query)
         data = cur.fetchall()
