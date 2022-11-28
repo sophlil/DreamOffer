@@ -12,6 +12,12 @@
     Copied from:
     https://stackoverflow.com/questions/26821463/regex-exact-match-first-and-last-name-with-one-space-between
 -->
+<!--
+    Citation for regex in pattern attribute of INSERT form's text input for "email":
+    11/28/2022
+    Copied from:
+    https://stackoverflow.com/questions/5601647/html5-email-input-pattern-attribute
+-->
 <!-- Adapted from the applicants_crud.html UI design -->
 <head>
     <title>Applicants</title>
@@ -119,9 +125,10 @@
 
                 <label for="email">Email: </label>
                 <input 
-                    type="email" 
+                    type="text"
                     class="form-control" 
-                    id="email" name="email" 
+                    id="email" name="email"
+                    pattern="[^@\s]+@[^@\s]+\.[^@\s]+" 
                     placeholder="smithj@gmail.com" 
                     required
                 />
