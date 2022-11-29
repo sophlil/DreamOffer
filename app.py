@@ -401,7 +401,7 @@ def positionscompanyrecruiters():
         affiliation_data = cur.fetchall()
 
         # Get Recruiters data to send to our template to display - READ
-        query3 = "SELECT * FROM CompanyRecruiters;"
+        query3 = "SELECT name, email, phone, linkedin, lastContacted, details, recruiterID FROM CompanyRecruiters;"
         cur = mysql.connection.cursor()
         cur.execute(query3)
         recruiter_data = cur.fetchall()

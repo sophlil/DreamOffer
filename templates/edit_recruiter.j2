@@ -18,6 +18,12 @@
     Copied from:
     https://stackoverflow.com/questions/3809401/what-is-a-good-regular-expression-to-match-a-url
 -->
+<!--
+    Citation for regex in pattern attribute of INSERT form's text input for "email":
+    11/28/2022
+    Adapted from:
+    https://stackoverflow.com/questions/5601647/html5-email-input-pattern-attribute
+-->
 <head>
 	<title>Edit Recruiter</title>
     <link href="../static/style.css" rel="stylesheet" type="text/css" />
@@ -55,10 +61,11 @@
                 />
                 <label for="email">Email</label> 
                 <input 
-                    type="email" 
+                    type="text" 
                     class="form-control"
-                    id="name" name="email" 
+                    id="email" name="email" 
                     value="{{ data[0].email }}"
+                    pattern="None|[^@\s]+@[^@\s]+\.[^@\s]+"
                     maxlength="50"
                 />
                 <label for="phone">Phone</label> 
@@ -67,7 +74,7 @@
                     class="form-control"
                     id="phone" name="phone" 
                     value="{{ data[0].phone }}"
-                    pattern="^[0-9]{3}[-][0-9]{3}[-][0-9]{4}$"
+                    pattern="None|^[0-9]{3}[-][0-9]{3}[-][0-9]{4}$"
                 />
                 <label for="linkedin">LinkedIn</label> 
                 <input 
