@@ -55,6 +55,20 @@ div > h3::after {
   height: 2px;
 }
 
+.delete-header {
+  color: #f94144;
+}
+
+.delete-header::after {
+  content: "";
+  background: #f94144;
+  position: absolute;
+  bottom: 2px;
+  left: 0;
+  width: 100%;
+  height: 2px;
+}
+
 /* BUTTON STYLES */
 
 button,
