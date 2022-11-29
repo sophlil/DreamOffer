@@ -34,7 +34,9 @@
         <!-- form to UPDATE an Applicant -->
         <form id="editApplicant" action="/edit-applicant/{{data[0].applicantID}}" method="post">
             <fieldset>
-                <label>ID: <span>{{data[0].applicantID}}</span></label>
+                <div class="form-head">
+                    <label>ID: <span>{{data[0].applicantID}}</span></label>
+                </div>
                 <label for="name">Name</label>
                 <input 
                     type="text" 

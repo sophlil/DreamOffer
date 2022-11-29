@@ -242,6 +242,19 @@ fieldset {
   /* box-shadow: 0 6px 20px rgba(0, 0, 0, 0.35); */
 }
 
+.form-head {
+  background-color: #6DBDDE;
+  color: white;
+  text-align: left;
+  margin: -15px -25px 0;
+  padding: 12px 15px;
+  font-weight: bold;
+}
+
+.form-head > label > span {
+  font-weight: 400;
+}
+
 fieldset > h3 {
   margin-top: -10px;
   margin-bottom: 10px;
