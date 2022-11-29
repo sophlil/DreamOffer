@@ -83,18 +83,18 @@ INSERT INTO Companies (companyID, name, description, website) VALUES
 (102, 'Apple', 'Hardware & software for personal computers, phones, tablets, etc.', 'https://apple.com');
 
 INSERT INTO CompanyRecruiters (recruiterID, name, email, phone, linkedin, lastContacted, details) VALUES
-(300, 'Kelsey Wang', 'kwang.1@gmail.com', '318-995-8456', 'linkedin.com/kwang', '2022-10-01', 'Met at OSU Career Fair.'),
-(301, 'Adrian Portillo', 'portilloa@garmin.com', NULL, 'linkedin.com/aportillo', '2022-09-29', 'Messaged me on Handshake.'),
-(302, 'Daenerys Targaryen', 'targaryensrule@apple.com', NULL, 'linkedin.com/targaryensrule', '2022-01-11', 'Reached out on Linkedin.'),
-(303, 'Jon Snow', 'jsnow@aptiv.com', '694-856-3144', 'linkedin.com/snow', '2022-11-25', 'Found on Aptiv website');
+(300, 'Kelsey Wang', 'kwang.1@gmail.com', '318-995-8456', 'https://linkedin.com/kwang', '2022-10-01', 'Met at OSU Career Fair.'),
+(301, 'Adrian Portillo', 'portilloa@garmin.com', NULL, 'https://linkedin.com/aportillo', '2022-09-29', 'Messaged me on Handshake.'),
+(302, 'Daenerys Targaryen', 'targaryensrule@apple.com', NULL, 'https://linkedin.com/targaryensrule', '2022-01-11', 'Reached out on Linkedin.'),
+(303, 'Jon Snow', 'jsnow@aptiv.com', '694-856-3144', 'https://linkedin.com/snow', '2022-11-25', 'Found on Aptiv website');
 
 INSERT INTO Positions (positionID, title, location, salary, link, companyID) VALUES
-(200, 'Software Engineer Intern', 'San Jose', NULL, 'aptiv.com/software-engineer-intern', (SELECT companyID FROM Companies WHERE name='Aptiv')),
-(201, 'Application Developer', 'New York', 90000, 'aptiv.com/application-developer', (SELECT companyID FROM Companies WHERE name='Aptiv')),
-(202, 'New Grad SWE', 'Seattle', 120000, 'garmin.com/new-grad-SWE', (SELECT companyID FROM Companies WHERE name='Garmin')),
-(203, 'Data Engineer Intern', 'San Diego', 55000, 'apple.com/data-engineer-intern', (SELECT companyID FROM Companies WHERE name='Apple')),
-(204, 'Database Administrator', 'Denver', 115000, 'garmin.com/database-administrator', (SELECT companyID FROM Companies WHERE name='Garmin')),
-(205, 'Front-end Software Engineer', 'Remote', 35000, 'fiverr.com/front-end-software-engineer', NULL);
+(200, 'Software Engineer Intern', 'San Jose', NULL, 'https://aptiv.com/software-engineer-intern', (SELECT companyID FROM Companies WHERE name='Aptiv')),
+(201, 'Application Developer', 'New York', 90000, 'https://aptiv.com/application-developer', (SELECT companyID FROM Companies WHERE name='Aptiv')),
+(202, 'New Grad SWE', 'Seattle', 120000, 'https://garmin.com/new-grad-SWE', (SELECT companyID FROM Companies WHERE name='Garmin')),
+(203, 'Data Engineer Intern', 'San Diego', 55000, 'https://apple.com/data-engineer-intern', (SELECT companyID FROM Companies WHERE name='Apple')),
+(204, 'Database Administrator', 'Denver', 115000, 'https://garmin.com/database-administrator', (SELECT companyID FROM Companies WHERE name='Garmin')),
+(205, 'Front-end Software Engineer', 'Remote', 35000, 'https://fiverr.com/front-end-software-engineer', NULL);
 
 INSERT INTO Applications (applicationID, dateApplied, result, dateResult, applicantID, positionID) VALUES
 (1, '2022-06-04', 3, '2022-06-29', (SELECT applicantID FROM Applicants WHERE email='jjohnson@gmail.com'), (SELECT positionID FROM Positions WHERE link='apple.com/data-engineer-intern')),
@@ -104,10 +104,10 @@ INSERT INTO Applications (applicationID, dateApplied, result, dateResult, applic
 (5, '2022-09-23', 0, NULL, (SELECT applicantID FROM Applicants WHERE email='jjohnson@gmail.com'), (SELECT positionID FROM Positions WHERE link='aptiv.com/application-developer'));
 
 INSERT INTO PositionsCompanyRecruiters (positionsCompanyRecruitersID, positionID, recruiterID) VALUES
-(1, (SELECT positionID FROM Positions WHERE link='aptiv.com/software-engineer-intern'), (SELECT recruiterID FROM CompanyRecruiters WHERE name='Kelsey Wang')),
-(2, (SELECT positionID FROM Positions WHERE link='aptiv.com/software-engineer-intern'), (SELECT recruiterID FROM CompanyRecruiters WHERE name='Jon Snow')),
-(3, (SELECT positionID FROM Positions WHERE link='garmin.com/database-administrator'), (SELECT recruiterID FROM CompanyRecruiters WHERE name='Adrian Portillo')),
-(4, (SELECT positionID FROM Positions WHERE link='garmin.com/new-grad-SWE'), (SELECT recruiterID FROM CompanyRecruiters WHERE name='Adrian Portillo'));
+(1, (SELECT positionID FROM Positions WHERE link='https://aptiv.com/software-engineer-intern'), (SELECT recruiterID FROM CompanyRecruiters WHERE name='Kelsey Wang')),
+(2, (SELECT positionID FROM Positions WHERE link='https://aptiv.com/software-engineer-intern'), (SELECT recruiterID FROM CompanyRecruiters WHERE name='Jon Snow')),
+(3, (SELECT positionID FROM Positions WHERE link='https://garmin.com/database-administrator'), (SELECT recruiterID FROM CompanyRecruiters WHERE name='Adrian Portillo')),
+(4, (SELECT positionID FROM Positions WHERE link='https://garmin.com/new-grad-SWE'), (SELECT recruiterID FROM CompanyRecruiters WHERE name='Adrian Portillo'));
 
 SET FOREIGN_KEY_CHECKS=1;
 COMMIT;
