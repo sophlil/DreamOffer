@@ -12,7 +12,9 @@
 </head>
 
 <body>
-    <h1>Positions</h1>
+    <div class="header">
+        <h1>Positions</h1>
+    </div>
 
     <a href="/">Home</a> |
     <a href="/applicants">Applicants</a> |
@@ -21,11 +23,13 @@
     <a href="/positionscompanyrecruiters">Positions & Company Recruiters</a>
 
     <div id='edit'>
+        <h3>Update Position</h3>
         <!-- form to UPDATE a Position -->
         <form id="editPosition" action="/edit-position/{{data[0].positionID}}" method="post">
             <fieldset>
-                <h3><strong>Update Position</strong></h3>
-                <label>ID: <span>{{data[0].positionID}}</span></label>
+                <div class="form-head">
+                    <label>ID: <span>{{data[0].positionID}}</span></label>
+                </div>
                 <label for="company">Company Name</label>
                 <select class="form-control" name="company" id="company" required>
                 {% for company in companies_data %}

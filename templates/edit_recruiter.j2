@@ -18,7 +18,9 @@
 </head>
 
 <body>
-    <h1>Company Recruiters</h1>
+    <div class="header">
+        <h1>Company Recruiters</h1>
+    </div>
 
     <a href="/">Home</a> |
     <a href="/applicants">Applicants</a> |
@@ -27,11 +29,13 @@
     <a href="/positionscompanyrecruiters">Positions & Company Recruiters</a>
 
     <div id='edit'>
+        <h3>Update Recruiter</h3>
         <!-- form to UPDATE a Recruiter -->
         <form id="editRecruiter" action="/edit-recruiter/{{data[0].recruiterID}}" method="post">
             <fieldset>
-                <h3><strong>Update Recruiter</strong></h3>
-                <label>ID: <span>{{data[0].recruiterID}}</span></label>
+                <div class="form-head">
+                    <label>ID: <span>{{data[0].recruiterID}}</span></label>
+                </div>
                 <label for="name">Name</label> 
                 <input 
                     type="text" 
