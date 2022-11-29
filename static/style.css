@@ -3,7 +3,37 @@
 /* VARIABLES */
 
 :root {
-  --dark-main-blue: #022B3A;
+  --background-color: #E1E5F2;
+  --navbar-color: #022B3A;
+  --header-color: #001233;
+  --table-color: #1F7A8C;
+  --table-row-color: #E1E5F2;
+
+  --link-color: #ff8500;
+  --link-visited-color: #5a189a;
+
+  --delete-form-header-color: #85182A;
+  --delete-form-color: #A71E34;
+
+  --button-border-color: #001845;
+  --button-color-dark: #002855;
+  --button-color-medium: #023E7D;
+  --button-color-light: #0353A4;
+  --button-color-lighter: #0466C8;
+
+  --update-button-border-color: #10451D;
+  --update-button-color-dark: #155D27;
+  --update-button-color-medium: #1A7431;
+  --update-button-color-light: #25A244;
+  --update-button-color-lighter: #6EDE8A;
+
+  --delete-button-border-color: #641220;
+  --delete-button-color-dark: #85182A;
+  --delete-button-color-medium: #A71E34;
+  --delete-button-color-light: #BD1F36;
+  --delete-button-color-lighter: #E01E37;
+
+  /* --dark-main-blue: #022B3A;
   --medium-main-blue: #1F7A8C;
   --light-main-blue: #BFDBF7;
   --lighest-main-blue: #E1E5F2;
@@ -19,7 +49,7 @@
   --dark-red: #800F2F;
   --medium-red: #A4133C;
   --light-red: #C9184A;
-  --pink: #FF758F;
+  --pink: #FF758F; */
 
   /* OLD VARIABLES */
   /* --darker-red: #ed2b2e;
@@ -43,7 +73,7 @@
 html, body {
     height: 100%;
     width: 100%;
-    background-color: var(--lightest-main-blue);
+    background-color: var(--background-color);
 }
 
 body {
@@ -77,14 +107,14 @@ body > .wrapper {
   margin: 25px 0;
   text-align: center;
   font-size: 28px;
-  color: var(--medium-main-blue);
+  color: var(--header-color);
   position: relative;
   width: max-content;
 }
 
 .title::after {
   content: "";
-  background: var(----medium-main-blue);
+  background: var(--header-color);
   position: absolute;
   bottom: -10px;
   left: 0;
@@ -100,7 +130,7 @@ body > .wrapper {
 
 div > h3 {
   margin-top: 15px;
-  color: var(--medium-main-blue);
+  color: var(--header-color);
   position: relative;
   padding-bottom: 5px;
   width: max-content;
@@ -109,7 +139,7 @@ div > h3 {
 
 div > h3::after {
   content: "";
-  background: var(--medium-main-blue);
+  background: var(--header-color);
   position: absolute;
   bottom: 2px;
   left: 0;
@@ -118,17 +148,30 @@ div > h3::after {
 }
 
 .delete-header {
-  color: var(--darker-red);
+  color: var(--delete-form-header-color);
 }
 
 .delete-header::after {
   content: "";
-  background: var(--darker-red);
+  background: var(--delete-form-header-color);
   position: absolute;
   bottom: 2px;
   left: 0;
   width: 100%;
   height: 2px;
+}
+
+.link:link {
+  text-decoration: none;
+  color: var(--link-color);
+}
+
+.link:link:hover {
+  font-weight: 700;
+}
+
+tbody > tr > td > .link:visited {
+  color: var(--link-visited-color);
 }
 
 /* BUTTON STYLES */
@@ -149,9 +192,9 @@ a {
 
 .btn-anchor > .btn,
 .btn-primary {
-  background-image: linear-gradient(#73b8ed, #3687b3);
+  background-image: linear-gradient(var(--button-color-light), var(--button-color-medium));
   color: white;
-  border: 1px solid #3687b3;
+  border: 1px solid var(--button-border-color);
   border-radius: 4px;
   text-align: center;
   padding: 4px 15px;
@@ -161,21 +204,21 @@ a {
 
 .btn-anchor > .btn:hover,
 .btn-primary:hover {
-  background-image: linear-gradient(#7cbef0, #4195c2);
-  border-color: #4190bb;
+  background-image: linear-gradient(var(--button-color-lighter), var(--button-color-light));
+  border-color: var(--button-color-medium);
 }
 
 .btn-anchor > .btn:active,
-.btn-primary:hover {
-  background-image: linear-gradient(#5da8e1, #2476a3);
-  border-color: #2877a2;
+.btn-primary:active {
+  background-image: linear-gradient(var(--button-color-medium), var(--button-color-dark));
+  border-color: var(--button-border-color);
   box-shadow: 0 1px 2px rgba(0, 0, 0, 0.5);
 }
 
 .new-btn {
-  background-image: linear-gradient(var(--light-green), var(--dark-green));
+  background-image: linear-gradient(var(--update-button-color-light), var(--update-button-color-medium));
   color: white;
-  border: 1px solid var(--darkest-green);
+  border: 1px solid var(--update-button-border-color);
   border-radius: 4px;
   text-align: center;
   padding: 4px 15px;
@@ -184,13 +227,13 @@ a {
 }
 
 .new-btn:hover {
-  background-image: linear-gradient(var(--lighter-green), var(--medium-green));
-  border-color: var(--dark-green);
+  background-image: linear-gradient(var(--update-button-color-lighter), var(--update-button-color-light));
+  border-color: var(--update-button-color-medium);
 }
 
 .new-btn:active {
-  background-image: linear-gradient(var(--dark-green), var(--darkest-green));
-  border-color: var(--darkest-green);
+  background-image: linear-gradient(var(--update-button-color-medium), var(--update-button-color-dark));
+  border-color: var(--update-button-border-color);
   box-shadow: 0 1px 2px rgba(0, 0, 0, 0.5);
 }
 
@@ -203,11 +246,11 @@ a {
 }
 
 .edit-btn {
-  color: var(--medium-green);
+  color: var(--update-button-color-light);
 }
 
 .delete-btn {
-  color: #f94144;
+  color: var(--delete-button-color-light);
 }
 
 .edit-btn:hover,
@@ -216,25 +259,41 @@ a {
 }
 
 .app-link {
-  background-image: linear-gradient(#73b8ed, #3687b3);
+  background-image: linear-gradient(var(--button-color-light), var(--button-color-medium));
+  color: white;
+  border: 1px solid var(--button-border-color);
+  border-radius: 4px;
+  text-align: center;
+  padding: 4px 15px;
+  box-shadow: 0 2px 5px rgba(0, 0, 0, 0.15);
+  font-weight: 500;
+
+  /* background-image: linear-gradient(#73b8ed, #3687b3);
   color: white;
   border: 1px solid #3687b3;
   border-radius: 4px;
   text-align: center;
   padding: 4px 15px;
   box-shadow: 0 2px 5px rgba(0, 0, 0, 0.15);
-  font-weight: 500;
+  font-weight: 500; */
 }
 
 .app-link:hover {
-  background-image: linear-gradient(#7cbef0, #4195c2);
-  border-color: #4190bb;
+  background-image: linear-gradient(var(--button-color-lighter), var(--button-color-light));
+  border-color: var(--button-color-medium);
+
+  /* background-image: linear-gradient(#7cbef0, #4195c2);
+  border-color: #4190bb; */
 }
 
 .app-link:active {
-  background-image: linear-gradient(#5da8e1, #2476a3);
-  border-color: #2877a2;
+  background-image: linear-gradient(var(--button-color-medium), var(--button-color-dark));
+  border-color: var(--button-border-color);
   box-shadow: 0 1px 2px rgba(0, 0, 0, 0.5);
+
+  /* background-image: linear-gradient(#5da8e1, #2476a3);
+  border-color: #2877a2;
+  box-shadow: 0 1px 2px rgba(0, 0, 0, 0.5); */
 }
 
 /* INPUT STYLES */
@@ -247,17 +306,17 @@ input[type="url"] {
 }
 
 input:not([type='submit']):valid {
-  color: #38b000;
+  color: var(--update-button-color-light);
 }
 
 input:not([type='submit']):invalid {
-  color: var(--regular-red);
+  color: var(--delete-button-color-light);
 }
 
 /* HEADER STYLES */
 
 .header {
-  background-color: var(--dark-main-blue);
+  background-color: var(--navbar-color);
   color: white;
   padding: 12px 15px;
   display: flex;
@@ -327,7 +386,7 @@ table {
 }
 
 .table-class thead tr {
-  background-color: var(--medium-main-blue);
+  background-color: var(--table-color);
   color: white;
   text-align: left;
 }
@@ -342,18 +401,18 @@ table {
 }
 
 .table-class tbody tr:nth-of-type(even) {
-  background-color: var(--lighest-main-blue);
+  background-color: var(--table-row-color);
 }
 
 .table-class tbody tr:last-of-type {
-  border-bottom: 5px solid var(--medium-main-blue);
+  border-bottom: 5px solid var(--table-color);
 }
 
 .table-class tbody tr:hover {
   z-index: 9;
   transform: scale(1.01);
   background-color: #ffffff;
-  color: #0e70a4;
+  color: var(--table-color);
   box-shadow: 0 0 20px rgba(0, 0, 0, 0.15);
 }
 
@@ -376,7 +435,7 @@ fieldset {
 }
 
 .form-head {
-  background-color: var(--lighter-blue);
+  background-color: var(--table-color);
   color: white;
   text-align: left;
   margin: -15px -25px 0;
@@ -402,7 +461,7 @@ fieldset > h3 {
 #deleteApplication > fieldset > .form-head,
 #deleteCompany > fieldset > .form-head,
 #deleteAffiliation > fieldset > .form-head {
-  background-color: var(--darker-red);
+  background-color: var(--delete-form-color);
   margin-bottom: 8px;
   /* font-weight: 500;
   padding-bottom: 5px;
@@ -413,9 +472,9 @@ input[name="Delete_Applicant"],
 input[name="Delete_Application"],
 input[name="Delete_Company"],
 input[name="Delete_Affiliation"] {
-  background-image: linear-gradient(#fe595b, #e12b2e);
+  background-image: linear-gradient(var(--delete-button-color-light), var(--delete-button-color-medium));
   color: white;
-  border: 1px solid #cb2023;
+  border: 1px solid var(--delete-button-border-color);
   box-shadow: 0 2px 5px rgba(0, 0, 0, 0.15);
 }
 
@@ -423,16 +482,16 @@ input[name="Delete_Applicant"]:hover,
 input[name="Delete_Application"]:hover,
 input[name="Delete_Company"]:hover,
 input[name="Delete_Affiliation"]:hover {
-  background-image: linear-gradient(#fa6466, #ec3f42);
-  border: 1px solid #db282b;
+  background-image: linear-gradient(var(--delete-button-color-lighter), var(--delete-button-color-light));
+  border: 1px solid var(--delete-button-color-medium);
 }
 
 input[name="Delete_Applicant"]:active,
 input[name="Delete_Application"]:active,
 input[name="Delete_Company"]:active,
 input[name="Delete_Affiliation"]:active {
-  background-image: linear-gradient(#fb4b4e, #d62326);
-  border: 1px solid #be1a1d;
+  background-image: linear-gradient(var(--delete-button-color-medium), var(--delete-button-color-dark));
+  border: 1px solid var(--delete-button-border-color);
   box-shadow: 0 1px 2px rgba(0, 0, 0, 0.5);
 }
 
