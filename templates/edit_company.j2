@@ -12,7 +12,9 @@
 </head>
 
 <body>
-    <h1>Companies</h1>
+    <div class="header">
+        <h1>Companies</h1>
+    </div>
 
     <a href="/">Home</a> |
     <a href="/applicants">Applicants</a> |
@@ -22,11 +24,13 @@
 
     <!-- EDIT --> 
     <div id='edit'>
+        <h3>Update Company</h3>
         <!-- form to UPDATE a Company -->
         <form id="editCompany" action="/edit-company/{{data[0].companyID}}" method="post">
             <fieldset>
-                <h3><strong>Update Company</strong></h3>
-                <label>ID: <span>{{data[0].companyID}}</span></label>
+                <div class="form-head">
+                    <label>ID: <span>{{data[0].companyID}}</span></label>
+                </div>
                 <label for="company">Company</label>
                 <input 
                     type="text" 
