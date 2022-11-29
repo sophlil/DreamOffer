@@ -13,13 +13,20 @@
 </head>
 
 <body>
+    <h1>Applications</h1>
+
+    <a href="/">Home</a> |
+    <a href="/applicants">Applicants</a> |
+    <a href="/applications">Applications</a> |
+    <a href="/companies">Companies</a> |
+    <a href="/positionscompanyrecruiters">Positions & Company Recruiters</a></p>
 
     <!-- EDIT --> 
     <div id='edit'>
         <!-- form to UPDATE an Application -->
         <form id="editApplication" action="/edit-application/{{data[0].applicationID}}" method="post">
-            <legend><strong>Update Application</strong></legend>
             <fieldset>
+                <h3><strong>Update Application</strong></h3>
                 <label>ID: <span>{{data[0].applicationID}}</span></label>
 
                 <label for="dateApplied">Date Applied:</label>
@@ -51,17 +58,19 @@
                     name="dateResult" 
                     value="{{data[0].dateResult}}"
                 />
+                <div class="wrapper">
+                    <input 
+                        type="submit" 
+                        value="Update Application"
+                        name="Update_Application"
+                        class="btn btn-primary" 
+                        style="margin:.5rem;"
+                    />
+                    <a class="btn-anchor" href='/applications'>
+                        <input class="btn" type="button" value="Cancel">
+                    </a>
+                </div>
             </fieldset>
-            <input 
-                type="submit" 
-                value="Update Application"
-                name="Update_Application"
-                class="btn btn-primary" 
-                style="margin:.5rem;"
-            />
-            <a class="btn-anchor" href='/applications'>
-                <input class="btn" type="button" value="Cancel">
-            </a>
         </form>
     </div>
     <!-- END EDIT -->
