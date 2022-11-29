@@ -220,10 +220,10 @@
 
     <!-- Add Position Form -->
     <div id='insert-pos'>
+        <h3>Add Position</h3>
         <!-- form to INSERT new Position into Positions entity -->
         <form id="insertPosition" action="/positionscompanyrecruiters" method="post">
             <fieldset>
-                <h3><strong>Add Position</strong></h3>
                 <label for="company-names">Company Name</label>
                     <select class="form-control" name="company-names" id="company-names">
                         <option value="None" selected>None</option>
@@ -277,10 +277,10 @@
 
     <!-- Add Position & Recruiter Affiliation Form -->
     <div id='insert-aff'>
+        <h3>Add Position and Recruiter Affiliation</h3>
         <!-- form to INSERT new Position & Recruiter Affiliation -->
         <form id="insertAffiliation" action="/positionscompanyrecruiters" method="post">
             <fieldset>
-                <h3><strong>Add Position and Recruiter Affiliation</strong></h3>
                 <label for="title">Position Title</label>
                     <select name="title" id="title">
                         {% for position in position_data %}
@@ -306,10 +306,10 @@
 
     <!-- Add Recruiter Form -->
     <div id='insert-rec'>
+        <h3>Add Recruiter</h3>
         <!-- form to INSERT new Recruiter into Recruiters entity -->
         <form id="insertRecruiter" action="/positionscompanyrecruiters" method="post">
             <fieldset>
-                <h3><strong>Add Recruiter</strong></h3>
                 <label for="name">Recruiter Name</label> 
                 <input 
                     type="text" 
