@@ -17,9 +17,12 @@ html, body {
 
 body {
     box-sizing: border-box;
-    padding-left: 25px;
-    padding-top: 15px;
     font-family: 'Roboto', sans-serif;
+}
+
+body > div:not(:first-child) {
+  padding-left: 25px;
+  padding-top: 15px;
 }
 
 button,
@@ -170,11 +173,18 @@ input:not([type='submit']):invalid {
   color: #f94144;
 }
 
+/* HEADER STYLES */
+
+.header {
+  background-color: #6DBDDE;
+  color: white;
+  padding: 12px 15px;
+}
+
 /* TABLE STYLES */
 
 table {
   width: max-content;
-  margin-bottom: 5px;
 }
 
 .table-class {
@@ -218,16 +228,18 @@ table {
 
 form {
   width: 400px;
-  margin-top: 35px;
-  margin-left: 35px;
+  /* margin-top: 35px;
+  margin-left: 35px; */
+  margin: 5px 0;
+  box-shadow: 0 4px 20px rgba(0, 0, 0, 0.15);
 }
   
 fieldset {
   display: flex;
   flex-direction: column;
-  padding: 25px;
+  padding: 15px 25px;
   border: none;
-  box-shadow: 0 6px 20px rgba(0, 0, 0, 0.35);
+  /* box-shadow: 0 6px 20px rgba(0, 0, 0, 0.35); */
 }
 
 fieldset > h3 {

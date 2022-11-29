@@ -18,7 +18,9 @@
 </head>
 
 <body>
-    <h1>Applicants</h1>
+    <div class="header">
+        <h1>Applicants</h1>
+    </div>
 
     <a href="/">Home</a> |
     <a href="/applicants">Applicants</a> |
@@ -28,10 +30,10 @@
 
     <!-- EDIT --> 
     <div id='edit'>
+        <h3>Update Applicant</h3>
         <!-- form to UPDATE an Applicant -->
         <form id="editApplicant" action="/edit-applicant/{{data[0].applicantID}}" method="post">
             <fieldset>
-                <h3><strong>Update Applicant</strong></h3>
                 <label>ID: <span>{{data[0].applicantID}}</span></label>
                 <label for="name">Name</label>
                 <input 
