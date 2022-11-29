@@ -12,12 +12,19 @@
 </head>
 
 <body>
+    <h1>Positions & Company Recruiters</h1>
+
+    <a href="/">Home</a> |
+    <a href="/applicants">Applicants</a> |
+    <a href="/applications">Applications</a> |
+    <a href="/companies">Companies</a> |
+    <a href="/positionscompanyrecruiters">Positions & Company Recruiters</a>
 
     <div id='delete'>
         <!-- form for performing DELETE on a Position and Recruiter Affiliation -->
         <form id="deleteAffiliation" action="/delete-affiliation/{{data[0].positionsCompanyRecruitersID}}" method="post">
-            <legend><strong>Delete Position and Recruiter Affiliation</strong></legend>
             <fieldset>
+                <h3><strong>Delete Position and Recruiter Affiliation</strong></h3>
                 <p>Are you sure you want to delete the position and recruiter affiliation?</p>
                 <label><strong>ID: </strong><span>{{data[0].positionID}}</span></label>
                 <label><strong>Title: </strong><span>{{data[0].title}}</span></label>
@@ -31,7 +38,7 @@
                 class="btn btn-primary" 
                 style="margin:.5rem;"
             />
-            <a href='/positionscompanyrecruiters'>
+            <a class="btn-anchor" href='/positionscompanyrecruiters'>
                 <input class="btn" type="button" value="Cancel">
             </a>
         </form>

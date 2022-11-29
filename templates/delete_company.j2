@@ -12,13 +12,20 @@
 </head>
 
 <body>
+    <h1>Companies</h1>
+
+    <a href="/">Home</a> |
+    <a href="/applicants">Applicants</a> |
+    <a href="/applications">Applications</a> |
+    <a href="/companies">Companies</a> |
+    <a href="/positionscompanyrecruiters">Positions & Company Recruiters</a>
 
     <!-- DELETE -->
     <div id='delete'>
     <!-- form for performing DELETE on a Company -->
         <form id="deleteCompany" action="/delete-company/{{data[0].companyID}}" method="post">
-            <legend><strong>Delete Company</strong></legend>
             <fieldset>
+                <h3><strong>Delete Company</strong></h3>
                 <p>Are you sure you want to delete the company?</p>
                 <div>
                 <label><strong>ID: </strong><span>{{data[0].companyID}}</span></label>
@@ -32,7 +39,7 @@
                 class="btn btn-primary" 
                 style="margin:.5rem;"
             />
-            <a href='/companies'>
+            <a class="btn-anchor" href='/companies'>
                 <input class="btn" type="button" value="Cancel">
             </a>
         </form>
