@@ -3,12 +3,31 @@
 /* VARIABLES */
 
 :root {
-  --darker-red: #ed2b2e;
+  --dark-main-blue: #022B3A;
+  --medium-main-blue: #1F7A8C;
+  --light-main-blue: #BFDBF7;
+  --lighest-main-blue: #E1E5F2;
+
+  --darkest-green: #1B4332;
+  --dark-green: #2D6A4F;
+  --medium-green: #40916C;
+  --light-green: #52B788;
+  --lighter-green: #95D5B2;
+  --lightest-green: #D8F3DC;
+
+  --darkest-red: #590D22;
+  --dark-red: #800F2F;
+  --medium-red: #A4133C;
+  --light-red: #C9184A;
+  --pink: #FF758F;
+
+  /* OLD VARIABLES */
+  /* --darker-red: #ed2b2e;
   --regular-red: #f94144;
 
   --darker-blue: #0e70a4;
   --regular-blue: #2a97c6;
-  --lighter-blue: #42aedc;
+  --lighter-blue: #42aedc; */
 }
 
 /* CSS RESET */
@@ -24,6 +43,7 @@
 html, body {
     height: 100%;
     width: 100%;
+    background-color: var(--lightest-main-blue);
 }
 
 body {
@@ -57,14 +77,14 @@ body > .wrapper {
   margin: 25px 0;
   text-align: center;
   font-size: 28px;
-  color: var(--darker-blue);
+  color: var(--medium-main-blue);
   position: relative;
   width: max-content;
 }
 
 .title::after {
   content: "";
-  background: #2a97c6;
+  background: var(----medium-main-blue);
   position: absolute;
   bottom: -10px;
   left: 0;
@@ -80,7 +100,7 @@ body > .wrapper {
 
 div > h3 {
   margin-top: 15px;
-  color: #2a97c6;
+  color: var(--medium-main-blue);
   position: relative;
   padding-bottom: 5px;
   width: max-content;
@@ -89,7 +109,7 @@ div > h3 {
 
 div > h3::after {
   content: "";
-  background: #2a97c6;
+  background: var(--medium-main-blue);
   position: absolute;
   bottom: 2px;
   left: 0;
@@ -153,9 +173,9 @@ a {
 }
 
 .new-btn {
-  background-image: linear-gradient(#73b8ed, #3687b3);
+  background-image: linear-gradient(var(--light-green), var(--dark-green));
   color: white;
-  border: 1px solid #3687b3;
+  border: 1px solid var(--darkest-green);
   border-radius: 4px;
   text-align: center;
   padding: 4px 15px;
@@ -164,13 +184,13 @@ a {
 }
 
 .new-btn:hover {
-  background-image: linear-gradient(#7cbef0, #4195c2);
-  border-color: #4190bb;
+  background-image: linear-gradient(var(--lighter-green), var(--medium-green));
+  border-color: var(--dark-green);
 }
 
 .new-btn:active {
-  background-image: linear-gradient(#5da8e1, #2476a3);
-  border-color: #2877a2;
+  background-image: linear-gradient(var(--dark-green), var(--darkest-green));
+  border-color: var(--darkest-green);
   box-shadow: 0 1px 2px rgba(0, 0, 0, 0.5);
 }
 
@@ -183,11 +203,16 @@ a {
 }
 
 .edit-btn {
-  color: #38b000;
+  color: var(--medium-green);
 }
 
 .delete-btn {
   color: #f94144;
+}
+
+.edit-btn:hover,
+.delete-btn:hover {
+  font-weight: 700;
 }
 
 .app-link {
@@ -232,7 +257,7 @@ input:not([type='submit']):invalid {
 /* HEADER STYLES */
 
 .header {
-  background-color: var(--regular-blue);
+  background-color: var(--dark-main-blue);
   color: white;
   padding: 12px 15px;
   display: flex;
@@ -292,6 +317,7 @@ input:not([type='submit']):invalid {
 
 table {
   width: max-content;
+  background-color: #fff;
 }
 
 .table-class {
@@ -301,7 +327,7 @@ table {
 }
 
 .table-class thead tr {
-  background-color: var(--lighter-blue);
+  background-color: var(--medium-main-blue);
   color: white;
   text-align: left;
 }
@@ -316,11 +342,11 @@ table {
 }
 
 .table-class tbody tr:nth-of-type(even) {
-  background-color: #f3f3f3;
+  background-color: var(--lighest-main-blue);
 }
 
 .table-class tbody tr:last-of-type {
-  border-bottom: 5px solid var(--lighter-blue);
+  border-bottom: 5px solid var(--medium-main-blue);
 }
 
 .table-class tbody tr:hover {
