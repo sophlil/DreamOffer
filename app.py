@@ -395,13 +395,13 @@ def positionscompanyrecruiters():
         position_data = cur.fetchall()
 
         # Get PositionsCompanyRecruiters data to send to our template to display - READ
-        query2 = "SELECT Companies.name, Positions.title, Positions.link, CompanyRecruiters.name, CompanyRecruiters.recruiterID, Positions.positionID, PositionsCompanyRecruiters.positionsCompanyRecruitersID FROM Positions INNER JOIN Companies ON Companies.companyID = Positions.companyID INNER JOIN PositionsCompanyRecruiters ON Positions.positionID = PositionsCompanyRecruiters.positionID INNER JOIN CompanyRecruiters ON PositionsCompanyRecruiters.recruiterID = CompanyRecruiters.recruiterID;"
+        query2 = "SELECT Companies.name, Positions.title, Positions.link, CompanyRecruiters.name, CompanyRecruiters.recruiterID, Positions.positionID, PositionsCompanyRecruiters.positionsCompanyRecruitersID FROM Positions LEFT JOIN Companies ON Companies.companyID = Positions.companyID INNER JOIN PositionsCompanyRecruiters ON Positions.positionID = PositionsCompanyRecruiters.positionID INNER JOIN CompanyRecruiters ON PositionsCompanyRecruiters.recruiterID = CompanyRecruiters.recruiterID;"
         cur = mysql.connection.cursor()
         cur.execute(query2)
         affiliation_data = cur.fetchall()
 
         # Get Recruiters data to send to our template to display - READ
-        query3 = "SELECT name, email, phone, linkedin, lastContacted, details, recruiterID FROM CompanyRecruiters;"
+        query3 = "SELECT * FROM CompanyRecruiters;"
         cur = mysql.connection.cursor()
         cur.execute(query3)
         recruiter_data = cur.fetchall()
@@ -487,10 +487,9 @@ def positionscompanyrecruiters():
         if request.form.get("Add_Affiliation"):
             # Grabs user form inputs
             positionID = request.form["title"]  # Required
-            recruiterID = request.form["name"]  # Required
+            recruiterID = request.form["recruiter-id"]  # Required
 
-             # Since both inputs are required, this is the only query
-            
+            # Since both inputs are required, this is the only query
             query = "INSERT INTO PositionsCompanyRecruiters (positionID, recruiterID) VALUES (%s, %s)"
             cur = mysql.connection.cursor()
             cur.execute(query, (positionID, recruiterID))
@@ -499,7 +498,7 @@ def positionscompanyrecruiters():
             return redirect("/positionscompanyrecruiters")
         
        
-    # Fires off if user presses the Add Recruiter button
+        # Fires off if user presses the Add Recruiter button
         if request.form.get("Add_Recruiter"):
             # Grabs user form inputs
             name = request.form["name"]  # Required

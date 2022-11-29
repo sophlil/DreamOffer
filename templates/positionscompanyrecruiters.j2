@@ -303,8 +303,8 @@
                             <option value="{{ position['positionID'] }}"> {{position['title']}}</option>
                         {% endfor %}
                     </select>
-                <label for="name">Recruiter Name</label>
-                    <select name="name" id="name">
+                <label for="recruiter-id">Recruiter Name</label>
+                    <select name="recruiter-id" id="recruiter-id">
                         {% for recruiter in recruiter_data %}
                             <option value="{{ recruiter['recruiterID'] }}"> {{recruiter['name']}}</option>
                         {% endfor %}

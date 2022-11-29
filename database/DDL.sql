@@ -62,7 +62,7 @@ CREATE TABLE CompanyRecruiters (
 );
 
 CREATE TABLE PositionsCompanyRecruiters (
-    positionsCompanyRecruitersID int(11) NOT NULL,
+    positionsCompanyRecruitersID int(11) AUTO_INCREMENT NOT NULL UNIQUE,
     positionID int(11) NOT NULL,
     recruiterID int(11) NOT NULL,
     PRIMARY KEY (positionsCompanyRecruitersID),
@@ -83,10 +83,10 @@ INSERT INTO Companies (companyID, name, description, website) VALUES
 (102, 'Apple', 'Hardware & software for personal computers, phones, tablets, etc.', 'https://apple.com');
 
 INSERT INTO CompanyRecruiters (recruiterID, name, email, phone, linkedin, lastContacted, details) VALUES
-(300, 'Kelsey Wang', 'kwang.1@gmail.com', '318-995-8456', 'https://linkedin.com/kwang', '2022-10-01', 'Met at OSU Career Fair.'),
-(301, 'Adrian Portillo', 'portilloa@garmin.com', NULL, 'https://linkedin.com/aportillo', '2022-09-29', 'Messaged me on Handshake.'),
-(302, 'Daenerys Targaryen', 'targaryensrule@apple.com', NULL, 'https://linkedin.com/targaryensrule', '2022-01-11', 'Reached out on Linkedin.'),
-(303, 'Jon Snow', 'jsnow@aptiv.com', '694-856-3144', 'https://linkedin.com/snow', '2022-11-25', 'Found on Aptiv website');
+(150, 'Kelsey Wang', 'kwang.1@gmail.com', '318-995-8456', 'https://linkedin.com/kwang', '2022-10-01', 'Met at OSU Career Fair.'),
+(151, 'Adrian Portillo', 'portilloa@garmin.com', NULL, 'https://linkedin.com/aportillo', '2022-09-29', 'Messaged me on Handshake.'),
+(152, 'Daenerys Targaryen', 'targaryensrule@apple.com', NULL, 'https://linkedin.com/targaryensrule', '2022-01-11', 'Reached out on Linkedin.'),
+(153, 'Jon Snow', 'jsnow@aptiv.com', '694-856-3144', 'https://linkedin.com/snow', '2022-11-25', 'Found on Aptiv website');
 
 INSERT INTO Positions (positionID, title, location, salary, link, companyID) VALUES
 (200, 'Software Engineer Intern', 'San Jose', NULL, 'https://aptiv.com/software-engineer-intern', (SELECT companyID FROM Companies WHERE name='Aptiv')),
@@ -97,11 +97,11 @@ INSERT INTO Positions (positionID, title, location, salary, link, companyID) VAL
 (205, 'Front-end Software Engineer', 'Remote', 35000, 'https://fiverr.com/front-end-software-engineer', NULL);
 
 INSERT INTO Applications (applicationID, dateApplied, result, dateResult, applicantID, positionID) VALUES
-(1, '2022-06-04', 3, '2022-06-29', (SELECT applicantID FROM Applicants WHERE email='jjohnson@gmail.com'), (SELECT positionID FROM Positions WHERE link='apple.com/data-engineer-intern')),
-(2, '2022-07-15', 2, '2022-10-18', (SELECT applicantID FROM Applicants WHERE email='xl56@gmail.com'), (SELECT positionID FROM Positions WHERE link='aptiv.com/software-engineer-intern')),
-(3, '2021-12-30', 3, '2022-05-30', (SELECT applicantID FROM Applicants WHERE email='tayah9@icloud.com'), (SELECT positionID FROM Positions WHERE link='garmin.com/database-administrator')),
-(4, '2022-10-01', 1, '2022-10-05', (SELECT applicantID FROM Applicants WHERE email='j.seward@gmail.com'), (SELECT positionID FROM Positions WHERE link='garmin.com/database-administrator')),
-(5, '2022-09-23', 0, NULL, (SELECT applicantID FROM Applicants WHERE email='jjohnson@gmail.com'), (SELECT positionID FROM Positions WHERE link='aptiv.com/application-developer'));
+(1, '2022-06-04', 3, '2022-06-29', (SELECT applicantID FROM Applicants WHERE email='jjohnson@gmail.com'), (SELECT positionID FROM Positions WHERE link='https://apple.com/data-engineer-intern')),
+(2, '2022-07-15', 2, '2022-10-18', (SELECT applicantID FROM Applicants WHERE email='xl56@gmail.com'), (SELECT positionID FROM Positions WHERE link='https://aptiv.com/software-engineer-intern')),
+(3, '2021-12-30', 3, '2022-05-30', (SELECT applicantID FROM Applicants WHERE email='tayah9@icloud.com'), (SELECT positionID FROM Positions WHERE link='https://garmin.com/database-administrator')),
+(4, '2022-10-01', 1, '2022-10-05', (SELECT applicantID FROM Applicants WHERE email='j.seward@gmail.com'), (SELECT positionID FROM Positions WHERE link='https://garmin.com/database-administrator')),
+(5, '2022-09-23', 0, NULL, (SELECT applicantID FROM Applicants WHERE email='jjohnson@gmail.com'), (SELECT positionID FROM Positions WHERE link='https://aptiv.com/application-developer'));
 
 INSERT INTO PositionsCompanyRecruiters (positionsCompanyRecruitersID, positionID, recruiterID) VALUES
 (1, (SELECT positionID FROM Positions WHERE link='https://aptiv.com/software-engineer-intern'), (SELECT recruiterID FROM CompanyRecruiters WHERE name='Kelsey Wang')),
