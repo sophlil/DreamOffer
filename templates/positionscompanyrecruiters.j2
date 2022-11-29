@@ -220,8 +220,8 @@
     <div id='insert-pos'>
         <!-- form to INSERT new Position into Positions entity -->
         <form id="insertPosition" action="/positionscompanyrecruiters" method="post">
-            <legend><strong>Add Position</strong></legend>
             <fieldset>
+                <h3><strong>Add Position</strong></h3>
                 <label for="company-names">Company Name</label>
                     <select class="form-control" name="company-names" id="company-names">
                         <option value="None" selected>None</option>
@@ -262,12 +262,14 @@
                     maxlength="100"
                     required 
                 />
+                <div class="wrapper">
+                    <!-- Create 'Add Position' and 'Cancel' buttons -->
+                    <input type="submit" value="Add Position" name="Add_Position" class="btn btn-primary" style="margin:.5rem;">
+                    <a class="btn-anchor" href='/positionscompanyrecruiters'>
+                        <input class="btn" type="button" value="Cancel">
+                    </a>
+                </div>
             </fieldset>
-            <!-- Create 'Add Position' and 'Cancel' buttons -->
-            <input type="submit" value="Add Position" name="Add_Position" class="btn btn-primary" style="margin:.5rem;">
-            <a class="btn-anchor" href='/positionscompanyrecruiters'>
-                <input class="btn" type="button" value="Cancel">
-            </a>
         </form>
     </div>
 
@@ -275,8 +277,8 @@
     <div id='insert-aff'>
         <!-- form to INSERT new Position & Recruiter Affiliation -->
         <form id="insertAffiliation" action="/positionscompanyrecruiters" method="post">
-            <legend><strong>Add Position and Recruiter Affiliation</strong></legend>
             <fieldset>
+                <h3><strong>Add Position and Recruiter Affiliation</strong></h3>
                 <label for="title">Position Title</label>
                     <select name="title" id="title">
                         {% for position in position_data %}
@@ -289,12 +291,14 @@
                             <option value="{{ recruiter['recruiterID'] }}"> {{recruiter['name']}}</option>
                         {% endfor %}
                     </select>
+                    <div class="wrapper">
+                        <!-- Create 'Add Position and Recruiter Affiliation' and 'Cancel' buttons -->
+                        <input type="submit" value="Add Affiliation" name="Add_Affiliation" class="btn btn-primary" style="margin:.5rem;">
+                        <a class="btn-anchor" href='/positionscompanyrecruiters'>
+                            <input class="btn" type="button" value="Cancel">
+                        </a>
+                    </div>
             </fieldset>
-            <!-- Create 'Add Position and Recruiter Affiliation' and 'Cancel' buttons -->
-            <input type="submit" value="Add Affiliation" name="Add_Affiliation" class="btn btn-primary" style="margin:.5rem;">
-            <a class="btn-anchor" href='/positionscompanyrecruiters'>
-                <input class="btn" type="button" value="Cancel">
-            </a>
         </form>
     </div>
 
@@ -302,8 +306,8 @@
     <div id='insert-rec'>
         <!-- form to INSERT new Recruiter into Recruiters entity -->
         <form id="insertRecruiter" action="/positionscompanyrecruiters" method="post">
-            <legend><strong>Add Recruiter</strong></legend>
             <fieldset>
+                <h3><strong>Add Recruiter</strong></h3>
                 <label for="name">Recruiter Name</label> 
                 <input 
                     type="text" 
@@ -354,31 +358,35 @@
                     maxlength="500"
                     required
                 />
+                <div class="wrapper">
+                    <!-- Create 'Add Recruiter' and 'Cancel' buttons -->
+                    <input type="submit" value="Add Recruiter" name="Add_Recruiter" class="btn btn-primary" style="margin:.5rem;">
+                    <a class="btn-anchor" href='/positionscompanyrecruiters'>
+                        <input class="btn" type="button" value="Cancel">
+                    </a>
+                </div>
             </fieldset>
-            <!-- Create 'Add Recruiter' and 'Cancel' buttons -->
-            <input type="submit" value="Add Recruiter" name="Add_Recruiter" class="btn btn-primary" style="margin:.5rem;">
-            <a class="btn-anchor" href='/positionscompanyrecruiters'>
-                <input class="btn" type="button" value="Cancel">
-            </a>
         </form>
     </div>
 
     <div id='search-company'>
         <!-- form to SEARCH Positions by Company -->
         <form id="searchPositionsByCompany" action="/search-positions" method="get">
-            <legend><strong>Search Positions by Company</strong></legend>
             <fieldset>
+                <h3><strong>Search Positions by Company</strong></h3>
                 <label for="company-name">Company Name</label>
                     <select class="form-control" name="company-name" id="company-name">
                         {% for company in company_data %}
                             <option value="{{ company['companyID'] }}"> {{company['name']}}</option>
                         {% endfor %}
                     </select>
+                    <div class="wrapper">
+                        <input type="submit" value="Search Positions" name="Search_Position_By_Company" class="btn btn-primary" style="margin:.5rem;">
+                        <a class="btn-anchor" href='/positionscompanyrecruiters'>
+                            <input class="btn" type="button" value="Cancel">
+                        </a>
+                    </div>
             </fieldset>
-            <input type="submit" value="Search Positions" name="Search_Position_By_Company" class="btn btn-primary" style="margin:.5rem;">
-            <a class="btn-anchor" href='/positionscompanyrecruiters'>
-                <input class="btn" type="button" value="Cancel">
-            </a>
         </form>
     </div>
 

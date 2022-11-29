@@ -24,8 +24,8 @@
     <div id='delete'>
     <!-- form for performing DELETE on an Applicant -->
         <form id="deleteApplicant" action="/delete-applicant/{{data[0].applicantID}}" method="post">
-            <legend><strong>Delete Applicant</strong></legend>
             <fieldset>
+                <h3><strong>Delete Applicant</strong></h3>
                 <p>Are you sure you want to delete the applicant?</p>
                 <div>
                 <label><strong>ID: </strong><span>{{data[0].applicantID}}</span></label>
@@ -39,7 +39,7 @@
                 class="btn btn-primary" 
                 style="margin:.5rem;"
             />
-            <a href='/applicants'>
+            <a class="btn-anchor" href='/applicants'>
                 <input class="btn" type="button" value="Cancel">
             </a>
         </form>

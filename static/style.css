@@ -223,6 +223,34 @@ fieldset > h3 {
   border-bottom: 1px solid #dddddd;
 }
 
+/* #deleteApplicant > fieldset > h3 {
+  color: #f94144;
+} */
+
+#deleteApplicant > fieldset > p {
+  font-weight: 500;
+  padding-bottom: 5px;
+  color: #f94144;
+}
+
+input[name="Delete_Applicant"] {
+  background-image: linear-gradient(#fe595b, #e12b2e);
+  color: white;
+  border: 1px solid #cb2023;
+  box-shadow: 0 2px 5px rgba(0, 0, 0, 0.15);
+}
+
+input[name="Delete_Applicant"]:hover {
+  background-image: linear-gradient(#fa6466, #ec3f42);
+  border: 1px solid #db282b;
+}
+
+input[name="Delete_Applicant"]:active {
+  background-image: linear-gradient(#fb4b4e, #d62326);
+  border: 1px solid #be1a1d;
+  box-shadow: 0 1px 2px rgba(0, 0, 0, 0.5);
+}
+
 fieldset > input,
 fieldset > select {
   border: 1px solid #c8c8c8;

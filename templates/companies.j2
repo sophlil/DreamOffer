@@ -96,8 +96,8 @@
     <div id='insert'>
         <!-- form to INSERT new Company into Companies entity -->
         <form id="insertCompany" action="/companies" method="post">
-            <legend><strong>Add Company</strong></legend>
             <fieldset>
+                <h3><strong>Add Company</strong></h3>
                 <!-- placeholder shows ghost text, required forces an input, pattern forces input adherance -->
                 <label for="company">Company: </label>
                 <input 
@@ -124,13 +124,14 @@
                     placeholder=""
                     maxlength="255" 
                 />
+                <div class="wrapper">
+                    <!-- Create 'Add Company' and 'Cancel' buttons -->
+                    <input type="submit" value="Add Company" name="Add_Company" class="btn btn-primary" style="margin:.5rem;">
+                    <a class="btn-anchor" href='/companies'>
+                        <input class="btn" type="button" value="Cancel">
+                    </a>
+                </div>
             </fieldset>
-
-            <!-- Create 'Add Company' and 'Cancel' buttons -->
-            <input type="submit" value="Add Company" name="Add_Company" class="btn btn-primary" style="margin:.5rem;">
-            <a class="btn-anchor" href='/companies'>
-                <input class="btn" type="button" value="Cancel">
-            </a>
         </form>
     </div>
     <!-- END INSERT -->
