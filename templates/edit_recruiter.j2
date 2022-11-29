@@ -18,12 +18,19 @@
 </head>
 
 <body>
+    <h1>Company Recruiters</h1>
+
+    <a href="/">Home</a> |
+    <a href="/applicants">Applicants</a> |
+    <a href="/applications">Applications</a> |
+    <a href="/companies">Companies</a> |
+    <a href="/positionscompanyrecruiters">Positions & Company Recruiters</a>
 
     <div id='edit'>
         <!-- form to UPDATE a Recruiter -->
         <form id="editRecruiter" action="/edit-recruiter/{{data[0].recruiterID}}" method="post">
-            <legend><strong>Update Recruiter</strong></legend>
             <fieldset>
+                <h3><strong>Update Recruiter</strong></h3>
                 <label>ID: <span>{{data[0].recruiterID}}</span></label>
                 <label for="name">Name</label> 
                 <input 
@@ -74,17 +81,19 @@
                     value="{{ data[0].details }}"
                     maxlength="500"
                 />
+                <div class="wrapper">
+                    <input 
+                        type="submit" 
+                        value="Update Recruiter"
+                        name="Update_Recruiter"
+                        class="btn btn-primary" 
+                        style="margin:.5rem;"
+                    />
+                    <a class="btn-anchor" href='/positionscompanyrecruiters'>
+                        <input class="btn" type="button" value="Cancel">
+                    </a>
+                </div>
             </fieldset>
-            <input 
-                type="submit" 
-                value="Update Recruiter"
-                name="Update_Recruiter"
-                class="btn btn-primary" 
-                style="margin:.5rem;"
-            />
-            <a class="btn-anchor" href='/positionscompanyrecruiters'>
-                <input class="btn" type="button" value="Cancel">
-            </a>
         </form>
     </div>
 

@@ -12,13 +12,20 @@
 </head>
 
 <body>
+    <h1>Companies</h1>
+
+    <a href="/">Home</a> |
+    <a href="/applicants">Applicants</a> |
+    <a href="/applications">Applications</a> |
+    <a href="/companies">Companies</a> |
+    <a href="/positionscompanyrecruiters">Positions & Company Recruiters</a>
 
     <!-- EDIT --> 
     <div id='edit'>
         <!-- form to UPDATE a Company -->
         <form id="editCompany" action="/edit-company/{{data[0].companyID}}" method="post">
-            <legend><strong>Update Company</strong></legend>
             <fieldset>
+                <h3><strong>Update Company</strong></h3>
                 <label>ID: <span>{{data[0].companyID}}</span></label>
                 <label for="company">Company</label>
                 <input 
@@ -46,17 +53,19 @@
                     value="{{data[0].description}}"
                     maxlength="255" 
                 />
+                <div class="wrapper">
+                    <input 
+                        type="submit" 
+                        value="Update Company"
+                        name="Update_Company"
+                        class="btn btn-primary" 
+                        style="margin:.5rem;"
+                    />
+                    <a class="btn-anchor" href='/companies'>
+                        <input class="btn" type="button" value="Cancel">
+                    </a>
+                </div>
             </fieldset>
-            <input 
-                type="submit" 
-                value="Update Company"
-                name="Update_Company"
-                class="btn btn-primary" 
-                style="margin:.5rem;"
-            />
-            <a class="btn-anchor" href='/companies'>
-                <input class="btn" type="button" value="Cancel">
-            </a>
         </form>
     </div>
     <!-- END EDIT -->
