@@ -24,11 +24,13 @@
 
     <!-- DELETE -->
     <div id='delete'>
+        <h3>Delete Applicant</h3>
     <!-- form for performing DELETE on an Applicant -->
         <form id="deleteApplicant" action="/delete-applicant/{{data[0].applicantID}}" method="post">
             <fieldset>
-                <h3><strong>Delete Applicant</strong></h3>
-                <p>Are you sure you want to delete the applicant?</p>
+                <div class="form-head">
+                    <p>Are you sure you want to delete the applicant?</p>
+                </div>
                 <div>
                 <label><strong>ID: </strong><span>{{data[0].applicantID}}</span></label>
                 <label><strong>Name: </strong><span>{{data[0].name}}</span></label>

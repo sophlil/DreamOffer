@@ -265,13 +265,15 @@ fieldset > h3 {
   border-bottom: 1px solid #dddddd;
 }
 
-#deleteApplicant > fieldset > p,
-#deleteApplication > fieldset > p,
-#deleteCompany > fieldset > p,
-#deleteAffiliation > fieldset > p {
-  font-weight: 500;
+#deleteApplicant > fieldset > .form-head,
+#deleteApplication > fieldset > .form-head,
+#deleteCompany > fieldset > .form-head,
+#deleteAffiliation > fieldset > .form-head {
+  background-color: #f94144;
+  margin-bottom: 8px;
+  /* font-weight: 500;
   padding-bottom: 5px;
-  color: #f94144;
+  color: #f94144; */
 }
 
 input[name="Delete_Applicant"],
