@@ -221,6 +221,9 @@ input:not([type='submit']):invalid {
   color: white;
   letter-spacing: 1px;
 
+  opacity: 1;
+  transition: opacity .1s ease-in;
+
   position: relative;
   z-index: 9;
 }
@@ -239,11 +242,14 @@ input:not([type='submit']):invalid {
   z-index: -1;
 }
 
-.navbar > a:hover::before,
-.navbar > a:active::before {
+.navbar > a:hover::before {
   transform: scaleY(1);
   width: 110%;
   height: 5px;
+}
+
+.navbar > a:active {
+  opacity: 0;
 }
 
 /* TABLE STYLES */
