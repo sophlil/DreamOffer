@@ -4,34 +4,34 @@
 
 :root {
   --background-color: #E1E5F2;
-  --navbar-color: #022B3A;
-  --header-color: #001233;
+  --navbar-color: #012A4A;
+  --header-color: #022B3A;
   --table-color: #1F7A8C;
   --table-row-color: #E1E5F2;
 
   --link-color: #ff8500;
   --link-visited-color: #5a189a;
 
-  --delete-form-header-color: #85182A;
-  --delete-form-color: #A71E34;
+  --delete-form-header-color: #660708;
+  --delete-form-color: #ba181b;
 
-  --button-border-color: #001845;
-  --button-color-dark: #002855;
-  --button-color-medium: #023E7D;
-  --button-color-light: #0353A4;
-  --button-color-lighter: #0466C8;
+  --button-border-color: #012A4A;
+  --button-color-dark: #013A63;
+  --button-color-medium: #014F86;
+  --button-color-light: #2C7DA0;
+  --button-color-lighter: #61A5C2;
 
-  --update-button-border-color: #10451D;
-  --update-button-color-dark: #155D27;
-  --update-button-color-medium: #1A7431;
-  --update-button-color-light: #25A244;
-  --update-button-color-lighter: #6EDE8A;
+  --update-button-border-color: #005c00;
+  --update-button-color-dark: #2d661b;
+  --update-button-color-medium: #2a850e;
+  --update-button-color-light: #27a300;
+  --update-button-color-lighter: #55a630;
 
-  --delete-button-border-color: #641220;
-  --delete-button-color-dark: #85182A;
-  --delete-button-color-medium: #A71E34;
-  --delete-button-color-light: #BD1F36;
-  --delete-button-color-lighter: #E01E37;
+  --delete-button-border-color: #660708;
+  --delete-button-color-dark: #a4161a;
+  --delete-button-color-medium: #ba181b;
+  --delete-button-color-light: #e5383b;
+  --delete-button-color-lighter: #ff5a5f;
 
   /* --dark-main-blue: #022B3A;
   --medium-main-blue: #1F7A8C;
