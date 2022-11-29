@@ -25,12 +25,13 @@
 
     <!-- EDIT --> 
     <div id='edit'>
+        <h3>Update Application</h3>
         <!-- form to UPDATE an Application -->
         <form id="editApplication" action="/edit-application/{{data[0].applicationID}}" method="post">
             <fieldset>
-                <h3><strong>Update Application</strong></h3>
-                <label>ID: <span>{{data[0].applicationID}}</span></label>
-
+                <div class="form-head">
+                    <label>ID: <span>{{data[0].applicationID}}</span></label>
+                </div>
                 <label for="dateApplied">Date Applied:</label>
                 <input 
                     type="date" 
