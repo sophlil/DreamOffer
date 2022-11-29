@@ -12,13 +12,20 @@
 </head>
 
 <body>
+    <h1>Applications</h1>
+
+    <a href="/">Home</a> |
+    <a href="/applicants">Applicants</a> |
+    <a href="/applications">Applications</a> |
+    <a href="/companies">Companies</a> |
+    <a href="/positionscompanyrecruiters">Positions & Company Recruiters</a></p>
 
     <!-- DELETE -->
     <div id='delete'>
     <!-- form for performing DELETE on an Application -->
         <form id="deleteApplication" action="/delete-application/{{data[0].applicationID}}" method="post">
-            <legend><strong>Delete Application</strong></legend>
             <fieldset>
+                <h3><strong>Delete Application</strong></h3>
                 <p>Are you sure you want to delete the application?</p>
                 <div>
                 <label><strong>ID: </strong><span>{{data[0].applicationID}}</span></label>
@@ -34,7 +41,7 @@
                 class="btn btn-primary" 
                 style="margin:.5rem;"
             />
-            <a href='/applications'>
+            <a class="btn-anchor" href='/applications'>
                 <input class="btn" type="button" value="Cancel">
             </a>
         </form>
