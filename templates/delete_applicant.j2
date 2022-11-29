@@ -31,17 +31,19 @@
                 <label><strong>ID: </strong><span>{{data[0].applicantID}}</span></label>
                 <label><strong>Name: </strong><span>{{data[0].name}}</span></label>
                 </div>
+                <div class="wrapper">
+                    <input 
+                        type="submit" 
+                        value="Delete Applicant" 
+                        name="Delete_Applicant" 
+                        class="btn btn-primary" 
+                        style="margin:.5rem;"
+                    />
+                    <a class="btn-anchor" href='/applicants'>
+                        <input class="btn" type="button" value="Cancel">
+                    </a>
+                </div>
             </fieldset>
-            <input 
-                type="submit" 
-                value="Delete Applicant" 
-                name="Delete_Applicant" 
-                class="btn btn-primary" 
-                style="margin:.5rem;"
-            />
-            <a class="btn-anchor" href='/applicants'>
-                <input class="btn" type="button" value="Cancel">
-            </a>
         </form>
     </div>
     <!-- END DELETE -->

@@ -30,17 +30,19 @@
                 <label><strong>Title: </strong><span>{{data[0].title}}</span></label>
                 <label><strong>ID: </strong><span>{{data[0].recruiterID}}</span></label>
                 <label><strong>Name: </strong><span>{{data[0].name}}</span></label>
+                <div class="wrapper">
+                    <input 
+                        type="submit" 
+                        value="Delete Affiliation" 
+                        name="Delete_Affiliation" 
+                        class="btn btn-primary" 
+                        style="margin:.5rem;"
+                    />
+                    <a class="btn-anchor" href='/positionscompanyrecruiters'>
+                        <input class="btn" type="button" value="Cancel">
+                    </a>
+                </div>
             </fieldset>
-            <input 
-                type="submit" 
-                value="Delete Affiliation" 
-                name="Delete_Affiliation" 
-                class="btn btn-primary" 
-                style="margin:.5rem;"
-            />
-            <a class="btn-anchor" href='/positionscompanyrecruiters'>
-                <input class="btn" type="button" value="Cancel">
-            </a>
         </form>
     </div>
 

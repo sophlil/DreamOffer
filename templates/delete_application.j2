@@ -33,17 +33,19 @@
                 <label><strong>Position: </strong><span>{{data[0].positionTitle}}</span></label>
                 <label><strong>Company: </strong><span>{{data[0].companyName}}</span></label>
                 </div>
+                <div class="wrapper">
+                    <input 
+                        type="submit" 
+                        value="Delete Application" 
+                        name="Delete_Application" 
+                        class="btn btn-primary" 
+                        style="margin:.5rem;"
+                    />
+                    <a class="btn-anchor" href='/applications'>
+                        <input class="btn" type="button" value="Cancel">
+                    </a>
+                </div>
             </fieldset>
-            <input 
-                type="submit" 
-                value="Delete Application" 
-                name="Delete_Application" 
-                class="btn btn-primary" 
-                style="margin:.5rem;"
-            />
-            <a class="btn-anchor" href='/applications'>
-                <input class="btn" type="button" value="Cancel">
-            </a>
         </form>
     </div>
     <!-- END DELETE -->

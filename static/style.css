@@ -282,6 +282,10 @@ fieldset > label {
   font-size: 16px;
 }
 
+fieldset > label > span {
+  font-weight: 400;
+}
+
 fieldset > .wrapper {
   margin-top: 10px;
   display: flex;
