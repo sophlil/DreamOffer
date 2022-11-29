@@ -127,7 +127,7 @@
                     </td>
                 {% for key in item.keys() %}
                     {% if key == 'link' %}
-                        <td><a href="{{item[key]}}"> {{item[key]}}</a> </td>
+                        <td><a class="link" href="{{item[key]}}"> {{item[key]}}</a> </td>
                     {% else %}
                     <!-- Create a <td> element with the value of that key in it -->
                         <td> {{item[key]}} </td> 
@@ -139,7 +139,7 @@
         {% endif %}
         </table>
         <a class="btn-anchor" href="#" onClick="searchCompany()">
-            <input class="btn" type="button" value="Search by Company">
+            <input class="btn btn-primary" type="button" value="Search by Company">
         </a>
         <p>&nbsp;</p>
 
@@ -175,7 +175,7 @@
                     </td>
                 {% for key in item.keys() %}
                     {% if key == 'link' %}
-                        <td><a href="{{item[key]}}"> {{item[key]}}</a> </td>
+                        <td><a class="link" href="{{item[key]}}"> {{item[key]}}</a> </td>
                     {% else %}
                     <!-- Create a <td> element with the value of that key in it -->
                         <td> {{item[key]}} </td> 
@@ -220,7 +220,7 @@
                     </td>
                 {% for key in item.keys() %}
                     {% if key == 'linkedin' %}
-                        <td><a href="{{item[key]}}"> {{item[key]}}</a> </td>
+                        <td><a class="link" href="{{item[key]}}"> {{item[key]}}</a> </td>
                     {% else %}
                     <!-- Create a <td> element with the value of that key in it -->
                         <td> {{item[key]}} </td> 
