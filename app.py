@@ -545,7 +545,7 @@ def edit_position(id):
     # Displays the specific Position's existing attributes
     if request.method == "GET":
         # mySQL query to grab the info of the Position with the passed id
-        query = "SELECT Positions.positionID, Positions.companyID, Companies.name, Positions.title, Positions.location, Positions.salary, Positions.link FROM Positions INNER JOIN Companies ON Companies.companyID = Positions.companyID WHERE positionID = %s;" % (id)
+        query = "SELECT Positions.positionID, Positions.companyID, Companies.name, Positions.title, Positions.location, Positions.salary, Positions.link FROM Positions LEFT JOIN Companies ON Companies.companyID = Positions.companyID WHERE positionID = %s;" % (id)
         cur = mysql.connection.cursor()
         cur.execute(query)
         data = cur.fetchall()
@@ -563,17 +563,38 @@ def edit_position(id):
         # Fires off if user clicks the 'Update Position' button
         if request.form.get("Update_Position"):
             # Grabs user form inputs
-            company = request.form["company"] # Required
+            company = request.form["company"] # Optional
             title = request.form["title"]  # Required
             location = request.form["location"]  # Optional
             salary = request.form["salary"]  # Optional
             link = request.form["link"] # Required
 
+            #NULL companyID AND NULL location AND NULL salary
+            if (company == "" or company == "None") and (location == "" or location == "None") and (salary == "" or salary == "None"):
+                query = "UPDATE Positions SET companyID = NULL, title = %s, location = NULL, salary = NULL, link = %s WHERE positionID = %s;"
+                cur = mysql.connection.cursor()
+                cur.execute(query, (title, link, id))
+                mysql.connection.commit()
+
             # NULL location and NULL salary
-            if (location == "" or location == "None") and (salary == "" or salary == "None"):
+            elif (location == "" or location == "None") and (salary == "" or salary == "None"):
                 query = "UPDATE Positions SET companyID = %s, title = %s, location = NULL, salary = NULL, link = %s WHERE positionID = %s;"
                 cur = mysql.connection.cursor()
                 cur.execute(query, (company, title, link, id))
+                mysql.connection.commit()
+
+            # NULL companyID and NULL location
+            elif (company == "" or company == "None") and (location == "" or location == "None"):
+                query = "UPDATE Positions SET companyID = NULL, title = %s, location = NULL, salary = %s, link = %s WHERE positionID = %s;"
+                cur = mysql.connection.cursor()
+                cur.execute(query, (title, salary, link, id))
+                mysql.connection.commit()
+
+            # NULL companyID and NULL salary
+            elif (company == "" or company == "None") and (salary == "" or salary == "None"):
+                query = "UPDATE Positions SET companyID = NULL, title = %s, location = %s, salary = NULL, link = %s WHERE positionID = %s;"
+                cur = mysql.connection.cursor()
+                cur.execute(query, (title, location, link, id))
                 mysql.connection.commit()
 
             # NULL location
@@ -588,6 +609,13 @@ def edit_position(id):
                 query = "UPDATE Positions SET companyID = %s, title = %s, location = %s, salary = NULL, link = %s WHERE positionID = %s;"
                 cur = mysql.connection.cursor()
                 cur.execute(query, (company, title, location, link, id))
+                mysql.connection.commit()
+
+            # NULL companyID
+            elif company == "" or company == "None":
+                query = "UPDATE Positions SET companyID = NULL, title = %s, location = %s, salary = %s, link = %s WHERE positionID = %s;"
+                cur = mysql.connection.cursor()
+                cur.execute(query, (title, location, salary, link, id))
                 mysql.connection.commit()
 
             # No NULL inputs

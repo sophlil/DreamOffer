@@ -37,7 +37,12 @@
                     <label>ID: <span>{{data[0].positionID}}</span></label>
                 </div>
                 <label for="company">Company Name</label>
-                <select class="form-control" name="company" id="company" required>
+                <select class="form-control" name="company" id="company">
+                {% if data[0].companyID == 'None' %}
+                    <option value="" selected> None</option>
+                {% else %}
+                    <option value=""> None</option>
+                {% endif %}
                 {% for company in companies_data %}
                     {% if data[0].companyID == company['companyID'] %}
                         <option value="{{ company['companyID'] }}" selected> {{ company['name'] }} </option>
