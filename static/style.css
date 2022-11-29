@@ -1,5 +1,12 @@
 @import url('https://fonts.googleapis.com/css2?family=Roboto:wght@300;400;500;700&display=swap');
 
+/* VARIABLES */
+
+:root {
+  --darker-red: #ed2b2e;
+  --regular-red: #f94144;
+}
+
 /* CSS RESET */
 
 *,
@@ -56,12 +63,12 @@ div > h3::after {
 }
 
 .delete-header {
-  color: #f94144;
+  color: var(--darker-red);
 }
 
 .delete-header::after {
   content: "";
-  background: #f94144;
+  background: var(--darker-red);
   position: absolute;
   bottom: 2px;
   left: 0;
@@ -184,7 +191,7 @@ input:not([type='submit']):valid {
 }
 
 input:not([type='submit']):invalid {
-  color: #f94144;
+  color: var(--regular-red);
 }
 
 /* HEADER STYLES */
@@ -283,7 +290,7 @@ fieldset > h3 {
 #deleteApplication > fieldset > .form-head,
 #deleteCompany > fieldset > .form-head,
 #deleteAffiliation > fieldset > .form-head {
-  background-color: #f94144;
+  background-color: var(--darker-red);
   margin-bottom: 8px;
   /* font-weight: 500;
   padding-bottom: 5px;
