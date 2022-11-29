@@ -5,6 +5,10 @@
 :root {
   --darker-red: #ed2b2e;
   --regular-red: #f94144;
+
+  --darker-blue: #0e70a4;
+  --regular-blue: #2a97c6;
+  --lighter-blue: #42aedc;
 }
 
 /* CSS RESET */
@@ -197,7 +201,7 @@ input:not([type='submit']):invalid {
 /* HEADER STYLES */
 
 .header {
-  background-color: #6DBDDE;
+  background-color: var(--regular-blue);
   color: white;
   padding: 12px 15px;
   display: flex;
@@ -235,7 +239,8 @@ input:not([type='submit']):invalid {
   left: -5%;
   height: 1px;
   width: 0%;
-  background-color: rgba(70, 165, 206, 0.8);
+  background-color: rgba(36, 118, 163, 0.8);
+  /* background-color: rgba(70, 165, 206, 0.8); */
 
   transform: scaleY(0);
   transition: transform .2s, width .2s, height .3s ease-in;
@@ -265,7 +270,7 @@ table {
 }
 
 .table-class thead tr {
-  background-color: #6DBDDE;
+  background-color: var(--lighter-blue);
   color: white;
   text-align: left;
 }
@@ -284,7 +289,7 @@ table {
 }
 
 .table-class tbody tr:last-of-type {
-  border-bottom: 5px solid #6DBDDE;
+  border-bottom: 5px solid var(--lighter-blue);
 }
 
 .table-class tbody tr:hover {
@@ -314,7 +319,7 @@ fieldset {
 }
 
 .form-head {
-  background-color: #6DBDDE;
+  background-color: var(--lighter-blue);
   color: white;
   text-align: left;
   margin: -15px -25px 0;
