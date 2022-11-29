@@ -138,7 +138,7 @@ def companies():
             website = request.form["website"]  # Optional
 
             # NULL description AND NULL website
-            if description == "" and website == "":
+            if (description == "" or description == "None") and (website == "" or website == "None"):
                 # mySQL query to insert new Company into Companies with user form inputs
                 query = "INSERT INTO Companies (name) VALUES (%s)"
                 cur = mysql.connection.cursor()
@@ -146,14 +146,14 @@ def companies():
                 mysql.connection.commit()
             
             # NULL description
-            elif description == "":
+            elif description == "" or description == "None":
                 query = "INSERT INTO Companies (name, website) VALUES (%s, %s)"
                 cur = mysql.connection.cursor()
                 cur.execute(query, (name, website))
                 mysql.connection.commit()
             
             # NULL website
-            elif website == "":
+            elif website == "" or website == "None":
                 query = "INSERT INTO Companies (name, description) VALUES (%s, %s)"
                 cur = mysql.connection.cursor()
                 cur.execute(query, (name, description))
@@ -187,7 +187,7 @@ def edit_company(id):
         # Fires off if user clicks the 'Update Company' button
         if request.form.get("Update_Company"):
             # Grabs user form inputs
-            name = request.form["name"]  # Required
+            name = request.form["company"]  # Required
             description = request.form["description"]  # Optional
             website = request.form["website"]  # Optional
 

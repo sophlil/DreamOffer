@@ -49,11 +49,12 @@
                 />
                 <label for="email">Email</label> 
                 <input 
-                    type="email" 
+                    type="text" 
                     class="form-control" 
                     id="email" 
                     name="email" 
                     value="{{data[0].email}}"
+                    pattern="[^@\s]+@[^@\s]+\.[^@\s]+"
                     required
                 />
                 <div class="wrapper">

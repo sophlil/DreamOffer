@@ -6,6 +6,12 @@
     edit_people.j2 file from the Flask Starter App repo by Professor Michael Curry
     https://github.com/osu-cs340-ecampus/flask-starter-app/blob/master/bsg_people_app/templates/edit_people.j2
 -->
+<!--
+    Citation for regex in pattern attribute of INSERT form's url input for "website":
+    11/28/2022
+    Copied from:
+    https://stackoverflow.com/questions/3809401/what-is-a-good-regular-expression-to-match-a-url
+-->
 <head>
 	<title>Edit Company</title>
     <link href="../static/style.css" rel="stylesheet" type="text/css" />
@@ -47,6 +53,7 @@
                     id="website" 
                     name="website" 
                     value="{{data[0].website}}"
+                    pattern="(https?:\/\/(?:www\.|(?!www))[a-zA-Z0-9][a-zA-Z0-9-]+[a-zA-Z0-9]\.[^\s]{2,}|www\.[a-zA-Z0-9][a-zA-Z0-9-]+[a-zA-Z0-9]\.[^\s]{2,}|https?:\/\/(?:www\.|(?!www))[a-zA-Z0-9]+\.[^\s]{2,}|www\.[a-zA-Z0-9]+\.[^\s]{2,})"
                 />
                 <label for="description">Description</label> 
                 <input 
