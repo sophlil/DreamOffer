@@ -200,6 +200,50 @@ input:not([type='submit']):invalid {
   background-color: #6DBDDE;
   color: white;
   padding: 12px 15px;
+  display: flex;
+  justify-content: space-between;
+}
+
+.header > h1 {
+  text-transform: uppercase;
+  letter-spacing: 1px;
+}
+
+.navbar {
+  width: 80%;
+  align-self: center;
+  display: flex;
+  justify-content: space-around;
+  margin-right: 50px;
+}
+
+.navbar > a {
+  color: white;
+  letter-spacing: 1px;
+
+  position: relative;
+  z-index: 9;
+}
+
+.navbar > a::before {
+  content: "";
+  position: absolute;
+  bottom: -30%;
+  left: -5%;
+  height: 1px;
+  width: 0%;
+  background-color: rgba(70, 165, 206, 0.8);
+
+  transform: scaleY(0);
+  transition: transform .2s, width .2s, height .3s ease-in;
+  z-index: -1;
+}
+
+.navbar > a:hover::before,
+.navbar > a:active::before {
+  transform: scaleY(1);
+  width: 110%;
+  height: 5px;
 }
 
 /* TABLE STYLES */
