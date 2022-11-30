@@ -83,6 +83,7 @@ body {
 body > div:not(:first-child) {
   padding-left: 25px;
   padding-top: 15px;
+  padding-right: 25px;
 }
 
 button,
@@ -177,6 +178,18 @@ tbody > tr > td > .link:visited {
   color: var(--link-visited-color);
 }
 
+@media only screen and (max-width: 1000px) {
+  div > h3 {
+    font-size: 18px;
+  }
+}
+
+@media only screen and (max-width: 800px) {
+  div > h3 {
+    font-size: 16px;
+  }
+}
+
 /* HEADER STYLES */
 
 .header {
@@ -200,11 +213,11 @@ tbody > tr > td > .link:visited {
 }
 
 .navbar {
-  width: 65%;
+  width: 50%;
   align-self: center;
   display: flex;
   justify-content: space-around;
-  margin-right: 50px;
+  margin-right: 25px;
 }
 
 .navbar > a {
@@ -241,6 +254,29 @@ tbody > tr > td > .link:visited {
 
 .navbar > a:active {
   opacity: 0;
+}
+
+@media only screen and (max-width: 1300px) {
+  .navbar {
+    width: 65%;
+    font-size: 16px;
+    margin-right: 5px;
+  }
+
+  .header >  h1 {
+    font-size: 18px;
+  }
+}
+
+@media only screen and (max-width: 1000px) {
+  .navbar {
+    font-size: 12px;
+    margin-right: 5px;
+  }
+
+  .header > h1 {
+    font-size: 16px;
+  }
 }
 
 /* BUTTON STYLES */
@@ -365,6 +401,20 @@ a {
   box-shadow: 0 1px 2px rgba(0, 0, 0, 0.5); */
 }
 
+@media only screen and (max-width: 1000px) {
+  .btn-anchor > .btn,
+  .btn-primary {
+    font-size: 14px;
+  }
+}
+
+@media only screen and (max-width: 800px) {
+  .btn-anchor > .btn,
+  .btn-primary {
+    font-size: 10px;
+  }
+}
+
 /* INPUT STYLES */
 
 input[type="text"],
@@ -385,7 +435,7 @@ input:not([type='submit']):invalid {
 /* TABLE STYLES */
 
 table {
-  width: max-content;
+  max-width: max-content;
   background-color: #fff;
 }
 
@@ -424,6 +474,34 @@ table {
   background-color: #ffffff;
   color: var(--table-color);
   box-shadow: 0 0 20px rgba(0, 0, 0, 0.15);
+}
+
+@media only screen and (max-width: 1000px) {
+  table {
+    /* max-width: 600px; */
+    font-size: 14px;
+  }
+
+  .table-class th,
+  .table-class td {
+    padding: 6px 8px;
+    overflow-wrap: break-word;
+    font-size: inherit;
+  }
+}
+
+@media only screen and (max-width: 800px) {
+  table {
+    /* max-width: 400px; */
+    font-size: 10px;
+  }
+
+  .table-class th,
+  .table-class td {
+    padding: 6px 8px;
+    overflow-wrap: break-word;
+    font-size: inherit;
+  }
 }
 
 /* FORM STYLES */
@@ -536,4 +614,36 @@ fieldset > .wrapper {
   display: flex;
   align-items: center;
   justify-content: center;
+}
+
+@media only screen and (max-width: 1000px) {
+  form {
+    font-size: 14px;
+  }
+
+  fieldset {
+    font-size: inherit;
+  }
+
+  fieldset > label {
+    font-size: 14px;
+  }
+
+  fieldset > h3 {
+    font-size: 18px;
+  }
+}
+
+@media only screen and (max-width: 800px) {
+  form {
+    font-size: 12px;
+  }
+
+  fieldset > label {
+    font-size: 12px;
+  }
+
+  fieldset > h3 {
+    font-size: 14px;
+  }
 }
