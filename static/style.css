@@ -242,6 +242,11 @@ tbody > tr > td > .link:visited {
     font-size: 18px;
   }
 
+  .home-title {
+    letter-spacing: 1px;
+    line-height: 1.6;
+  }
+
   #moon {
     font-size: 38px;
   }
@@ -269,6 +274,8 @@ tbody > tr > td > .link:visited {
 
   .home-title {
     font-size: 38px;
+    letter-spacing: normal;
+    line-height: normal;
   }
 
   .emphasis {
