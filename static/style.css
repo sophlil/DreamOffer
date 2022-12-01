@@ -679,7 +679,9 @@ fieldset > h3 {
 #deleteApplicant > fieldset > .form-head,
 #deleteApplication > fieldset > .form-head,
 #deleteCompany > fieldset > .form-head,
-#deleteAffiliation > fieldset > .form-head {
+#deleteAffiliation > fieldset > .form-head,
+#deletePosition > fieldset > .form-head,
+#deleteRecruiter > fieldset > .form-head {
   /* background-color: var(--delete-form-color); */
   background: var(--delete-form-color);
   margin-bottom: 8px;
@@ -693,7 +695,9 @@ fieldset > h3 {
 input[name="Delete_Applicant"],
 input[name="Delete_Application"],
 input[name="Delete_Company"],
-input[name="Delete_Affiliation"] {
+input[name="Delete_Affiliation"],
+input[name="Delete_Position"],
+input[name="Delete_Recruiter"] {
   background-image: linear-gradient(var(--delete-button-color-light), var(--delete-button-color-medium));
   color: white;
   border: 1px solid var(--delete-button-border-color);
@@ -703,7 +707,9 @@ input[name="Delete_Affiliation"] {
 input[name="Delete_Applicant"]:hover,
 input[name="Delete_Application"]:hover,
 input[name="Delete_Company"]:hover,
-input[name="Delete_Affiliation"]:hover {
+input[name="Delete_Affiliation"]:hover,
+input[name="Delete_Position"]:hover,
+input[name="Delete_Recruiter"]:hover {
   background-image: linear-gradient(var(--delete-button-color-lighter), var(--delete-button-color-light));
   border: 1px solid var(--delete-button-color-medium);
 }
@@ -711,7 +717,9 @@ input[name="Delete_Affiliation"]:hover {
 input[name="Delete_Applicant"]:active,
 input[name="Delete_Application"]:active,
 input[name="Delete_Company"]:active,
-input[name="Delete_Affiliation"]:active {
+input[name="Delete_Affiliation"]:active,
+input[name="Delete_Position"]:active,
+input[name="Delete_Recruiter"]:active {
   background-image: linear-gradient(var(--delete-button-color-medium), var(--delete-button-color-dark));
   border: 1px solid var(--delete-button-border-color);
   box-shadow: 0 1px 2px rgba(0, 0, 0, 0.5);

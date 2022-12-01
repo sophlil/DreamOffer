@@ -102,7 +102,7 @@
         <!-- Access data passed from app.py -->
             <thead>
                 <tr>
-                    <th>
+                    <th colspan="2">
                         <button class="new-btn" onClick="newPosition()">New Position</button>
                     </th>
                     <th>Company</th>
@@ -119,10 +119,15 @@
             <!-- Iterate through every item in data -->
             {% for item in position_data %}
                 <tr>
-                    <!-- Edit button for each item -->
+                    <!-- Edit and Delete buttons for each item -->
                     <td>
                         <a href="/edit-position/{{item.positionID}}" class="edit-btn">
                             Edit
+                        </a>
+                    </td>
+                    <td>
+                        <a href="/delete-position/{{item.positionID}}" class="delete-btn">
+                            Delete
                         </a>
                     </td>
                 {% for key in item.keys() %}
@@ -206,7 +211,7 @@
             <!-- Access data passed from app.py -->
             <thead>
                 <tr>
-                    <th>
+                    <th colspan="2">
                         <button class="new-btn" onClick="newRecruiter()">New Recruiter</button>
                     </th>
                     <th>Name</th>
@@ -224,10 +229,15 @@
             <!-- Iterate through every item in data -->
             {% for item in recruiter_data %}
                 <tr>
-                    <!-- Edit button for each item -->
+                    <!-- Edit and Delete buttons for each item -->
                     <td>
                         <a href="/edit-recruiter/{{item.recruiterID}}" class="edit-btn">
                             Edit
+                        </a>
+                    </td>
+                    <td>
+                        <a href="/delete-recruiter/{{item.recruiterID}}" class="delete-btn">
+                            Delete
                         </a>
                     </td>
                 {% for key in item.keys() %}
