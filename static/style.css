@@ -334,13 +334,14 @@ tbody > tr > td > .link:visited {
 
   position: relative;
   z-index: 9;
+  transition: opacity 200ms ease-out;
 }
 
 .navbar > a::before {
   content: "";
   position: absolute;
   bottom: -30%;
-  left: -5%;
+  left: 0;
   height: 1px;
   width: 0%;
   background-color: rgba(36, 118, 163, 0.8);
@@ -353,7 +354,7 @@ tbody > tr > td > .link:visited {
 
 .navbar > a:hover::before {
   transform: scaleY(1);
-  width: 110%;
+  width: 100%;
   height: 5px;
 }
 
