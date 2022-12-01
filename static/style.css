@@ -98,10 +98,13 @@ input {
 /* TYPOGRAPHY STYLES */
 
 body > .home-wrapper {
-  margin-top: 50px;
+  margin: 40px 20px 20px;
+  padding: 20px 50px;
   display: flex;
   align-items: center;
   justify-content: center;
+  background-color: #fff;
+  box-shadow: 0 4px 20px rgba(0, 0, 0, 0.15);
 }
 
 #moon {
@@ -109,7 +112,7 @@ body > .home-wrapper {
 }
 
 .home-title {
-  margin: 25px 0;
+  /* margin: 25px 0; */
   text-align: center;
   font-size: 48px;
   color: var(--header-color);
@@ -128,7 +131,7 @@ body > .home-wrapper {
 }
 
 .home-wrapper > .home-description {
-  padding: 0 150px 25px;
+  padding: 25px 100px 25px 150px;
   font-size: 18px;
   text-align: justify;
   width: 80%;
@@ -238,10 +241,49 @@ tbody > tr > td > .link:visited {
   div > h3 {
     font-size: 18px;
   }
+
+  #moon {
+    font-size: 38px;
+  }
+
+  .home-wrapper > .home-description {
+    padding: 25px 50px 25px 150px;
+    font-size: 16px;
+  }
 }
 
 @media only screen and (max-width: 800px) {
   div > h3 {
+    font-size: 16px;
+  }
+
+  #moon {
+    font-size: 32px;
+  }
+
+  .home-wrapper {
+    margin: 40px 20px 20px;
+    padding: 20px 50px;
+    flex-direction: column;
+  }
+
+  .home-title {
+    font-size: 38px;
+  }
+
+  .emphasis {
+    font-size: 52px;
+  }
+
+  .home-title::after {
+    bottom: -10px;
+    left: 10%;
+    width: 80%;
+    height: 2px;
+  }
+
+  .home-wrapper > .home-description {
+    padding: 25px 5px 25px 5px;
     font-size: 16px;
   }
 }
@@ -338,6 +380,10 @@ tbody > tr > td > .link:visited {
   .header > h1 {
     font-size: 16px;
   }
+
+  #logo {
+    font-size: 32px;
+  }
 }
 
 @media only screen and (max-width: 800px) {
@@ -348,6 +394,10 @@ tbody > tr > td > .link:visited {
 
   .header {
     padding: 6px 7px 6px 10px;
+  }
+
+  #logo {
+    font-size: 24px;
   }
 }
 
@@ -580,6 +630,7 @@ table {
 
 form {
   width: 400px;
+  background-color: #fff;
   /* margin-top: 35px;
   margin-left: 35px; */
   margin: 5px 0;
