@@ -3,16 +3,16 @@
 /* VARIABLES */
 
 :root {
-  --background-color: #eef4ed; /* #E1E5F2; */
-  --navbar-color: #022B3A; /* #012A4A; */
-  --header-color: #022B3A; /* #022B3A; */
-  --table-color: #18606f; /* #1F7A8C; */
-  --table-row-color: #E1E5F2; /* #E1E5F2; */
+  --background-color: #eef4ed;
+  --navbar-color: #022B3A;
+  --header-color: #022B3A;
+  --table-color: #18606f;
+  --table-row-color: #E1E5F2;
 
   --link-color: #1f979b;
 
-  --delete-form-header-color: #4e0110; /* #660708; */
-  --delete-form-color: linear-gradient(to bottom, #c32530, #a12d22); /* #db222a; */ /* #ba181b; */
+  --delete-form-header-color: #4e0110;
+  --delete-form-color: linear-gradient(to bottom, #c32530, #a12d22);
 
   --button-border-color: #012A4A;
   --button-color-dark: #013A63;
@@ -20,43 +20,17 @@
   --button-color-light: #2C7DA0;
   --button-color-lighter: #61A5C2;
 
-  --update-button-border-color: #10451d; /* #005c00; */
-  --update-button-color-dark: #155d27; /* #2d661b; */
-  --update-button-color-medium: #349662; /* #2a850e; */
-  --update-button-color-light: #369f67; /* #27a300; */
-  --update-button-color-lighter: #6ede8a; /* #55a630; */
+  --update-button-border-color: #10451d;
+  --update-button-color-dark: #155d27;
+  --update-button-color-medium: #349662;
+  --update-button-color-light: #369f67;
+  --update-button-color-lighter: #6ede8a;
 
-  --delete-button-border-color: #4e0110; /* #660708; */
-  --delete-button-color-dark: #942b3b; /* #a4161a; */
-  --delete-button-color-medium: #ab2836; /* #ba181b; */
+  --delete-button-border-color: #4e0110;
+  --delete-button-color-dark: #942b3b;
+  --delete-button-color-medium: #ab2836;
   --delete-button-color-light: #a12d22;
   --delete-button-color-lighter: #ff5a5f;
-
-  /* --dark-main-blue: #022B3A;
-  --medium-main-blue: #1F7A8C;
-  --light-main-blue: #BFDBF7;
-  --lighest-main-blue: #E1E5F2;
-
-  --darkest-green: #1B4332;
-  --dark-green: #2D6A4F;
-  --medium-green: #40916C;
-  --light-green: #52B788;
-  --lighter-green: #95D5B2;
-  --lightest-green: #D8F3DC;
-
-  --darkest-red: #590D22;
-  --dark-red: #800F2F;
-  --medium-red: #A4133C;
-  --light-red: #C9184A;
-  --pink: #FF758F; */
-
-  /* OLD VARIABLES */
-  /* --darker-red: #ed2b2e;
-  --regular-red: #f94144;
-
-  --darker-blue: #0e70a4;
-  --regular-blue: #2a97c6;
-  --lighter-blue: #42aedc; */
 }
 
 /* CSS RESET */
@@ -112,7 +86,6 @@ body > .home-wrapper {
 }
 
 .home-title {
-  /* margin: 25px 0; */
   text-align: center;
   font-size: 48px;
   color: var(--header-color);
@@ -181,13 +154,11 @@ body > .home-wrapper {
 
 .star2 {
   opacity: 0.6;
-  /* font-size: 16px; */
   animation: sparkle2 1.2s linear infinite;
 }
 
 .star3 {
   opacity: 0.3;
-  /* font-size: 14px; */
   animation: sparkle3 1.2s linear infinite;
 }
 
@@ -345,7 +316,6 @@ tbody > tr > td > .link:visited {
   height: 1px;
   width: 0%;
   background-color: rgba(36, 118, 163, 0.8);
-  /* background-color: rgba(70, 165, 206, 0.8); */
 
   transform: scaleY(0);
   transition: transform .2s, width .2s, height .3s ease-in;
@@ -493,6 +463,39 @@ a {
   font-weight: 700;
 }
 
+input[name="Delete_Applicant"],
+input[name="Delete_Application"],
+input[name="Delete_Company"],
+input[name="Delete_Affiliation"],
+input[name="Delete_Position"],
+input[name="Delete_Recruiter"] {
+  background-image: linear-gradient(var(--delete-button-color-light), var(--delete-button-color-medium));
+  color: white;
+  border: 1px solid var(--delete-button-border-color);
+  box-shadow: 0 2px 5px rgba(0, 0, 0, 0.15);
+}
+
+input[name="Delete_Applicant"]:hover,
+input[name="Delete_Application"]:hover,
+input[name="Delete_Company"]:hover,
+input[name="Delete_Affiliation"]:hover,
+input[name="Delete_Position"]:hover,
+input[name="Delete_Recruiter"]:hover {
+  background-image: linear-gradient(var(--delete-button-color-lighter), var(--delete-button-color-light));
+  border: 1px solid var(--delete-button-color-medium);
+}
+
+input[name="Delete_Applicant"]:active,
+input[name="Delete_Application"]:active,
+input[name="Delete_Company"]:active,
+input[name="Delete_Affiliation"]:active,
+input[name="Delete_Position"]:active,
+input[name="Delete_Recruiter"]:active {
+  background-image: linear-gradient(var(--delete-button-color-medium), var(--delete-button-color-dark));
+  border: 1px solid var(--delete-button-border-color);
+  box-shadow: 0 1px 2px rgba(0, 0, 0, 0.5);
+}
+
 .app-link {
   background-image: linear-gradient(var(--button-color-light), var(--button-color-medium));
   color: white;
@@ -502,33 +505,17 @@ a {
   padding: 4px 15px;
   box-shadow: 0 2px 5px rgba(0, 0, 0, 0.15);
   font-weight: 500;
-
-  /* background-image: linear-gradient(#73b8ed, #3687b3);
-  color: white;
-  border: 1px solid #3687b3;
-  border-radius: 4px;
-  text-align: center;
-  padding: 4px 15px;
-  box-shadow: 0 2px 5px rgba(0, 0, 0, 0.15);
-  font-weight: 500; */
 }
 
 .app-link:hover {
   background-image: linear-gradient(var(--button-color-lighter), var(--button-color-light));
   border-color: var(--button-color-medium);
-
-  /* background-image: linear-gradient(#7cbef0, #4195c2);
-  border-color: #4190bb; */
 }
 
 .app-link:active {
   background-image: linear-gradient(var(--button-color-medium), var(--button-color-dark));
   border-color: var(--button-border-color);
   box-shadow: 0 1px 2px rgba(0, 0, 0, 0.5);
-
-  /* background-image: linear-gradient(#5da8e1, #2476a3);
-  border-color: #2877a2;
-  box-shadow: 0 1px 2px rgba(0, 0, 0, 0.5); */
 }
 
 @media only screen and (max-width: 1000px) {
@@ -608,7 +595,6 @@ table {
 
 @media only screen and (max-width: 1000px) {
   table {
-    /* max-width: 600px; */
     font-size: 14px;
   }
 
@@ -622,7 +608,6 @@ table {
 
 @media only screen and (max-width: 800px) {
   table {
-    /* max-width: 400px; */
     font-size: 10px;
   }
 
@@ -639,8 +624,6 @@ table {
 form {
   width: 400px;
   background-color: #fff;
-  /* margin-top: 35px;
-  margin-left: 35px; */
   margin: 5px 0;
   box-shadow: 0 4px 20px rgba(0, 0, 0, 0.15);
 }
@@ -650,7 +633,6 @@ fieldset {
   flex-direction: column;
   padding: 15px 25px;
   border: none;
-  /* box-shadow: 0 6px 20px rgba(0, 0, 0, 0.35); */
 }
 
 .form-head {
@@ -682,47 +664,10 @@ fieldset > h3 {
 #deleteAffiliation > fieldset > .form-head,
 #deletePosition > fieldset > .form-head,
 #deleteRecruiter > fieldset > .form-head {
-  /* background-color: var(--delete-form-color); */
   background: var(--delete-form-color);
   margin-bottom: 8px;
   letter-spacing: 0.8px;
   font-weight: 500;
-  /* font-weight: 500;
-  padding-bottom: 5px;
-  color: #f94144; */
-}
-
-input[name="Delete_Applicant"],
-input[name="Delete_Application"],
-input[name="Delete_Company"],
-input[name="Delete_Affiliation"],
-input[name="Delete_Position"],
-input[name="Delete_Recruiter"] {
-  background-image: linear-gradient(var(--delete-button-color-light), var(--delete-button-color-medium));
-  color: white;
-  border: 1px solid var(--delete-button-border-color);
-  box-shadow: 0 2px 5px rgba(0, 0, 0, 0.15);
-}
-
-input[name="Delete_Applicant"]:hover,
-input[name="Delete_Application"]:hover,
-input[name="Delete_Company"]:hover,
-input[name="Delete_Affiliation"]:hover,
-input[name="Delete_Position"]:hover,
-input[name="Delete_Recruiter"]:hover {
-  background-image: linear-gradient(var(--delete-button-color-lighter), var(--delete-button-color-light));
-  border: 1px solid var(--delete-button-color-medium);
-}
-
-input[name="Delete_Applicant"]:active,
-input[name="Delete_Application"]:active,
-input[name="Delete_Company"]:active,
-input[name="Delete_Affiliation"]:active,
-input[name="Delete_Position"]:active,
-input[name="Delete_Recruiter"]:active {
-  background-image: linear-gradient(var(--delete-button-color-medium), var(--delete-button-color-dark));
-  border: 1px solid var(--delete-button-border-color);
-  box-shadow: 0 1px 2px rgba(0, 0, 0, 0.5);
 }
 
 fieldset > input,
@@ -792,80 +737,62 @@ fieldset > .wrapper {
 @keyframes sparkle1 {
   0% {
     opacity: 1;
-    /* font-size: 18px; */
   }
   20% {
     opacity: 0.6;
-    /* font-size: 16px; */
   }
   40% {
     opacity: 0.3;
-    /* font-size: 14px; */
   }
   60% {
     opacity: 0;
-    /* font-size: 12px; */
   }
   80% {
     opacity: 0.3;
-    /* font-size: 14px; */
   }
   100% {
     opacity: 0.6;
-    /* font-size: 16px; */
   }
 }
 
 @keyframes sparkle2 {
   0% {
     opacity: 0.6;
-    /* font-size: 18px; */
   }
   20% {
     opacity: 0.3;
-    /* font-size: 16px; */
   }
   40% {
     opacity: 0;
-    /* font-size: 14px; */
   }
   60% {
     opacity: 0.3;
-    /* font-size: 12px; */
   }
   80% {
     opacity: 0.6;
-    /* font-size: 14px; */
   }
   100% {
     opacity: 1;
-    /* font-size: 16px; */
   }
 }
 
 @keyframes sparkle3 {
   0% {
     opacity: 0.3;
-    /* font-size: 18px; */
   }
   20% {
     opacity: 0;
-    /* font-size: 16px; */
   }
   40% {
     opacity: 0.3;
-    /* font-size: 14px; */
   }
   60% {
     opacity: 0.6;
-    /* font-size: 12px; */
   }
   80% {
     opacity: 1;
-    /* font-size: 14px; */
   }
   100% {
     opacity: 0.6;
-    /* font-size: 16px; */
   }
 }
