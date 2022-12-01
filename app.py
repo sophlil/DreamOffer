@@ -142,7 +142,7 @@ def companies():
                 # mySQL query to insert new Company into Companies with user form inputs
                 query = "INSERT INTO Companies (name) VALUES (%s)"
                 cur = mysql.connection.cursor()
-                cur.execute(query, (name))
+                cur.execute(query, (name,))
                 mysql.connection.commit()
             
             # NULL description

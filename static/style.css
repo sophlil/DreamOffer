@@ -6,13 +6,13 @@
   --background-color: #eef4ed; /* #E1E5F2; */
   --navbar-color: #022B3A; /* #012A4A; */
   --header-color: #022B3A; /* #022B3A; */
-  --table-color: #1F7A8C; /* #1F7A8C; */
+  --table-color: #18606f; /* #1F7A8C; */
   --table-row-color: #E1E5F2; /* #E1E5F2; */
 
   --link-color: #1f979b;
 
   --delete-form-header-color: #4e0110; /* #660708; */
-  --delete-form-color: linear-gradient(to bottom, #c32530, #db222a); /* #db222a; */ /* #ba181b; */
+  --delete-form-color: linear-gradient(to bottom, #c32530, #a12d22); /* #db222a; */ /* #ba181b; */
 
   --button-border-color: #012A4A;
   --button-color-dark: #013A63;
@@ -22,14 +22,14 @@
 
   --update-button-border-color: #10451d; /* #005c00; */
   --update-button-color-dark: #155d27; /* #2d661b; */
-  --update-button-color-medium: #208b3a; /* #2a850e; */
-  --update-button-color-light: #25a244; /* #27a300; */
+  --update-button-color-medium: #349662; /* #2a850e; */
+  --update-button-color-light: #369f67; /* #27a300; */
   --update-button-color-lighter: #6ede8a; /* #55a630; */
 
   --delete-button-border-color: #4e0110; /* #660708; */
   --delete-button-color-dark: #942b3b; /* #a4161a; */
   --delete-button-color-medium: #ab2836; /* #ba181b; */
-  --delete-button-color-light: #e5383b;
+  --delete-button-color-light: #a12d22;
   --delete-button-color-lighter: #ff5a5f;
 
   /* --dark-main-blue: #022B3A;
