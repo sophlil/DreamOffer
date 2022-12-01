@@ -70,7 +70,7 @@
                 </tr>
             </thead>
 
-            {% if data %}
+        {% if data %}
             <tbody>
             <!-- Iterate through every item in data -->
             {% for item in data %}
@@ -97,6 +97,12 @@
                 {% endfor %}
                 </tr>
             {% endfor %}
+            </tbody>
+        {% else %}
+            <tbody>
+                <tr>
+                    <td></td>
+                </tr>
             </tbody>
         {% endif %}
 

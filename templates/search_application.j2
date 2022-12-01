@@ -33,6 +33,7 @@
             </thead>
 
 
+        {% if search_data %}
             <tbody>
             <!-- Iterate through every item in data -->
             {% for item in search_data %}
@@ -56,6 +57,13 @@
                 </tr>
             {% endfor %}
             </tbody>
+        {% else %}
+            <tbody>
+                <tr>
+                    <td></td>
+                </tr>
+            </tbody>
+        {% endif %}
 
         </table>
         <p>&nbsp;</p>
