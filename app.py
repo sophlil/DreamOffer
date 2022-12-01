@@ -693,6 +693,16 @@ def delete_position(id):
 
         return render_template("delete_position.j2", data=data)
 
+    if request.method == "POST":
+        # mySQL query to delete the Position
+        query = "DELETE FROM Positions WHERE Positions.positionID = %s;"
+        cur = mysql.connection.cursor()
+        cur.execute(query, (id,))
+        mysql.connection.commit()
+
+        # redirect back to Positions and Company Recruiters page
+        return redirect("/positionscompanyrecruiters")
+
 # route for DELETE Recruiter form
 @app.route("/delete-recruiter/<int:id>", methods=["POST", "GET"])
 def delete_recruiter(id):
@@ -704,6 +714,16 @@ def delete_recruiter(id):
         data = cur.fetchall()
 
         return render_template("delete_recruiter.j2", data=data)
+
+    if request.method == "POST":
+        # mySQL query to delete the Recruiter
+        query = "DELETE FROM CompanyRecruiters WHERE CompanyRecruiters.recruiterID = %s;"
+        cur = mysql.connection.cursor()
+        cur.execute(query, (id,))
+        mysql.connection.commit()
+
+        # redirect back to Positions and Company Recruiters page
+        return redirect("/positionscompanyrecruiters")
 
 # route for DELETE Affiliation form
 @app.route("/delete-affiliation/<int:id>", methods=["POST", "GET"])
