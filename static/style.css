@@ -1,6 +1,10 @@
 @import url('https://fonts.googleapis.com/css2?family=Roboto:wght@300;400;500;700&display=swap');
 
-/* VARIABLES */
+/* 
+ *
+  VARIABLES 
+ *
+ */
 
 :root {
   --background-color: #eef4ed;
@@ -33,7 +37,11 @@
   --delete-button-color-lighter: #ff5a5f;
 }
 
-/* CSS RESET */
+/* 
+ *
+  CSS RESET 
+ *
+ */
 
 *,
 *::before,
@@ -69,7 +77,13 @@ input {
     cursor: pointer;
 }
 
-/* TYPOGRAPHY STYLES */
+/* 
+ *
+  TYPOGRAPHY STYLES 
+ *
+*/
+
+/* home page */
 
 body > .home-wrapper {
   margin: 40px 20px 20px;
@@ -80,10 +94,6 @@ body > .home-wrapper {
   justify-content: center;
   background-color: #fff;
   box-shadow: 0 4px 20px rgba(0, 0, 0, 0.15);
-}
-
-#moon {
-  font-size: 42px;
 }
 
 .home-title {
@@ -104,45 +114,7 @@ body > .home-wrapper {
   height: 2px;
 }
 
-.home-text-wrapper {
-  display: flex;
-  margin: 40px 20px;
-  align-items: center;
-  justify-content: center;
-}
-
-.home-text-wrapper > .home-description {
-  padding: 25px 50px;
-  font-size: 24px;
-  text-align: justify;
-  width: 100%;
-  line-height: 1.4;
-}
-
-.list-wrapper {
-  margin-bottom: 150px;
-  padding: 25px 50px;
-  display: flex;
-  flex-direction: column;
-  width: 80%;
-}
-
-.list-wrapper > #list-title {
-  align-self: center;
-  /* padding-bottom: 120px; */
-  font-size: 34px;
-  position: relative;
-}
-
-.list-wrapper > #list-title::after {
-  content: "";
-  background: var(--header-color);
-  position: absolute;
-  bottom: 10px;
-  left: 0;
-  width: 100%;
-  height: 2px;
-}
+/* "dream" and sparkles */
 
 #inline-items {
   display: flex;
@@ -150,18 +122,6 @@ body > .home-wrapper {
   justify-content: center;
   margin-right: 5%;
   margin-top: -1%;
-}
-
-.list-wrapper > ul {
-  font-size: 20px;
-  padding-top: 45px;
-  list-style: none;
-  line-height: 1.6;
-}
-
-.list-wrapper > ul > li > strong {
-  font-size: 24px;
-  display: inline-block;
 }
 
 .emphasis {
@@ -207,6 +167,63 @@ body > .home-wrapper {
   animation: sparkle3 1.2s linear infinite;
 }
 
+/* home page paragraph */
+
+.home-text-wrapper {
+  display: flex;
+  margin: 40px 20px;
+  align-items: center;
+  justify-content: center;
+}
+
+.home-text-wrapper > .home-description {
+  padding: 25px 50px;
+  font-size: 24px;
+  text-align: justify;
+  width: 100%;
+  line-height: 1.4;
+}
+
+/* home page list */
+
+.list-wrapper {
+  margin-bottom: 150px;
+  padding: 25px 50px;
+  display: flex;
+  flex-direction: column;
+  width: 80%;
+}
+
+.list-wrapper > #list-title {
+  align-self: center;
+  font-size: 34px;
+  position: relative;
+}
+
+.list-wrapper > #list-title::after {
+  content: "";
+  background: var(--header-color);
+  position: absolute;
+  bottom: 10px;
+  left: 0;
+  width: 100%;
+  height: 2px;
+}
+
+.list-wrapper > ul {
+  font-size: 20px;
+  padding-top: 45px;
+  list-style: none;
+  line-height: 1.6;
+}
+
+.list-wrapper > ul > li > strong {
+  font-size: 24px;
+  display: inline-block;
+}
+
+/* table and form titles */
+
 div > h3 {
   margin-top: 15px;
   color: var(--header-color);
@@ -226,6 +243,8 @@ div > h3::after {
   height: 2px;
 }
 
+/* delete form */
+
 .delete-header {
   color: var(--delete-form-header-color);
 }
@@ -240,6 +259,8 @@ div > h3::after {
   height: 2px;
 }
 
+/* links */
+
 .link:link {
   text-decoration: none;
   color: var(--link-color);
@@ -251,6 +272,19 @@ div > h3::after {
 
 tbody > tr > td > .link:visited {
   color: var(--link-visited-color);
+}
+
+/* footer */
+
+footer {
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  padding-bottom: 10px;
+}
+
+footer > p {
+  opacity: 0.8;
 }
 
 @media only screen and (max-width: 1000px) {
@@ -265,6 +299,10 @@ tbody > tr > td > .link:visited {
 
   #moon {
     font-size: 38px;
+  }
+
+  .home-text-wrapper {
+    margin-left: -40px;
   }
 
   .home-text-wrapper > .home-description {
@@ -293,7 +331,6 @@ tbody > tr > td > .link:visited {
   .home-wrapper {
     margin: 40px 20px 20px;
     padding: 20px 50px;
-    flex-direction: column;
   }
 
   .home-title {
@@ -306,11 +343,9 @@ tbody > tr > td > .link:visited {
     font-size: 52px;
   }
 
-  .home-title::after {
-    bottom: -10px;
-    left: 10%;
-    width: 80%;
-    height: 2px;
+  .home-text-wrapper {
+    flex-direction: column;
+    margin-left: 20px;
   }
 
   .home-text-wrapper > .home-description {
@@ -319,7 +354,11 @@ tbody > tr > td > .link:visited {
   }
 }
 
-/* HEADER STYLES */
+/* 
+ *
+  HEADER STYLES
+ *
+ */
 
 .header {
   background-color: var(--navbar-color);
@@ -334,12 +373,20 @@ tbody > tr > td > .link:visited {
   letter-spacing: 1px;
 }
 
+/* app logo */
+
 #logo {
   text-transform: none;
   font-size: 38px;
   letter-spacing: 2.5px;
   margin: -8px 0;
 }
+
+#moon {
+  font-size: 42px;
+}
+
+/* navbar */
 
 .navbar {
   width: 60%;
@@ -432,7 +479,11 @@ tbody > tr > td > .link:visited {
   }
 }
 
-/* BUTTON STYLES */
+/* 
+ *
+  BUTTON STYLES 
+ *
+ */
 
 button,
 .btn {
@@ -473,6 +524,8 @@ a {
   box-shadow: 0 1px 2px rgba(0, 0, 0, 0.5);
 }
 
+/* new and update buttons */
+
 .new-btn {
   background-image: linear-gradient(var(--update-button-color-light), var(--update-button-color-medium));
   color: white;
@@ -495,6 +548,8 @@ a {
   box-shadow: 0 1px 2px rgba(0, 0, 0, 0.5);
 }
 
+/* edit and delete links */
+
 .edit-btn,
 .delete-btn,
 .app-link {
@@ -515,6 +570,8 @@ a {
 .delete-btn:hover {
   font-weight: 700;
 }
+
+/* delete buttons */
 
 input[name="Delete_Applicant"],
 input[name="Delete_Application"],
@@ -548,6 +605,8 @@ input[name="Delete_Recruiter"]:active {
   border: 1px solid var(--delete-button-border-color);
   box-shadow: 0 1px 2px rgba(0, 0, 0, 0.5);
 }
+
+/* search Applications buttons */
 
 .app-link {
   background-image: linear-gradient(var(--button-color-light), var(--button-color-medium));
@@ -585,7 +644,11 @@ input[name="Delete_Recruiter"]:active {
   }
 }
 
-/* INPUT STYLES */
+/* 
+ *
+  INPUT STYLES 
+ * 
+ */
 
 input[type="text"],
 input[type="number"],
@@ -593,6 +656,8 @@ input[type="email"],
 input[type="url"] {
     cursor: text;
 }
+
+/* styles for input validation */
 
 input:not([type='submit']):valid {
   color: var(--update-button-color-light);
@@ -602,7 +667,11 @@ input:not([type='submit']):invalid {
   color: var(--delete-button-color-light);
 }
 
-/* TABLE STYLES */
+/* 
+ *
+  TABLE STYLES 
+ *
+ */
 
 table {
   max-width: max-content;
@@ -614,6 +683,8 @@ table {
   margin: 5px 0;
   box-shadow: 0 0 20px rgba(0, 0, 0, 0.15);
 }
+
+/* table header */
 
 .table-class thead tr {
   background-color: var(--table-color);
@@ -630,13 +701,19 @@ table {
   border-bottom: 1px solid #dddddd;
 }
 
+/* every other table row */
+
 .table-class tbody tr:nth-of-type(even) {
   background-color: var(--table-row-color);
 }
 
+/* bottom of table */
+
 .table-class tbody tr:last-of-type {
   border-bottom: 5px solid var(--table-color);
 }
+
+/* table row hover effects */
 
 .table-class tbody tr:hover {
   z-index: 9;
@@ -672,7 +749,11 @@ table {
   }
 }
 
-/* FORM STYLES */
+/* 
+ *
+  FORM STYLES 
+ *
+*/
 
 form {
   width: 400px;
@@ -688,6 +769,8 @@ fieldset {
   border: none;
 }
 
+/* form header */
+
 .form-head {
   background-color: var(--table-color);
   color: white;
@@ -699,16 +782,6 @@ fieldset {
 
 .form-head > label > span {
   font-weight: 400;
-}
-
-fieldset > h3 {
-  margin-top: -10px;
-  margin-bottom: 10px;
-  padding-bottom: 5px;
-  text-align: center;
-  font-size: 20px;
-  font-weight: 300;
-  border-bottom: 1px solid #dddddd;
 }
 
 #deleteApplicant > fieldset > .form-head,
@@ -723,6 +796,8 @@ fieldset > h3 {
   font-weight: 500;
 }
 
+/* form inputs */
+
 fieldset > input,
 fieldset > select {
   border: 1px solid #c8c8c8;
@@ -733,6 +808,8 @@ fieldset > select {
   font-family: inherit;
   font-size: inherit;
 }
+
+/* labels */
 
 fieldset > label {
   margin-top: 8px;
@@ -745,6 +822,8 @@ fieldset > label {
 fieldset > label > span {
   font-weight: 400;
 }
+
+/* form element positioning */
 
 fieldset > .wrapper {
   margin-top: 10px;
@@ -785,7 +864,11 @@ fieldset > .wrapper {
   }
 }
 
-/* ANIMATIONS */
+/* 
+ *
+  ANIMATIONS 
+ *
+ */
 
 @keyframes sparkle1 {
   0% {
