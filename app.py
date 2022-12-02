@@ -21,9 +21,9 @@ app = Flask(__name__)
 
 # database connection info
 app.config["MYSQL_HOST"] = "classmysql.engr.oregonstate.edu"
-app.config["MYSQL_USER"] = "cs340_lilients"
-app.config["MYSQL_PASSWORD"] = "9464"
-app.config["MYSQL_DB"] = "cs340_lilients"
+app.config["MYSQL_USER"] = "cs340_OSUusername"
+app.config["MYSQL_PASSWORD"] = "XXXX"
+app.config["MYSQL_DB"] = "cs340_OSUusername"
 app.config["MYSQL_CURSORCLASS"] = "DictCursor"
 
 mysql = MySQL(app)
@@ -424,6 +424,7 @@ def positionscompanyrecruiters():
             location = request.form["location"] # Optional
             salary = request.form["salary"]  # Optional
             link = request.form["link"]  # Required
+            affiliation = request.form["rec-affiliation"]  # Optional
 
              # NULL companyID AND NULL location AND NULL salary
             if (companyID == "" or companyID == "None") and (location == "" or location == "None") and (salary == "" or salary == "None"):
@@ -480,7 +481,14 @@ def positionscompanyrecruiters():
                 cur = mysql.connection.cursor()
                 cur.execute(query, (companyID, title, location, salary, link))
                 mysql.connection.commit()
-        
+            
+            # NOT NULL affiliation
+            if affiliation != "None":
+                query = "INSERT INTO PositionsCompanyRecruiters (positionID, recruiterID) VALUES ((SELECT positionID FROM Positions WHERE link = %s), %s)"
+                cur = mysql.connection.cursor()
+                cur.execute(query, (link, affiliation))
+                mysql.connection.commit()
+            
             return redirect("/positionscompanyrecruiters")
 
         # Fires off if user presses the Add Affiliation button
@@ -507,6 +515,7 @@ def positionscompanyrecruiters():
             linkedin = request.form["linkedin"]  # Required
             lastContacted = request.form["lastContacted"]  # Required
             details = request.form["details"]  # Required
+            affiliation = request.form["pos-affiliation"]  # Optional
 
             # NULL email AND NULL phone
             if (email == "" or email == "None") and (phone == "" or phone == "None"):
@@ -534,6 +543,13 @@ def positionscompanyrecruiters():
                 query = "INSERT INTO CompanyRecruiters (name, email, phone, linkedin, lastContacted, details) VALUES (%s, %s, %s, %s, %s, %s)"
                 cur = mysql.connection.cursor()
                 cur.execute(query, (name, email, phone, linkedin, lastContacted, details))
+                mysql.connection.commit()
+            
+            # NOT NULL affiliation
+            if affiliation != "None":
+                query = "INSERT INTO PositionsCompanyRecruiters (positionID, recruiterID) VALUES (%s, (SELECT recruiterID FROM CompanyRecruiters WHERE linkedin = %s))"
+                cur = mysql.connection.cursor()
+                cur.execute(query, (affiliation, linkedin))
                 mysql.connection.commit()
     
             return redirect("/positionscompanyrecruiters")

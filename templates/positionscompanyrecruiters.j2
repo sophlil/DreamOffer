@@ -309,6 +309,13 @@
                     maxlength="100"
                     required 
                 />
+                <label for="rec-affiliation">Recruiter Affiliation</label>
+                    <select class="form-control" name="rec-affiliation" id="rec-affiliation">
+                        <option value="None" selected>None</option>
+                        {% for recruiter in recruiter_data %}
+                            <option value="{{ recruiter['recruiterID'] }}"> {{recruiter['name']}}</option>
+                        {% endfor %}
+                    </select>
                 <div class="wrapper">
                     <!-- Create 'Add Position' and 'Cancel' buttons -->
                     <input type="submit" value="Add Position" name="Add_Position" class="btn new-btn" style="margin:.5rem;">
@@ -407,6 +414,13 @@
                     maxlength="500"
                     required
                 />
+                <label for="pos-affiliation">Position Affiliation</label>
+                    <select class="form-control" name="pos-affiliation" id="pos-affiliation">
+                        <option value="None" selected>None</option>
+                        {% for position in position_data %}
+                            <option value="{{ position['positionID'] }}"> {{position['name']}} - {{position['title']}}</option>
+                        {% endfor %}
+                    </select>
                 <div class="wrapper">
                     <!-- Create 'Add Recruiter' and 'Cancel' buttons -->
                     <input type="submit" value="Add Recruiter" name="Add_Recruiter" class="btn new-btn" style="margin:.5rem;">
