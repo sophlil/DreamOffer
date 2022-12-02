@@ -333,10 +333,10 @@
         <!-- form to INSERT new Position & Recruiter Affiliation -->
         <form id="insertAffiliation" action="/positionscompanyrecruiters" method="post">
             <fieldset>
-                <label for="title">Position Title</label>
+                <label for="title">Company & Position Title</label>
                     <select name="title" id="title">
                         {% for position in position_data %}
-                            <option value="{{ position['positionID'] }}"> {{position['title']}}</option>
+                            <option value="{{ position['positionID'] }}"> {{position['name']}} - {{position['title']}}</option>
                         {% endfor %}
                     </select>
                 <label for="recruiter-id">Recruiter Name</label>

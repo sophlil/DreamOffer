@@ -560,7 +560,7 @@ def edit_position(id):
     # Displays the specific Position's existing attributes
     if request.method == "GET":
         # mySQL query to grab the info of the Position with the passed id
-        query = "SELECT Positions.positionID, Positions.companyID, Companies.name, Positions.title, Positions.location, Positions.salary, Positions.link FROM Positions LEFT JOIN Companies ON Companies.companyID = Positions.companyID WHERE positionID = %s;" % (id)
+        query = "SELECT Positions.positionID, Positions.companyID, Companies.name, Positions.title, Positions.location, Positions.salary, Positions.link FROM Positions LEFT JOIN Companies ON Companies.companyID = Positions.companyID WHERE Positions.positionID = %s;" % (id)
         cur = mysql.connection.cursor()
         cur.execute(query)
         data = cur.fetchall()
