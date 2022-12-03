@@ -86,13 +86,14 @@ INSERT INTO CompanyRecruiters (recruiterID, name, email, phone, linkedin, lastCo
 (150, 'Kelsey Wang', 'kwang.1@gmail.com', '318-995-8456', 'https://linkedin.com/kwang', '2022-10-01', 'Met at OSU Career Fair.'),
 (151, 'Adrian Portillo', 'portilloa@garmin.com', NULL, 'https://linkedin.com/aportillo', '2022-09-29', 'Messaged me on Handshake.'),
 (152, 'Daenerys Targaryen', 'targaryensrule@apple.com', NULL, 'https://linkedin.com/targaryensrule', '2022-01-11', 'Reached out on Linkedin.'),
-(153, 'Jon Snow', 'jsnow@aptiv.com', '694-856-3144', 'https://linkedin.com/snow', '2022-11-25', 'Found on Aptiv website');
+(153, 'Jon Snow', 'jsnow@aptiv.com', '694-856-3144', 'https://linkedin.com/snow', '2022-11-25', 'Found on Aptiv website.'),
+(154, 'Rhaenyra Targaryen', NULL, NULL, 'https://linkedin.com/rhaenyra', '2022-09-05', 'Met at Dragonstone.');
 
 INSERT INTO Positions (positionID, title, location, salary, link, companyID) VALUES
 (200, 'Software Engineer Intern', 'San Jose', NULL, 'https://aptiv.com/software-engineer-intern', (SELECT companyID FROM Companies WHERE name='Aptiv')),
 (201, 'Application Developer', 'New York', 90000, 'https://aptiv.com/application-developer', (SELECT companyID FROM Companies WHERE name='Aptiv')),
 (202, 'New Grad SWE', 'Seattle', 120000, 'https://garmin.com/new-grad-SWE', (SELECT companyID FROM Companies WHERE name='Garmin')),
-(203, 'Data Engineer Intern', 'San Diego', 55000, 'https://apple.com/data-engineer-intern', (SELECT companyID FROM Companies WHERE name='Apple')),
+(203, 'Data Engineer Intern', NULL, 55000, 'https://apple.com/data-engineer-intern', (SELECT companyID FROM Companies WHERE name='Apple')),
 (204, 'Database Administrator', 'Denver', 115000, 'https://garmin.com/database-administrator', (SELECT companyID FROM Companies WHERE name='Garmin')),
 (205, 'Front-end Software Engineer', 'Remote', 35000, 'https://fiverr.com/front-end-software-engineer', NULL);
 
