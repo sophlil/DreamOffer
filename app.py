@@ -366,7 +366,7 @@ def edit_application(id):
 def delete_application(id):
     if request.method == "GET":
         # mySQL query to grab Application-to-delete's attributes
-        query = "SELECT applicationID, Applicants.name AS applicantName, Positions.title AS positionTitle, Companies.name AS companyName FROM Applications INNER JOIN Applicants ON Applications.applicantID = Applicants.applicantID INNER JOIN Positions ON Applications.positionID = Positions.positionID INNER JOIN Companies ON Positions.companyID = Companies.companyID WHERE Applications.applicationID = %s;" % (id)
+        query = "SELECT Applications.applicationID, Applicants.name AS applicantName, Positions.title AS positionTitle, Companies.name AS companyName FROM Applications INNER JOIN Applicants ON Applications.applicantID = Applicants.applicantID INNER JOIN Positions ON Applications.positionID = Positions.positionID LEFT JOIN Companies ON Positions.companyID = Companies.companyID WHERE Applications.applicationID = %s;" % (id)
         cur = mysql.connection.cursor()
         cur.execute(query)
         data = cur.fetchall()

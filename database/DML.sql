@@ -92,7 +92,7 @@ SELECT applicationID, Applicants.name AS applicantName, Positions.title AS posit
 FROM Applications 
 INNER JOIN Applicants ON Applications.applicantID = Applicants.applicantID
 INNER JOIN Positions ON Applications.positionID = Positions.positionID
-INNER JOIN Companies ON Positions.companyID = Companies.companyID
+LEFT JOIN Companies ON Positions.companyID = Companies.companyID
 WHERE Applications.applicantID = :applicantID_selected_from_browse_applications_page;
 
 -- Delete an Application
