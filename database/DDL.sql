@@ -1,5 +1,7 @@
 -- Group 58
 -- Don Reniff and Sophia Lilienthal
+-- CS340 Fall 2022 Portfolio Project 
+-- This file creates all tables and sample data needed for our project, DreamOffer.
 
 
 SET FOREIGN_KEY_CHECKS=0;

@@ -250,7 +250,7 @@ def applications():
     # Get Applications data to send to our template to display - READ
     if request.method == "GET":
         # mySQL query to grab all applications
-        query = "SELECT applicationID, dateApplied, result, dateResult, Applicants.name, Positions.title FROM Applications INNER JOIN Applicants ON Applications.applicantID = Applicants.applicantID INNER JOIN Positions ON Applications.positionID = Positions.positionID;"
+        query = "SELECT Applications.applicationID, Applications.dateApplied, Applications.result, Applications.dateResult, Applicants.name AS applicantName, Positions.title, Companies.name AS companyName FROM Applications INNER JOIN Applicants ON Applications.applicantID = Applicants.applicantID INNER JOIN Positions ON Applications.positionID = Positions.positionID LEFT JOIN Companies ON Positions.companyID = Companies.companyID;"
         cur = mysql.connection.cursor()
         cur.execute(query)
         data = cur.fetchall()
@@ -262,7 +262,7 @@ def applications():
         applicants_data = cur.fetchall()
 
         # query to populate the Position Title dropdown for Search and Add forms
-        query3 = "SELECT positionID, title FROM Positions;"
+        query3 = "SELECT Positions.positionID, Positions.title, Companies.name FROM Positions LEFT JOIN Companies ON Positions.companyID = Companies.companyID;"
         cur = mysql.connection.cursor()
         cur.execute(query3)
         positions_data = cur.fetchall()
@@ -298,7 +298,7 @@ def applications():
 def search_applications():
     if request.method == "GET":
         applicant = request.args.get("applicant")
-        query = "SELECT applicationID, dateApplied, result, dateResult, Applicants.name, Positions.title FROM Applications INNER JOIN Applicants ON Applications.applicantID = Applicants.applicantID INNER JOIN Positions ON Applications.positionID = Positions.positionID WHERE Applications.applicantID = %s;" % (applicant)
+        query = "SELECT Applications.applicationID, Applications.dateApplied, Applications.result, Applications.dateResult, Applicants.name AS applicantName, Positions.title, Companies.name AS companyName FROM Applications INNER JOIN Applicants ON Applications.applicantID = Applicants.applicantID INNER JOIN Positions ON Applications.positionID = Positions.positionID LEFT JOIN Companies ON Positions.companyID = Companies.companyID WHERE Applications.applicantID = %s;" % (applicant)
         cur = mysql.connection.cursor()
         cur.execute(query)
         data = cur.fetchall()
@@ -309,7 +309,7 @@ def search_applications():
 @app.route("/search-applications/<int:id>", methods=["POST", "GET"])
 def search_applications_from_applicant(id):
     if request.method == "GET":
-        query = "SELECT applicationID, dateApplied, result, dateResult, Applicants.name, Positions.title FROM Applications INNER JOIN Applicants ON Applications.applicantID = Applicants.applicantID INNER JOIN Positions ON Applications.positionID = Positions.positionID WHERE Applications.applicantID = %s;" % (id)
+        query = "SELECT Applications.applicationID, Applications.dateApplied, Applications.result, Applications.dateResult, Applicants.name AS applicantName, Positions.title, Companies.name AS companyName FROM Applications INNER JOIN Applicants ON Applications.applicantID = Applicants.applicantID INNER JOIN Positions ON Applications.positionID = Positions.positionID LEFT JOIN Companies ON Positions.companyID = Companies.companyID WHERE Applications.applicantID = %s;" % (id)
         cur = mysql.connection.cursor()
         cur.execute(query)
         data = cur.fetchall()

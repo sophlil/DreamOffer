@@ -38,8 +38,12 @@
             {% for item in search_data %}
                 <tr>
                 {% for key in item.keys() %}
+                   {% if key == 'link' %}
+                        <td><a class="link" href="{{item[key]}}"> {{item[key]}}</a> </td>
+                    {% else %}
                     <!-- Create a <td> element with the value of that key in it -->
-                    <td> {{item[key]}} </td> 
+                        <td> {{item[key]}} </td> 
+                    {% endif %} 
                 {% endfor %}
                 </tr>
             {% endfor %}

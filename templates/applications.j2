@@ -73,6 +73,7 @@
                     <th>Result Date</th>
                     <th>Applicant</th>
                     <th>Position</th>
+                    <th>Company</th>
                 </tr>
             </thead>
 
@@ -167,7 +168,7 @@
                 <label for="position">Position:</label>
                 <select class="form-control" id="position" name="position" placeholder="" required>
                 {% for position in positions %}
-                    <option value="{{ position['positionID'] }}"> {{position['title']}}</option>
+                    <option value="{{ position['positionID'] }}"> {{position['name']}} - {{position['title']}}</option>
                 {% endfor %}
                 </select>
 
