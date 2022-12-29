@@ -22,7 +22,7 @@ The database consists of 5 entities: Applicants, Applications, Companies, Positi
 <img src="./gifs/Schema.png" width="75%">
 
 ## Usage
-
+<img src="./gifs/dreamOffer.gif" width="75%">
 
 ## Authors
 Sophia Lilienthal & Don Reniff.
