@@ -2,7 +2,7 @@
 https://dream-offer.herokuapp.com/
 
 ## Description
-DreamOffer is a Job Application Tracking database-driven web application that helps applicants keep track of where they have applied and when their applications were submitted, in an organized and simple to use system. CRUD functionality is built into each page/entity. The app is built for a Database Administrator end user.
+DreamOffer is a DBMS admin portal for a Job Application Tracking web application. DreamOffer helps applicants keep track of the companies and positions they have applied to and when their applications were submitted, in an organized and simple to use system. CRUD functionality is built into each page/entity.
 
 ## Technology Used
 - Python 3.11
