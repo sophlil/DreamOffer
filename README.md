@@ -16,11 +16,13 @@ DreamOffer is a Job Application Tracking database-driven web application that he
 The database consists of 5 entities: Applicants, Applications, Companies, Positions, and Company Recruiters.
 
 #### Entity Relationship Diagram (ERD)
-
+<img src="./gifs/ERD.png" width="75%">
 
 #### Database Schema
-
-
+<img src="./gifs/Schema.png" width="75%">
 
 ## Usage
 
+
+## Authors
+Sophia Lilienthal & Don Reniff.
