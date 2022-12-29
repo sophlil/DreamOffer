@@ -4,26 +4,18 @@
 # app.py from the Flask Starter App repo by Professor Michael Curry
 # https://github.com/osu-cs340-ecampus/flask-starter-app/blob/master/bsg_people_app/app.py
 
-from flask import Flask, render_template, json, redirect
+from flask import Flask, render_template, redirect
 from flask_mysqldb import MySQL
 from flask import request
 import os
 
 app = Flask(__name__)
 
-# database connection
-# Template:
-# app.config["MYSQL_HOST"] = "classmysql.engr.oregonstate.edu"
-# app.config["MYSQL_USER"] = "cs340_OSUusername"
-# app.config["MYSQL_PASSWORD"] = "XXXX" | last 4 digits of OSU id
-# app.config["MYSQL_DB"] = "cs340_OSUusername"
-# app.config["MYSQL_CURSORCLASS"] = "DictCursor"
-
 # database connection info
-app.config["MYSQL_HOST"] = "classmysql.engr.oregonstate.edu"
-app.config["MYSQL_USER"] = "cs340_OSUusername"
-app.config["MYSQL_PASSWORD"] = "XXXX"
-app.config["MYSQL_DB"] = "cs340_OSUusername"
+app.config["MYSQL_HOST"] = os.environ.get("MYSQL_HOST")
+app.config["MYSQL_USER"] = os.environ.get("MYSQL_USER")
+app.config["MYSQL_PASSWORD"] = os.environ.get("MYSQL_PASSWORD")
+app.config["MYSQL_DB"] = os.environ.get("MYSQL_DB")
 app.config["MYSQL_CURSORCLASS"] = "DictCursor"
 
 mysql = MySQL(app)
